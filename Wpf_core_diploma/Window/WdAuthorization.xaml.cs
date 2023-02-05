@@ -27,7 +27,27 @@ namespace Wpf_core_diploma.Window
         }
         void FrameSelect()
         {
-            FrAuth.Navigate(new PgAuthorization());
+            
+        }
+
+        private void btRegistr(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void hidePassChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void showPassChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void xws(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }
