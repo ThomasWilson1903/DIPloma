@@ -20,8 +20,10 @@ namespace Wpf_core_diploma.Window
     /// </summary>
     public partial class WdAuthorization 
     {
+
         public WdAuthorization()
         {
+            
             InitializeComponent();
             FrameSelect();
         }
@@ -32,7 +34,8 @@ namespace Wpf_core_diploma.Window
 
         private void btRegistr(object sender, RoutedEventArgs e)
         {
-
+            DialogResult = true;
+            Close();
         }
 
         private void hidePassChecked(object sender, RoutedEventArgs e)

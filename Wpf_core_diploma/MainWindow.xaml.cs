@@ -24,10 +24,14 @@ namespace Wpf_core_diploma
     /// </summary>
     public partial class MainWindow 
     {
+
+        bool checkAtorization;
+
         public MainWindow()
         {
             InitializeComponent();
             FrMains();
+            
         }
         void FrMains()
         {
@@ -36,7 +40,14 @@ namespace Wpf_core_diploma
 
         private void ClSingIn(object sender, RoutedEventArgs e)
         {
-            new WdAuthorization().ShowDialog();
+            WdAuthorization wdAuthorization = new WdAuthorization();
+
+            if (wdAuthorization.ShowDialog() == true)
+            {
+                MessageBox.Show("yes");
+            }
+            else
+                MessageBox.Show("no");
             
         }
 
