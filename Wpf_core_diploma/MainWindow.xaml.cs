@@ -22,7 +22,7 @@ namespace Wpf_core_diploma
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow 
+    public partial class MainWindow
     {
 
         bool checkAtorization;
@@ -31,7 +31,7 @@ namespace Wpf_core_diploma
         {
             InitializeComponent();
             FrMains();
-            
+
         }
         void FrMains()
         {
@@ -44,11 +44,16 @@ namespace Wpf_core_diploma
 
             if (wdAuthorization.ShowDialog() == true)
             {
-                MessageBox.Show("yes");
+                //MessageBox.Show("yes");
+                FrMain.Navigate(new pgListView());
+                visibleUsers(true);
             }
             else
-                MessageBox.Show("no");
-            
+            {
+                visibleUsers(false);
+                MessageBox.Show("авторизацию не была выполнена");
+            }
+
         }
 
         private void ClSingUp(object sender, RoutedEventArgs e)
@@ -56,6 +61,22 @@ namespace Wpf_core_diploma
             bool checkAuthorization;
 
             new WdRegistration(new Userss()).ShowDialog();
+        }
+
+        private void visibleUsers(bool check)
+        {
+            switch (check)
+            {
+                case true:
+                    tbFIO.Visibility = Visibility.Visible;
+                    btLogin.Visibility = Visibility.Collapsed;
+                    btRegister.Visibility = Visibility.Collapsed;
+                    break;
+                case false:
+                    tbFIO.Visibility = Visibility.Collapsed;
+                    break;
+
+            }
         }
     }
 }

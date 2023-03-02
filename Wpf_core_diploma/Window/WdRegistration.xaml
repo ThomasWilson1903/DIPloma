@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Wpf_core_diploma.Window"
         mc:Ignorable="d"
         Title="Регистрация" Height="500" Width="800" MinHeight="500" MinWidth="800">
-    <Grid Background="#222226">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
@@ -15,12 +15,10 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="У вас уже есть учетная запись?" 
-                           Foreground="#BBBBBB"
                            FontSize="20" HorizontalAlignment="Right" 
                            Margin="0,20,10,10"
                            />
                 <TextBlock MouseUp="xws" Text="Войти" 
-                           Foreground="#1DB6F2"
                            FontSize="20" HorizontalAlignment="Right" 
                            Margin="0,20,10,10"                           
                            />
@@ -29,59 +27,50 @@
         </Grid>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock Text="Регистрация" x:Name="dqw" FontSize="30" Foreground="#E6E6E8"/>
+                <TextBlock Text="Регистрация" x:Name="dqw" FontSize="30" />
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
                 <TextBlock Text="*Login"
                            x:Name="BtLogin"
-                           FontSize="25" Foreground="#E6E6E8"/>
+                           FontSize="25" />
                 <TextBox x:Name="TbLogin" FontSize="25" Width ="300" 
-                         Foreground="White" BorderBrush="#737373"
-                         Background="#171717"
+                         
                          Text="{Binding Login}"
                          HorizontalAlignment="Left"
                          />
                 <TextBlock x:Name="textErLogin"
-                           Foreground="Red"
                            Text="Логин обязательно для заполнения"
                            Visibility="Hidden"
                            />
                 <TextBlock Text="*Mail"
                            x:Name="BtMail"
-                           Foreground="#E6E6E8"
                            FontSize="25"
                            />
 
                 <TextBox x:Name="TbMail" 
                          FontSize="25" Width="300" 
-                         Background="#171717"
                          Text="{Binding Mail}"
-                         Foreground="White" BorderBrush="#737373"
                          />
                 <TextBlock x:Name="textErMail"
-                           Foreground="Red"
                            Visibility="Hidden"
                            Text="Адрес электронной почты обязателен"
                            />
 
                 <TextBlock Text="*Password" FontSize="25" 
                            x:Name="BtPass"
-                           Foreground="#E6E6E8"
                            />
 
                 <StackPanel >
 
                     <TextBox x:Name="tbPassword" FontSize="25" Width="300" 
-                                 Visibility="Collapsed" Background="#171717"
-                                 Foreground="White" BorderBrush="#737373"
-                                 Text="{Binding Password}"
+                                 Visibility="Collapsed" 
+                                    Text="{Binding Password}"
                                  />
                     <PasswordBox x:Name="pbPassword" FontSize="25" Width="300" 
-                                 Visibility="Visible" Background="#171717"
-                                 Foreground="White" BorderBrush="#737373"
-                                 Password=""
+                                 Visibility="Visible" 
+                                 
                                  
                                  />
 
@@ -89,7 +78,7 @@
 
                 <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
                               Content="Показать пароль" HorizontalAlignment="Center" FontSize="17" 
-                              Foreground="#E6E6E8"/>
+                              />
                 <Grid Height="62">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="83*"/>
@@ -100,8 +89,8 @@
                                 Click="btRegistr" 
                                 Margin="10,17,0,10"
                         Content="Sing In" 
-                        FontSize="20" Width="100"  Background="#0070E0"
-                        Foreground="#E6E6E8">
+                        FontSize="20" Width="100"  
+                        >
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"/>
