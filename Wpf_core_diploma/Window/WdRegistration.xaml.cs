@@ -11,10 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Wpf_core_diploma.Database.Entity;
-using Wpf_core_diploma.Pages;
+using DIPloma.Pages;
 
-namespace Wpf_core_diploma.Window
+namespace DIPloma.Window
 {
     /// <summary>
     /// Interaction logic for WdRegistration.xaml
@@ -22,7 +21,7 @@ namespace Wpf_core_diploma.Window
     public partial class WdRegistration 
     {
         
-        public WdRegistration(Userss userss)
+        public WdRegistration()
         {
             InitializeComponent();
             

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Wpf_core_diploma
+namespace DIPloma
 {
     /// <summary>
     /// Interaction logic for App.xaml

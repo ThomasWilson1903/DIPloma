@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataBase.DIPloma;
+using DataBase.DIPloma.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Wpf_core_diploma.Pages
+namespace DIPloma.Pages
 {
     /// <summary>
     /// Interaction logic for pgListView.xaml
@@ -23,6 +25,9 @@ namespace Wpf_core_diploma.Pages
         public pgListView()
         {
             InitializeComponent();
+            List<User> users = EfModels.init().Users.ToList();
+            lvMain.ItemsSource = users;
+
         }
     }
 }

@@ -1,16 +1,31 @@
-﻿<Page x:Class="Wpf_core_diploma.Pages.pgListView"
+﻿<Page x:Class="DIPloma.Pages.pgListView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Wpf_core_diploma.Pages"
+      xmlns:local="clr-namespace:DIPloma.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="pgListView">
 
     <Grid>
-        <TextBlock>
-            страница для данных
-        </TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="169*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            
+        </Grid>
+        <Grid Grid.Column="1">
+        <ListView x:Name="lvMain">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                            <TextBlock Text="{Binding login}"/>
+                        </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </Grid>
     </Grid>
 </Page>

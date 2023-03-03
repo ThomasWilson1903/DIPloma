@@ -13,11 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Wpf_core_diploma.Database.Entity;
-using Wpf_core_diploma.Pages;
-using Wpf_core_diploma.Window;
+using DIPloma.Pages;
+using DIPloma.Window;
 
-namespace Wpf_core_diploma
+namespace DIPloma
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -58,9 +57,7 @@ namespace Wpf_core_diploma
 
         private void ClSingUp(object sender, RoutedEventArgs e)
         {
-            bool checkAuthorization;
 
-            new WdRegistration(new Userss()).ShowDialog();
         }
 
         private void visibleUsers(bool check)
