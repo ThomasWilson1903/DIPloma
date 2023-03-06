@@ -22,15 +22,17 @@
         </Grid>
         <Grid Grid.Row="1">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment ="Center">
+                <StackPanel Margin="5">
                 <TextBlock Text="Login"/>
                 <TextBox x:Name="TbLogin" Width ="300" 
                          
                          HorizontalAlignment="Left"
                         
                          />
-                <TextBlock Text="Password"/>
+                </StackPanel>
 
-                <StackPanel >
+                <StackPanel Margin="5" >
+                <TextBlock Text="Password"/>
 
                     <TextBox x:Name="tbPassword"  Width="300" 
                                  Visibility="Collapsed"  
@@ -41,11 +43,12 @@
                                  />
 
                 </StackPanel>
-
-                <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
-                              Content="Показать пароль" HorizontalAlignment="Center" FontSize="25" 
-                              Margin="5"
+                <StackPanel Margin="5" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <TextBlock Text="Показать пароль" FontSize="17" VerticalAlignment="Center"/>
+                    <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
+                              HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"
                               />
+                </StackPanel>
                 <Grid Height="62">
                     <Button x:Name="btSingIN" HorizontalAlignment="Left" 
                                 Height="35"
@@ -71,7 +74,7 @@
         <Grid Grid.Row="2">
             <TextBlock MouseUp="xws" Text="Регистрация"
                            HorizontalAlignment="Right" 
-                           Margin="0,20,10,10"                           
+                           Margin="0,20,10,10" FontSize="20"                           
                            />
         </Grid>
     </Grid>

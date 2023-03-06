@@ -8,11 +8,12 @@
             <Setter Property="TextElement.FontSize" Value="25"/>
             <Setter Property="TextElement.FontFamily" Value="Inter"/>
         </Style>
+        <!--style button main-->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#0070E0" />
             <Setter Property="Foreground" Value="White" />
             <Setter Property="BorderBrush" Value="White" />
-            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontSize" Value="20"/>
         </Style>
     </Application.Resources>
 </Application>
