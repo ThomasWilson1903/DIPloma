@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DataBase.DIPloma.Entity;
 using DIPloma.Pages;
 using DIPloma.Window;
 
@@ -41,10 +42,12 @@ namespace DIPloma
         {
             WdAuthorization wdAuthorization = new WdAuthorization();
 
-            if (wdAuthorization.ShowDialog() == true)
+            if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser!= null)
             {
                 //MessageBox.Show("yes");
+                User user = wdAuthorization.AuthUser;
                 FrMain.Navigate(new pgListView());
+                MessageBox.Show(user.Login);
                 visibleUsers(true);
             }
             else

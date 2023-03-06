@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DataBase.DIPloma;
+using DataBase.DIPloma.Entity;
 using DIPloma.Pages;
 
 namespace DIPloma.Window
@@ -20,6 +22,10 @@ namespace DIPloma.Window
     /// </summary>
     public partial class WdAuthorization 
     {
+
+
+        private User? _authUser;
+        public User? AuthUser => _authUser;
 
         public WdAuthorization()
         {
@@ -34,10 +40,16 @@ namespace DIPloma.Window
 
         private void btRegistr(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
-            Close();
+            _authUser = EfModels.init().Users.FirstOrDefault(u => u.Login == TbLogin.Text && (u.Password == tbPassword.Text || u.Password == pbPassword.Password));
+            if (_authUser != null)
+            {
+                DialogResult = true;
+                Close();
+            }
+            else
+                MessageBox.Show("Ошибка! неверный логин или пароль");
         }
-
+        
         private void hidePassChecked(object sender, RoutedEventArgs e)
         {
 
