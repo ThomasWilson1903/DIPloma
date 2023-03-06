@@ -25,7 +25,7 @@
 
             <Grid Grid.Column="2">
                 <!--User-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Visibility="Visible">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible">
                     <Image Source="{Binding image}"/>
                     <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" Visibility="Collapsed"/>
 
