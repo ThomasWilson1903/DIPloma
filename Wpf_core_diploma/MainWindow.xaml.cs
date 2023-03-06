@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DIPloma._1.DataBase.Entity;
+using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 using DIPloma.Window;
 

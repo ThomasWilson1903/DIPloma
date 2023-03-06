@@ -17,7 +17,7 @@ namespace DIPloma.DataBase
             {
                 _instanse = new EfModels();
             }
-            return _instanse;
+            return _instanse;   
         }
         public EfModels()
         {
