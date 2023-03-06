@@ -1,5 +1,6 @@
-﻿using DataBase.DIPloma;
-using DataBase.DIPloma.Entity;
+﻿
+using DIPloma._1.DataBase.Entity;
+using DIPloma.DataBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;

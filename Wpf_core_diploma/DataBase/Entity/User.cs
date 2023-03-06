@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBase.DIPloma.Entity
+namespace DIPloma.DataBase.Entity
 {
     public partial class User
     {
@@ -15,6 +15,9 @@ namespace DataBase.DIPloma.Entity
         public string Login { get; set; } = null!;
         public string Password { get; set; } = null!;
         public int Role { get; set; }
+        public string NameUser { get; set; } = null!;
+        public string SurNameUser { get; set; } = null!;
+        public string DobleNameUser { get; set; } = null!;
 
         public virtual Role RoleNavigation { get; set; } = null!;
         public virtual ICollection<ListItem> ListItems { get; set; }

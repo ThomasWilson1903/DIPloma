@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using DataBase.DIPloma;
-using DataBase.DIPloma.Entity;
+using DIPloma._1.DataBase.Entity;
+using DIPloma.DataBase;
 using DIPloma.Pages;
 
 namespace DIPloma.Window

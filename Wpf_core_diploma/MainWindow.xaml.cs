@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DataBase.DIPloma.Entity;
+using DIPloma._1.DataBase.Entity;
 using DIPloma.Pages;
 using DIPloma.Window;
 
@@ -25,7 +25,7 @@ namespace DIPloma
     public partial class MainWindow
     {
 
-        bool checkAtorization;
+        
 
         public MainWindow()
         {

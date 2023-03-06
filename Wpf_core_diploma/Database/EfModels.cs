@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using DataBase.DIPloma.Entity;
+using DIPloma.DataBase.Entity;
 
-namespace DataBase.DIPloma
+namespace DIPloma.DataBase
 {
     public partial class EfModels : DbContext
     {
+
         private static EfModels _instanse;
+
         public static EfModels init()
         {
-            if (_instanse == null)
+            if(_instanse == null)
             {
                 _instanse = new EfModels();
             }
@@ -389,11 +391,17 @@ namespace DataBase.DIPloma
 
                 entity.Property(e => e.IdUserss).HasColumnName("idUserss");
 
+                entity.Property(e => e.DobleNameUser).HasMaxLength(45);
+
                 entity.Property(e => e.Login).HasMaxLength(45);
 
                 entity.Property(e => e.Mail).HasMaxLength(45);
 
+                entity.Property(e => e.NameUser).HasMaxLength(45);
+
                 entity.Property(e => e.Password).HasMaxLength(45);
+
+                entity.Property(e => e.SurNameUser).HasMaxLength(45);
 
                 entity.HasOne(d => d.RoleNavigation)
                     .WithMany(p => p.Users)

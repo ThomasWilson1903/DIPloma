@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DataBase.DIPloma.Entity
+namespace DIPloma.DataBase.Entity
 {
     public partial class Section
     {
