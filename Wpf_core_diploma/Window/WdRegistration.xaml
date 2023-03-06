@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma.Window"
         mc:Ignorable="d"
-        Title="Регистрация" Height="500" Width="800" MinHeight="500" MinWidth="800">
+        Title="Регистрация" Height="500" Width="800" MinHeight="500" MinWidth="800"
+        Style="{StaticResource font}"
+        >
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -15,11 +18,11 @@
         <Grid Grid.Row="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock Text="У вас уже есть учетная запись?" 
-                           FontSize="20" HorizontalAlignment="Right" 
+                           HorizontalAlignment="Right" 
                            Margin="0,20,10,10"
                            />
                 <TextBlock MouseUp="xws" Text="Войти" 
-                           FontSize="20" HorizontalAlignment="Right" 
+                           HorizontalAlignment="Right" 
                            Margin="0,20,10,10"                           
                            />
             </StackPanel>
@@ -27,69 +30,67 @@
         </Grid>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock Text="Регистрация" x:Name="dqw" FontSize="30" />
+                <TextBlock Text="Регистрация"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
-                <TextBlock Text="*Login"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <TextBlock Text="*Login"
                            x:Name="BtLogin"
-                           FontSize="25" />
-                <TextBox x:Name="TbLogin" FontSize="25" Width ="300" 
+                           />
+                    <TextBox x:Name="TbLogin" Width ="300" 
                          
                          Text="{Binding Login}"
                          HorizontalAlignment="Left"
                          />
-                <TextBlock x:Name="textErLogin"
+                    <TextBlock x:Name="textErLogin"
                            Text="Логин обязательно для заполнения"
                            Visibility="Hidden"
                            />
-                <TextBlock Text="*Mail"
+                    <TextBlock Text="*Mail"
                            x:Name="BtMail"
-                           FontSize="25"
+                           
                            />
 
-                <TextBox x:Name="TbMail" 
-                         FontSize="25" Width="300" 
+                    <TextBox x:Name="TbMail" 
+                         Width="300" 
                          Text="{Binding Mail}"
                          />
-                <TextBlock x:Name="textErMail"
+                    <TextBlock x:Name="textErMail"
                            Visibility="Hidden"
                            Text="Адрес электронной почты обязателен"
                            />
 
-                <TextBlock Text="*Password" FontSize="25" 
+                    <TextBlock Text="*Password"
                            x:Name="BtPass"
                            />
 
-                <StackPanel >
+                    <StackPanel >
 
-                    <TextBox x:Name="tbPassword" FontSize="25" Width="300" 
+                        <TextBox x:Name="tbPassword" Width="300" 
                                  Visibility="Collapsed" 
                                     Text="{Binding Password}"
                                  />
-                    <PasswordBox x:Name="pbPassword" FontSize="25" Width="300" 
+                        <PasswordBox x:Name="pbPassword" Width="300" 
                                  Visibility="Visible" 
                                  
                                  
                                  />
-
-                </StackPanel>
-
-                <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
-                              Content="Показать пароль" HorizontalAlignment="Center" FontSize="17" 
+                    </StackPanel>
+                    <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
+                              Content="Показать пароль" HorizontalAlignment="Center" 
                               />
-                <Grid Height="62">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="83*"/>
-                        <ColumnDefinition Width="67*"/>
-                    </Grid.ColumnDefinitions>
                     <Button x:Name="btSingIN" HorizontalAlignment="Left" 
                                 Height="35"
                                 Click="btRegistr" 
                                 Margin="10,17,0,10"
                         Content="Sing In" 
-                        FontSize="20" Width="100"  
+                        Width="100"  
                         >
                         <Button.Resources>
                             <Style TargetType="Border">
@@ -97,12 +98,15 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                </Grid>
 
 
 
 
-            </StackPanel>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                
+            </Grid>
         </Grid>
     </Grid>
 </Window>
