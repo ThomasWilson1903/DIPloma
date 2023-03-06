@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\dw1.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="-school_90226.ico" />
   </ItemGroup>
 
@@ -20,6 +24,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\dw1.png" />
   </ItemGroup>
 
   <ItemGroup>

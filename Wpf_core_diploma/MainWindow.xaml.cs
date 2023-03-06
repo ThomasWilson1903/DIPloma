@@ -49,6 +49,7 @@ namespace DIPloma
                 FrMain.Navigate(new pgListView());
                 MessageBox.Show(user.Login);
                 visibleUsers(true);
+                tbFIO.Text = user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser;
             }
             else
             {
