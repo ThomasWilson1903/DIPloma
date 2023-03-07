@@ -15,5 +15,12 @@
             <Setter Property="BorderBrush" Value="White" />
             <Setter Property="FontSize" Value="20"/>
         </Style>
+        <!--textFocus-->
+        <Style x:Key="textFocus" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#0070E0" />
+            <Setter Property="FontSize" Value="17"/>
+        </Style>
     </Application.Resources>
 </Application>
+    
+    

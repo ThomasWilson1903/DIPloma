@@ -71,7 +71,6 @@ namespace DIPloma
                 case true:
                     tbFIO.Visibility = Visibility.Visible;
                     btLogin.Visibility = Visibility.Collapsed;
-                    btRegister.Visibility = Visibility.Collapsed;
                     break;
                 case false:
                     tbFIO.Visibility = Visibility.Collapsed;
