@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma.Window"
         mc:Ignorable="d"
-        Title="Регистрация" Height="500" Width="800" MinHeight="500" MinWidth="800"
+        Title="Регистрация учеников" Height="500" Width="800" MinHeight="500" MinWidth="800"
         Style="{StaticResource font}"
         >
 
@@ -23,7 +23,7 @@
         </Grid>
         <Grid Grid.Row="0">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock Text="Регистрация учителей"/>
+                <TextBlock Text="Регистрация учеников"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
