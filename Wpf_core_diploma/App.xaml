@@ -15,6 +15,9 @@
             <Setter Property="BorderBrush" Value="White" />
             <Setter Property="FontSize" Value="20"/>
         </Style>
+        <Style x:Key="ButtonRadius" TargetType="Border">
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
         <!--textFocus-->
         <Style x:Key="textFocus" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#0070E0" />
