@@ -10,14 +10,18 @@
       Style="{StaticResource font}"
       
       >
+    
+    
+            <Grid>
+                
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+            </Grid.Effect>
+        
 
-    <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="500">
-            <TextBlock  HorizontalAlignment="Center" >
-                Добро пожаловать
-            </TextBlock>
-            <Button Content="Далее" Style="{StaticResource ButtonStyle}"/>
-        </StackPanel>
-
-    </Grid>
-</Page>
+        <Border Background="#7C7C7C" Opacity="0.5"
+                CornerRadius="7" ClipToBounds="True">
+            
+        </Border>   
+        </Grid>
+    </Page>

@@ -5,41 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma"
         mc:Ignorable="d"
-        Title="ГБОУ СОШ с.Красный Яр" Height="450" Width="800" MinHeight="450" MinWidth="800">
+        WindowStartupLocation="CenterScreen"    
+        Title="ГБОУ СОШ с.Красный Яр" Height="720" Width="1024" MinHeight="720" MinWidth="1024">
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.25*"/>
-            <RowDefinition/>
+            <RowDefinition Height="132"/>
+            <RowDefinition Height="588*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
+        <Grid Grid.Row="0" Background="#022D73">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="94*"/>
-                <ColumnDefinition Width="437*"/>
-                <ColumnDefinition Width="269*"/>
+                <ColumnDefinition Width="94"/>
+                <ColumnDefinition Width="106*"/>
+                <ColumnDefinition Width="49*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image Source="/Resources/dw1.png" Margin="5"/>
 
             </Grid>
-            
+
 
             <Grid Grid.Column="2">
+
                 <!--User-->
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="Visible">
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Visibility="Visible">
                     <Image Source="{Binding image}"/>
                     <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" Visibility="Collapsed"/>
 
                 </StackPanel>
                 <!--кнопки-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center"
-                            Height="37" Visibility="Visible" >
-                    <Button x:Name="btLogin" Width="100" Content="Вход"
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Height="87" >
+                    <Button x:Name="btLogin" Width="167" Content="Вход"
                             Style="{StaticResource ButtonStyle}"
-                            Click="ClSingIn" Margin="2"
+                            Click="ClSingIn" Margin="2" Height="45" 
                             >
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
+                                <Setter Property="CornerRadius" Value="14"/>
                             </Style>
                         </Button.Resources>
                     </Button>
@@ -47,7 +48,10 @@
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
-            <Frame x:Name="FrMain"/>
+            <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17 1.png" Stretch="UniformToFill"  />
+            <Frame x:Name="FrMain" Margin="50" >
+
+            </Frame>
         </Grid>
     </Grid>
 </Window>

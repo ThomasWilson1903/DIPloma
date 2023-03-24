@@ -70,11 +70,7 @@
             </StackPanel>
         </Grid>
         <Grid Grid.Row="2">
-            <TextBlock MouseUp="xws" Text="Регистрация"
-                           HorizontalAlignment="Right" 
-                           Margin="0,20,10,10"
-                            Style="{StaticResource textFocus}"
-                           />
+            
         </Grid>
     </Grid>
 </Window>

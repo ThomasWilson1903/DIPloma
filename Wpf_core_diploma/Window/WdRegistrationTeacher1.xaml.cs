@@ -17,11 +17,26 @@ namespace DIPloma.Window
     /// <summary>
     /// Interaction logic for WdRegistrationTeacher1.xaml
     /// </summary>
-    public partial class WdRegistrationTeacher1 : Window
+    public partial class WdRegistrationTeacher1 
     {
         public WdRegistrationTeacher1()
         {
             InitializeComponent();
+        }
+
+        private void btRegistr(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void hidePassChecked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void showPassChecked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

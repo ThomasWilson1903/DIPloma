@@ -63,6 +63,26 @@ namespace DIPloma.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] _1675461282_gas_kvas_com_p_ot_mikrosoft_fonovie_risunki_17 {
+            get {
+                object obj = ResourceManager.GetObject("1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] _1675461282_gas_kvas_com_p_ot_mikrosoft_fonovie_risunki_17_1 {
+            get {
+                object obj = ResourceManager.GetObject("1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17 1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] dw1 {
             get {
                 object obj = ResourceManager.GetObject("dw1", resourceCulture);
