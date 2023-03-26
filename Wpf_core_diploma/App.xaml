@@ -8,6 +8,12 @@
             <Setter Property="TextElement.FontSize" Value="25"/>
             <Setter Property="TextElement.FontFamily" Value="Inter"/>
         </Style>
+        
+        <Style x:Key="fontTitle">
+            <Setter Property="TextElement.FontSize" Value="25"/>
+            <Setter Property="TextElement.FontFamily" Value="Inter"/>
+            <Setter Property="TextElement.Foreground" Value="#022D73" />
+        </Style>
         <!--style button main-->
         <Style x:Key="ButtonStyle" TargetType="Button">
             <Setter Property="Background" Value="#0070E0" />
@@ -18,6 +24,7 @@
         <Style x:Key="ButtonRadius" TargetType="Border">
             <Setter Property="CornerRadius" Value="15"/>
         </Style>
+        
         <!--textFocus-->
         <Style x:Key="textFocus" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#0070E0" />

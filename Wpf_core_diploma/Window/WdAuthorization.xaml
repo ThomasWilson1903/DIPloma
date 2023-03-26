@@ -5,72 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma.Window"
         mc:Ignorable="d"
-        Title="Авторизация" Height="500" Width="450" MinHeight="500" MinWidth="450" MaxHeight="500" MaxWidth="450"
-        Style="{StaticResource font}"
+        Title="Авторизация" Height="650" Width="448" MaxWidth="448" MaxHeight="650" MinHeight="650" MinWidth="448"
+        Style="{StaticResource fontTitle}"
+        
         >
     <Grid >
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="107"/>
+            <RowDefinition Height="529"/>
+
         </Grid.RowDefinitions>
-        
-        <Grid Grid.Row="0">
+
+        <Grid Grid.Row="0" Background="#022D73">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="Авторизация"/>
+                <TextBlock Text="Авторизация" Foreground="#ffffff" FontSize="36"/>
             </StackPanel>
         </Grid>
+
+
         <Grid Grid.Row="1">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment ="Center">
-                <StackPanel Margin="5">
-                <TextBlock Text="Login"/>
-                <TextBox x:Name="TbLogin" Width ="300" 
-                         HorizontalAlignment="Left"
-                         />
-                </StackPanel>
-
-                <StackPanel Margin="5" >
-                <TextBlock Text="Password"/>
-
-                    <TextBox x:Name="tbPassword"  Width="300" 
-                                 Visibility="Collapsed"  
-                                 />
-                    <PasswordBox x:Name="pbPassword" Width="300" 
-                                 Visibility="Visible" 
-                                 
-                                 />
-
-                </StackPanel>
-                <StackPanel Margin="5" HorizontalAlignment="Right" Orientation="Horizontal">
-                    <TextBlock Text="Показать пароль" FontSize="17" VerticalAlignment="Center"/>
-                    <CheckBox Name="chVisPass" Checked="showPassChecked" Unchecked="hidePassChecked" 
-                              HorizontalAlignment="Right" VerticalAlignment="Center" Margin="5"
-                              />
-                </StackPanel>
-                <Grid Height="62">
-                    <Button x:Name="btSingIN" HorizontalAlignment="Left" 
-                                Height="35"
-                                Click="btRegistr" 
-                                Margin="10,17,0,10"
-                                Style="{StaticResource ButtonStyle}"
-                        Content="Sing In" 
-                        Width="100"  
-                        >
+            <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17 4.png" Stretch="UniformToFill"  />
+            <Border CornerRadius="7" ClipToBounds="True" Margin="20,10,20,30">
+                <Border.Background>
+                    <SolidColorBrush Opacity="0.5" Color="#FFFFFF"/>
+                </Border.Background>
+                <StackPanel  Width="316" VerticalAlignment="Top" Margin="0 50 0 0" HorizontalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock Text="Логин"/>
+                        <TextBox x:Name="tbLogin"/>
+                    </StackPanel>
+                    
+                    <StackPanel Margin="0 20 0 0">
+                        <TextBlock Text="Пароль"/>
+                        <PasswordBox x:Name="pbPassword"/>
+                        <TextBox x:Name="tbPassword" Visibility="Collapsed"/>
+                    </StackPanel>
+                    
+                    <StackPanel Margin=" 0 7 0 0" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock Text="Показать пароль" FontSize="16"/>
+                        <CheckBox VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Button HorizontalAlignment="Left" x:Name="btEnter" Click="clEnter"
+                            Margin="0 25 0 0" Style="{StaticResource ButtonStyle}" Width="167" Height="48" Content="Вход">
                         <Button.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
+                                <Setter Property="CornerRadius" Value="14"/>
                             </Style>
                         </Button.Resources>
                     </Button>
-                </Grid>
-
-
-
-
-            </StackPanel>
+                </StackPanel>
+            </Border>
         </Grid>
-        <Grid Grid.Row="2">
-            
-        </Grid>
+
     </Grid>
 </Window>

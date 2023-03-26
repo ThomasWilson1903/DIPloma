@@ -38,17 +38,7 @@ namespace DIPloma.Window
             
         }
 
-        private void btRegistr(object sender, RoutedEventArgs e)
-        {
-            _authUser = EfModels.init().Users.FirstOrDefault(u => u.Login == TbLogin.Text && (u.Password == tbPassword.Text || u.Password == pbPassword.Password));
-            if (_authUser != null)
-            {
-                DialogResult = true;
-                Close();
-            }
-            else
-                MessageBox.Show("Ошибка! неверный логин или пароль");
-        }
+        
         
         private void hidePassChecked(object sender, RoutedEventArgs e)
         {
@@ -63,6 +53,18 @@ namespace DIPloma.Window
         private void xws(object sender, MouseButtonEventArgs e)
         {
 
+        }
+
+        private void clEnter(object sender, RoutedEventArgs e)
+        {
+            _authUser = EfModels.init().Users.FirstOrDefault(u => u.Login == tbLogin.Text && (u.Password == tbPassword.Text || u.Password == pbPassword.Password));
+            if (_authUser != null)
+            {
+                DialogResult = true;
+                Close();
+            }
+            else
+                MessageBox.Show("Ошибка! неверный логин или пароль");
         }
     }
 }

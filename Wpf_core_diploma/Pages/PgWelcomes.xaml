@@ -8,20 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PgWelcomes"
       Style="{StaticResource font}"
-      
       >
-    
-    
-            <Grid>
-                
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
-            </Grid.Effect>
-        
+    <Grid>
 
-        <Border Background="#7C7C7C" Opacity="0.5"
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+        </Grid.Effect>
+
+
+        <Border 
                 CornerRadius="7" ClipToBounds="True">
-            
-        </Border>   
-        </Grid>
-    </Page>
+            <Border.Background>
+                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
+            </Border.Background>
+            <TextBlock>
+                Это тестовое окно с  текстом
+            </TextBlock>
+        </Border>
+    </Grid>
+</Page>
