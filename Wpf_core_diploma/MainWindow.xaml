@@ -32,21 +32,20 @@
                 <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" 
                             VerticalAlignment="Center" Visibility="Visible">
                     <!--{Binding PhotoUsers,  TargetNullValue={StaticResource photo}}-->
-                    <Ellipse Width="100" 
+                    <Ellipse Width="100" Visibility="Collapsed" 
                              Height="100">
                         <Ellipse.Fill>
                             <ImageBrush ImageSource="/Resources/msedge_O3xG2PAYzg.png" Stretch="UniformToFill" />
                         </Ellipse.Fill>
                     </Ellipse>
-                    <Image Source="{Binding image}"/>
                     <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" VerticalAlignment="Center" Margin="5"
                                Foreground="#ffffff"
-                               Visibility="Visible" />
+                               Visibility="Collapsed" />
 
                 </StackPanel>
                 <!--кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Height="87" >
-                    <Button Visibility="Collapsed" x:Name="btLogin" Width="167" Content="Вход"
+                    <Button Visibility="Visible" x:Name="btLogin" Width="167" Content="Вход"
                             Style="{StaticResource ButtonStyle}"
                             Click="ClSingIn" Margin="2" Height="45" 
                             >

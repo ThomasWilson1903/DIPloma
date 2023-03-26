@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 
 namespace DIPloma.Window
