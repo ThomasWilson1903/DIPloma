@@ -18,6 +18,7 @@ namespace DIPloma.DataBase.Entity
         public string NameUser { get; set; } = null!;
         public string SurNameUser { get; set; } = null!;
         public string DobleNameUser { get; set; } = null!;
+        public byte[]? PhotoUsers { get; set; }
 
         public virtual Role RoleNavigation { get; set; } = null!;
         public virtual ICollection<ListItem> ListItems { get; set; }

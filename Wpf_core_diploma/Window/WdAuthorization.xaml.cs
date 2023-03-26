@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DIPloma.DataBase;
-using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 
 namespace DIPloma.Window
@@ -29,17 +28,17 @@ namespace DIPloma.Window
 
         public WdAuthorization()
         {
-            
+
             InitializeComponent();
             FrameSelect();
         }
         void FrameSelect()
         {
-            
+
         }
 
-        
-        
+
+
         private void hidePassChecked(object sender, RoutedEventArgs e)
         {
 

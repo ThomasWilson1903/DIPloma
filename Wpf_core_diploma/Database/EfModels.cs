@@ -8,16 +8,15 @@ namespace DIPloma.DataBase
 {
     public partial class EfModels : DbContext
     {
-
         private static EfModels _instanse;
 
         public static EfModels init()
         {
-            if(_instanse == null)
+            if (_instanse == null)
             {
                 _instanse = new EfModels();
             }
-            return _instanse;   
+            return _instanse;
         }
         public EfModels()
         {
@@ -49,13 +48,13 @@ namespace DIPloma.DataBase
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseMySql("server=cfif31.ru;port=3306;user id=ISPr22-33_BirukovAA;password=ISPr22-33_BirukovAA;database=ISPr22-33_BirukovAA_WpfApp_diploma2;character set=utf8", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.32-mysql"));
+                optionsBuilder.UseMySql("server=twilson.ru;port=3306;database=ISPr22-33_BirukovAA_WpfApp_diploma2;user id=Diplom2;password=QvjG{td4lrrb;character set=utf8", Microsoft.EntityFrameworkCore.ServerVersion.Parse("5.7.41-mysql"));
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.UseCollation("utf8mb4_0900_ai_ci")
+            modelBuilder.UseCollation("utf8mb4_general_ci")
                 .HasCharSet("utf8mb4");
 
             modelBuilder.Entity<Attendance>(entity =>
@@ -64,13 +63,21 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("attendance");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.SectionSchedules, "fk_attendance_sectionSchedules_idx");
 
                 entity.HasIndex(e => e.Students, "fk_attendance_students_idx");
 
-                entity.Property(e => e.SectionSchedules).HasColumnName("sectionSchedules");
+                entity.Property(e => e.PresenceMark).HasColumnType("tinyint(4)");
 
-                entity.Property(e => e.Students).HasColumnName("students");
+                entity.Property(e => e.SectionSchedules)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("sectionSchedules");
+
+                entity.Property(e => e.Students)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("students");
 
                 entity.HasOne(d => d.SectionSchedulesNavigation)
                     .WithMany()
@@ -92,7 +99,11 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("DayWeek");
 
-                entity.Property(e => e.IdDayWeek).HasColumnName("idDayWeek");
+                entity.UseCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.IdDayWeek)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idDayWeek");
 
                 entity.Property(e => e.NameDayWeek).HasMaxLength(45);
             });
@@ -104,7 +115,11 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("educationalClass");
 
-                entity.Property(e => e.Idgroup).HasColumnName("idgroup");
+                entity.UseCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.Idgroup)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idgroup");
 
                 entity.Property(e => e.ClassNumber)
                     .HasMaxLength(45)
@@ -118,7 +133,10 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("gender");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.Property(e => e.Idgender)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idgender");
 
@@ -132,21 +150,30 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("journal");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.ListItems, "fk_jornal_listItems_idx");
 
                 entity.HasIndex(e => e.Students, "fk_jornal_student_idx");
 
                 entity.Property(e => e.Idjournal)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idjournal");
 
-                entity.Property(e => e.Aestimatio).HasColumnName("aestimatio");
+                entity.Property(e => e.Aestimatio)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("aestimatio");
 
                 entity.Property(e => e.Comment).HasMaxLength(100);
 
-                entity.Property(e => e.ListItems).HasColumnName("listItems");
+                entity.Property(e => e.ListItems)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("listItems");
 
-                entity.Property(e => e.Students).HasColumnName("students");
+                entity.Property(e => e.Students)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("students");
 
                 entity.HasOne(d => d.ListItemsNavigation)
                     .WithMany(p => p.Journals)
@@ -168,15 +195,25 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("listItems");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.Subiectum, "fk_listItems_Objects_idx");
 
                 entity.HasIndex(e => e.Teachers, "fk_listItems_Teacher_idx");
 
                 entity.HasIndex(e => e.Users, "fk_listItems_Users_idx");
 
-                entity.Property(e => e.Idschedule).HasColumnName("idschedule");
+                entity.Property(e => e.Idschedule)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idschedule");
 
-                entity.Property(e => e.Subiectum).HasColumnName("subiectum");
+                entity.Property(e => e.Subiectum)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("subiectum");
+
+                entity.Property(e => e.Teachers).HasColumnType("int(11)");
+
+                entity.Property(e => e.Users).HasColumnType("int(11)");
 
                 entity.HasOne(d => d.SubiectumNavigation)
                     .WithMany(p => p.ListItems)
@@ -202,13 +239,18 @@ namespace DIPloma.DataBase
                 entity.HasKey(e => e.IdinfoParents)
                     .HasName("PRIMARY");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.Gender, "fk_infoParents_gender_idx");
 
                 entity.Property(e => e.IdinfoParents)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idinfoParents");
 
-                entity.Property(e => e.Gender).HasColumnName("gender");
+                entity.Property(e => e.Gender)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("gender");
 
                 entity.Property(e => e.Login).HasMaxLength(45);
 
@@ -234,7 +276,11 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("Role");
 
-                entity.Property(e => e.IdRole).HasColumnName("idRole");
+                entity.UseCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.IdRole)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idRole");
 
                 entity.Property(e => e.Names).HasMaxLength(45);
             });
@@ -246,15 +292,20 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("sections");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.Teachers, "fk_sections_techer_idx");
 
                 entity.Property(e => e.Idsections)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idsections");
 
                 entity.Property(e => e.NameSection).HasMaxLength(45);
 
-                entity.Property(e => e.Teachers).HasColumnName("teachers");
+                entity.Property(e => e.Teachers)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("teachers");
 
                 entity.HasOne(d => d.TeachersNavigation)
                     .WithMany(p => p.Sections)
@@ -270,17 +321,24 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("sectionSchedules");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.IdDayWeek, "fk_sectionSchedules_DayWeek1_idx");
 
                 entity.HasIndex(e => e.Sections, "fk_sectionSchedules_sections_idx");
 
                 entity.Property(e => e.IdsectionSchedules)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idsectionSchedules");
 
-                entity.Property(e => e.IdDayWeek).HasColumnName("idDayWeek");
+                entity.Property(e => e.IdDayWeek)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idDayWeek");
 
-                entity.Property(e => e.Sections).HasColumnName("sections");
+                entity.Property(e => e.Sections)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("sections");
 
                 entity.Property(e => e.TimeSpending).HasColumnType("time");
 
@@ -304,11 +362,17 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("students");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.Group, "fk_students_group_idx");
 
-                entity.Property(e => e.Idstudents).HasColumnName("idstudents");
+                entity.Property(e => e.Idstudents)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idstudents");
 
-                entity.Property(e => e.Group).HasColumnName("group");
+                entity.Property(e => e.Group)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("group");
 
                 entity.Property(e => e.Login).HasMaxLength(45);
 
@@ -333,13 +397,19 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("Student_infoParents");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.StudentParentsParents, "fk_Student_infoParents_Parents_idx");
 
                 entity.HasIndex(e => e.StudentParentsStudent, "fk_Student_infoParents_Student_idx");
 
-                entity.Property(e => e.StudentParentsParents).HasColumnName("StudentParents_Parents");
+                entity.Property(e => e.StudentParentsParents)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("StudentParents_Parents");
 
-                entity.Property(e => e.StudentParentsStudent).HasColumnName("StudentParents_Student");
+                entity.Property(e => e.StudentParentsStudent)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("StudentParents_Student");
 
                 entity.HasOne(d => d.StudentParentsParentsNavigation)
                     .WithMany()
@@ -361,7 +431,11 @@ namespace DIPloma.DataBase
 
                 entity.ToTable("subiectum");
 
-                entity.Property(e => e.Idobjects).HasColumnName("idobjects");
+                entity.UseCollation("utf8mb4_unicode_ci");
+
+                entity.Property(e => e.Idobjects)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idobjects");
 
                 entity.Property(e => e.NameSubiectum).HasMaxLength(45);
             });
@@ -371,13 +445,22 @@ namespace DIPloma.DataBase
                 entity.HasKey(e => e.IdTeachers)
                     .HasName("PRIMARY");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.Property(e => e.IdTeachers)
+                    .HasColumnType("int(11)")
                     .ValueGeneratedNever()
                     .HasColumnName("idTeachers");
+
+                entity.Property(e => e.DateBirth).HasColumnName("dateBirth");
 
                 entity.Property(e => e.MiddleNameTeacher).HasMaxLength(45);
 
                 entity.Property(e => e.NameTeacher).HasMaxLength(45);
+
+                entity.Property(e => e.OfficeNumber)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("officeNumber");
 
                 entity.Property(e => e.SurnameTeacher).HasMaxLength(45);
             });
@@ -387,9 +470,13 @@ namespace DIPloma.DataBase
                 entity.HasKey(e => e.IdUserss)
                     .HasName("PRIMARY");
 
+                entity.UseCollation("utf8mb4_unicode_ci");
+
                 entity.HasIndex(e => e.Role, "fk_Users_Role_idx");
 
-                entity.Property(e => e.IdUserss).HasColumnName("idUserss");
+                entity.Property(e => e.IdUserss)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idUserss");
 
                 entity.Property(e => e.DobleNameUser).HasMaxLength(45);
 
@@ -400,6 +487,8 @@ namespace DIPloma.DataBase
                 entity.Property(e => e.NameUser).HasMaxLength(45);
 
                 entity.Property(e => e.Password).HasMaxLength(45);
+
+                entity.Property(e => e.Role).HasColumnType("int(11)");
 
                 entity.Property(e => e.SurNameUser).HasMaxLength(45);
 

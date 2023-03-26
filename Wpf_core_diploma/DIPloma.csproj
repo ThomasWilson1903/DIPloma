@@ -14,6 +14,7 @@
     <None Remove="Resources\1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg" />
     <None Remove="Resources\dw1.png" />
     <None Remove="Resources\free-icon-dark-mode-6714978.png" />
+    <None Remove="Resources\msedge_O3xG2PAYzg.png" />
     <None Remove="Resources\sunny.png" />
   </ItemGroup>
 
@@ -24,7 +25,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.6" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -37,6 +38,7 @@
     <Resource Include="Resources\1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg" />
     <Resource Include="Resources\dw1.png" />
     <Resource Include="Resources\free-icon-dark-mode-6714978.png" />
+    <Resource Include="Resources\msedge_O3xG2PAYzg.png" />
     <Resource Include="Resources\sunny.png" />
   </ItemGroup>
 

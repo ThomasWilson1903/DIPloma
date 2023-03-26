@@ -99,5 +99,15 @@ namespace DIPloma.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Byte[].
+        /// </summary>
+        internal static byte[] msedge_O3xG2PAYzg {
+            get {
+                object obj = ResourceManager.GetObject("msedge_O3xG2PAYzg", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

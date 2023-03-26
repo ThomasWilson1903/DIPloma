@@ -30,6 +30,8 @@
             <Setter Property="Foreground" Value="#0070E0" />
             <Setter Property="FontSize" Value="17"/>
         </Style>
+        <!--imageDefold-->
+        <BitmapImage x:Key="photo" UriSource="/Resources/msedge_O3xG2PAYzg.png"/>
     </Application.Resources>
 </Application>
     

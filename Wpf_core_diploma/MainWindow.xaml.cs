@@ -42,7 +42,7 @@ namespace DIPloma
         {
             WdAuthorization wdAuthorization = new WdAuthorization();
 
-            if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser!= null)
+            if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser != null)
             {
                 //MessageBox.Show("yes");
                 User user = wdAuthorization.AuthUser;

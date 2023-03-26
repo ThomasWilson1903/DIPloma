@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:DIPloma"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"    
-        Title="ГБОУ СОШ с.Красный Яр" Height="720" Width="1024" MinHeight="720" MinWidth="1024">
+        Title="ГБОУ СОШ с.Красный Яр" Height="720" Width="1024" MinHeight="720" MinWidth="1024"
+        Style="{StaticResource font}"
+        >
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="132"/>
@@ -15,8 +17,8 @@
         <Grid Grid.Row="0" Background="#022D73">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="94"/>
-                <ColumnDefinition Width="106*"/>
-                <ColumnDefinition Width="49*"/>
+                <ColumnDefinition Width="167*"/>
+                <ColumnDefinition Width="143*"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image Source="/Resources/dw1.png" Margin="5"/>
@@ -27,14 +29,24 @@
             <Grid Grid.Column="2">
 
                 <!--User-->
-                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" Visibility="Visible">
+                <StackPanel Orientation="Horizontal"  HorizontalAlignment="Center" 
+                            VerticalAlignment="Center" Visibility="Visible">
+                    <!--{Binding PhotoUsers,  TargetNullValue={StaticResource photo}}-->
+                    <Ellipse Width="100" 
+                             Height="100">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/Resources/msedge_O3xG2PAYzg.png" Stretch="UniformToFill" />
+                        </Ellipse.Fill>
+                    </Ellipse>
                     <Image Source="{Binding image}"/>
-                    <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" Visibility="Collapsed"/>
+                    <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" VerticalAlignment="Center" Margin="5"
+                               Foreground="#ffffff"
+                               Visibility="Visible" />
 
                 </StackPanel>
                 <!--кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Height="87" >
-                    <Button x:Name="btLogin" Width="167" Content="Вход"
+                    <Button Visibility="Collapsed" x:Name="btLogin" Width="167" Content="Вход"
                             Style="{StaticResource ButtonStyle}"
                             Click="ClSingIn" Margin="2" Height="45" 
                             >
