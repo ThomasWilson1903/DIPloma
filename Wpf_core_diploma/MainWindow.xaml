@@ -18,7 +18,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="94"/>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="414"/>
+                <ColumnDefinition Width="489"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Image Source="/Resources/dw1.png" Margin="5"/>
@@ -38,10 +38,16 @@
                             <ImageBrush x:Name="ibImage" ImageSource="{Binding PhotoUsers,  TargetNullValue={StaticResource photo}}" Stretch="UniformToFill" />
                         </Ellipse.Fill>
                     </Ellipse>
-                    <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" VerticalAlignment="Center" Margin="5"
+                    <StackPanel VerticalAlignment="Center">
+                    <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" 
+                               VerticalAlignment="Center" Margin="5"
                                Foreground="#ffffff"
                                Visibility="Visible" />
-
+                        <TextBlock x:Name="btBack"  
+                            Width="100" Text="Выход" Foreground="#0070E0"
+                            MouseUp="muBack"       
+                            Margin="5 5 0 0"  HorizontalAlignment="Left"/>
+                    </StackPanel>
                 </StackPanel>
                 <!--кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Height="87" >

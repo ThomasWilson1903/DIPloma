@@ -36,7 +36,7 @@ namespace DIPloma
         }
         void FrMains()
         {
-            //FrMain.Navigate(new lvAppMain());
+            FrMain.Navigate(new pgLvStudent());
         }
 
         private void ClSingIn(object sender, RoutedEventArgs e)
@@ -51,6 +51,8 @@ namespace DIPloma
                 MessageBox.Show(user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser);
                 visibleUsers(true);
                 tbFIO.Text = user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser;
+                DataContext = user;
+                
                 
                 //ibImage.ImageSource = ImageBrush(user.PhotoUsers);
             }
@@ -83,6 +85,29 @@ namespace DIPloma
                     break;
 
             }
+        }
+
+        private void muBack(object sender, MouseButtonEventArgs e)
+        {
+            FrMain.Navigate(new PgWelcomes());
+            //FrMain.RemoveBackEntry();
+            ClearHistory();
+            visibleUsers(false);
+        }
+        public void ClearHistory()
+        {
+            if (!this.FrMain.CanGoBack && !this.FrMain.CanGoForward)
+            {
+                return;
+            }
+
+            var entry = this.FrMain.RemoveBackEntry();
+            while (entry != null)
+            {
+                entry = this.FrMain.RemoveBackEntry();
+            }
+
+            this.FrMain.Navigate(new PageFunction<string>() { RemoveFromJournal = true });
         }
     }//Server=twilson.ru;Port=3306;User ID=Diplom2;Password=QvjG{td4lrrb;Database=ISPr22-33_BirukovAA_WpfApp_diploma2;Character Set=utf8
 }

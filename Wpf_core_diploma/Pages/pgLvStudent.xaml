@@ -1,0 +1,31 @@
+﻿<Page x:Class="DIPloma.Pages.pgLvStudent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPloma.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgLvStudent">
+
+    <Grid>
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
+        </Grid.Effect>
+
+
+        <Border 
+                CornerRadius="7" ClipToBounds="True">
+            <Border.Background>
+                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
+            </Border.Background>
+            <DataGrid x:Name="dgMainJornal" AutoGenerateColumns="False" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Student.SurnameStudent}" Header="Ученик"/>
+                    <DataGridTextColumn Binding="{Binding Aestimatio}" Header="Оценка"/>
+                    <DataGridTextColumn Binding="{Binding Comment}" Header="Комментарий"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+    </Grid>
+</Page>
