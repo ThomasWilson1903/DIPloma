@@ -60,7 +60,7 @@
         </Grid>
         <Grid Grid.Row="1" >
             <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg" Stretch="UniformToFill"  />
-            <Frame x:Name="FrMain" Margin="10 10 10 10 "  >
+            <Frame x:Name="FrMain" Margin="10 10 10 10 "  NavigationUIVisibility="Hidden">
 
             </Frame>
         </Grid>

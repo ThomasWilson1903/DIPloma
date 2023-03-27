@@ -32,7 +32,14 @@
         </Style>
         <!--imageDefold-->
         <BitmapImage x:Key="photo" UriSource="/Resources/msedge_O3xG2PAYzg.png"/>
+        
+        <!--MouseDoubleClick-->
+    
+        
+        
     </Application.Resources>
+    
+
 </Application>
     
     

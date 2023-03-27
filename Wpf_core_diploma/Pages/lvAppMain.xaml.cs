@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -26,7 +27,7 @@ namespace DIPloma.Pages
             public string namefun { get; set; }
 
             public string? image { get; set; }
-            
+
             public fun(string name)
             {
                 namefun = name;
@@ -62,7 +63,7 @@ namespace DIPloma.Pages
                 {
                     image = "\\Resources\\Добавить 2 2.png"
                 }
-            }.Where(p=>p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
+            }.Where(p => p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
             lvMain.ItemsSource = list;
         }
 
@@ -74,6 +75,26 @@ namespace DIPloma.Pages
         private void muSerch2(object sender, MouseButtonEventArgs e)
         {
             Keyboard.Focus(tbSerch);
+        }
+
+        private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            switch (lvMain.SelectedIndex)
+            {
+                case 0:
+                    //MessageBox.Show("DW" + lvMain.SelectedIndex);
+                    NavigationService.Navigate(new PgWelcomes());
+
+                    break;
+                case 1:
+                    MessageBox.Show("DW" + lvMain.SelectedIndex);
+
+                    break;
+                case 2:
+                    MessageBox.Show("DW" + lvMain.SelectedIndex);
+
+                    break;
+            }
         }
     }
 }
