@@ -1,8 +1,4 @@
-﻿
-
-using DIPloma.DataBase;
-using DIPloma.DataBase.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +23,8 @@ namespace DIPloma.Pages
         public pgListView()
         {
             InitializeComponent();
-            List<User> users = EfModels.init().Users.ToList();
-            lvMain.ItemsSource = users;
+            /*List<User> users = EfModels.init().Users.ToList();
+            lvMain.ItemsSource = users;*/
 
         }
     }
