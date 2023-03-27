@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,43 +30,78 @@ namespace DIPloma.Pages
 
             public string? image { get; set; }
 
+            public int? access { get; set; }
+
             public fun(string name)
             {
                 namefun = name;
             }
         }
-
-        public lvAppMain()
+        User User;
+        public lvAppMain(User user)
         {
+            User = user;
             InitializeComponent();
-            Select();
+            Select2(User);
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
-            Select();
+            Select2(User);
         }
 
-        void Select()
+
+
+        void Select2(User user)
         {
-            IEnumerable<fun> list = new List<fun>
+            switch (user.Role)
+            {
+                case 1:
+                    IEnumerable<fun> list = new List<fun>
             {
                 new fun("тестовая иконка")
                 {
-                    image = "\\Resources\\free-icon-dark-mode-6714978.png"
+                    image = "\\Resources\\free-icon-dark-mode-6714978.png",
+                    access = 0,
                 },
 
                 new fun("Журнал")
                 {
-                    image = "\\Resources\\jornal 2.png"
+                    image = "\\Resources\\jornal 2.png",
+                    access = 0,
+                },
+            }.Where(p => p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
+                    lvMain.ItemsSource = list;
+                    break;
+                case 2:
+                    IEnumerable<fun> list1 = new List<fun>
+            {
+                new fun("тестовая иконка")
+                {
+                    image = "\\Resources\\free-icon-dark-mode-6714978.png",
+                    access = 0,
+                },
+
+                new fun("Журнал")
+                {
+                    image = "\\Resources\\jornal 2.png",
+                    access = 0,
                 },
 
                 new fun("Добавления пользователя")
                 {
-                    image = "\\Resources\\Добавить 2 2.png"
+                    image = "\\Resources\\Добавить 2 2.png",
+                    access = 1
                 }
             }.Where(p => p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
-            lvMain.ItemsSource = list;
+                    lvMain.ItemsSource = list1;
+                    break;
+
+            }
+
+
+
+            
         }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)

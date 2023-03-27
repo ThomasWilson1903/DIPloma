@@ -3,10 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:DIPloma.Window"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Авторизация" Height="650" Width="448" MaxWidth="448" MaxHeight="650" MinHeight="650" MinWidth="448"
         Style="{StaticResource fontTitle}"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
         
         >
     <Grid >
@@ -32,7 +34,7 @@
                 <StackPanel  Width="316" VerticalAlignment="Top" Margin="0 50 0 0" HorizontalAlignment="Center">
                     <StackPanel>
                         <TextBlock Text="Логин"/>
-                        <TextBox x:Name="tbLogin"/>
+                        <TextBox x:Name="tbLogin" />
                     </StackPanel>
                     
                     <StackPanel Margin="0 20 0 0">
