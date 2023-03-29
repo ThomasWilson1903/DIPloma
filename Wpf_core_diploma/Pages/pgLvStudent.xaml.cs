@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static DIPloma.Pages.lvAppMain;
 
 namespace DIPloma.Pages
 {
@@ -28,10 +30,39 @@ namespace DIPloma.Pages
             select();
         }
 
+        class listAccell
+        {
+            public string nameStudent { get; set; }
+
+            public string? access { get; set; }
+
+            public listAccell(string name)
+            {
+                nameStudent = name;
+            }
+        }
+
         void select()
         {
-            IEnumerable<Journal> listStudent = EfModels.init().Journals.ToList();
-            dgMainJornal.ItemsSource = listStudent;
+            IEnumerable<Journal> listStudent = EfModels.init().Journals.Include(p => p.StudentsNavigation).ToList();
+            
+        listStudent = listStudent.Where(p=>p.ListItems == 1).ToList();
+        dgMainJornal.ItemsSource = listStudent;
         }
+
+private void tcSerch(object sender, TextChangedEventArgs e)
+{
+
+}
+
+private void mdSerch(object sender, MouseButtonEventArgs e)
+{
+
+}
+
+private void muSerch2(object sender, MouseButtonEventArgs e)
+{
+
+}
     }
 }

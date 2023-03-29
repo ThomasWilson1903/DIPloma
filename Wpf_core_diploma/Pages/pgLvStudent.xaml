@@ -13,15 +13,53 @@
             <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
         </Grid.Effect>
 
-
-        <Border 
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+        
+        <Border MouseUp="muSerch2" Grid.Row="0" Height="37" VerticalAlignment="Top" CornerRadius="18">
+            <Border.Background>
+                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="tblock" MouseDown="mdSerch" Text="Поиск" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" Foreground="#FFFFFF"/>
+                <TextBox x:Name="tbSerch" TextChanged="tcSerch" Foreground="#FFFFFF" SelectionTextBrush="Black" SelectionBrush="Black" BorderBrush="Transparent" Background="Transparent" Width="908" Margin="10 0 0 0">
+                    <TextBox.Style>
+                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type TextBox}">
+                                        <Border x:Name="Bd" 
+                                        BorderBrush="{TemplateBinding BorderBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        Background="{TemplateBinding Background}" 
+                                        SnapsToDevicePixels="true">
+                                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </StackPanel>
+        </Border>
+        
+        <Border Grid.Row="1"
                 CornerRadius="7" ClipToBounds="True">
             <Border.Background>
                 <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
             </Border.Background>
             <DataGrid x:Name="dgMainJornal" AutoGenerateColumns="False" Margin="10">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Student.SurnameStudent}" Header="Ученик"/>
+                    <DataGridTextColumn Binding="{Binding StudentsNavigation.SurnameStudent}" Header="Ученик"/>
                     <DataGridTextColumn Binding="{Binding Aestimatio}" Header="Оценка"/>
                     <DataGridTextColumn Binding="{Binding Comment}" Header="Комментарий"/>
                 </DataGrid.Columns>
