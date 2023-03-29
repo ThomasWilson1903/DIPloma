@@ -13,7 +13,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 using DIPloma.Window;
 
@@ -41,7 +40,7 @@ namespace DIPloma
 
         private void ClSingIn(object sender, RoutedEventArgs e)
         {
-            WdAuthorization wdAuthorization = new WdAuthorization();
+            /*WdAuthorization wdAuthorization = new WdAuthorization();
 
             if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser != null)
             {
@@ -60,7 +59,7 @@ namespace DIPloma
             {
                 visibleUsers(false);
                 MessageBox.Show("авторизацию не была выполнена");
-            }
+            }*/
 
         }
 
@@ -110,4 +109,5 @@ namespace DIPloma
             this.FrMain.Navigate(new PageFunction<string>() { RemoveFromJournal = true });
         }
     }//Server=twilson.ru;Port=3306;User ID=Diplom2;Password=QvjG{td4lrrb;Database=ISPr22-33_BirukovAA_WpfApp_diploma2;Character Set=utf8
+    //scaffold-dbContext "Server=twilson.ru;Port=3306;User ID=Diplom2;Password=QvjG{td4lrrb;Database=ISPr22-33_BirukovAA_WpfApp_diploma2;Character Set=utf8" Pomelo.EntityFrameworkCore.MySql -contextDir DataBase -outputDir DataBase/Entity
 }

@@ -87,7 +87,7 @@
 
                 </Border>
                 <Grid Grid.Column="1">
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="46"/>
                         <RowDefinition Height="79*"/>
@@ -125,7 +125,7 @@
 
                     </Grid>
                     <Grid Grid.Row="1">
-                        
+
                         <ListView x:Name="lvWeek"
                                   Background="Transparent">
                             <ListView.ItemTemplate>
@@ -135,28 +135,35 @@
                                         <Border.Background>
                                             <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
                                         </Border.Background>
-                                        <!--doble ListView-->            
-                                        <ListView x:Name="lvJornalAccep">
-                                            <ListView.ItemTemplate>
-                                                <DataTemplate>
-                                                    <Border>
-                                                        <Border.Background>
-                                                            <SolidColorBrush Opacity="1" Color="#FFFFFF"/>
-                                                        </Border.Background>
 
-                                                        <TextBlock Text="{Binding }"/>
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Date}"/>
+                                            
+                                            <!--doble ListView-->
+                                            <ListView x:Name="lvJornalAccep">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border>
+                                                            <Border.Background>
+                                                                <SolidColorBrush Opacity="1" Color="#FFFFFF"/>
+                                                            </Border.Background>
 
-                                                    </Border>
-                                                </DataTemplate>
-                                            </ListView.ItemTemplate>
-                                        </ListView>
+                                                            <TextBlock Text="{Binding }"/>
+
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+                                        </StackPanel>
                                         
+
+
                                     </Border>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-                        </ListView>    
-                            
-                        
+                        </ListView>
+
+
                     </Grid>
 
 
@@ -167,3 +174,4 @@
         </Border>
     </Grid>
 </Page>
+

@@ -24,6 +24,8 @@ namespace DIPloma.Pages
     /// </summary>
     public partial class pgLvStudent : Page
     {
+        private object dgMainJornal;
+
         public pgLvStudent()
         {
             InitializeComponent();
@@ -45,16 +47,15 @@ namespace DIPloma.Pages
 
         void SelectStudentListViewLeft()
         {
-            IEnumerable<Student> students = EfModels.init().Students.Where(p=>p.Group == 39).ToList();
+            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 ).ToList();
             lvStudentLeft.ItemsSource = students;
         }
 
         void select()
         {
-            /*IEnumerable<Journal> listStudent = EfModels.init().Journals.Include(p => p.StudentsNavigation).ToList();
-            
-        listStudent = listStudent.Where(p=>p.ListItems == 1).ToList();
-        dgMainJornal.ItemsSource = listStudent;*/
+            IEnumerable<Journal> listStudent = EfModels.init().Journals.Where(p=>p.Students == 1).Include(p => p.StudentsNavigation).ToList();
+
+            lvWeek.ItemsSource = listStudent; 
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)

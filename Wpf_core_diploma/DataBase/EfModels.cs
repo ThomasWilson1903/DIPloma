@@ -8,15 +8,17 @@ namespace DIPloma.DataBase
 {
     public partial class EfModels : DbContext
     {
-        private static EfModels _instance;
+        private static EfModels instans;
+
         public static EfModels init()
         {
-            if(_instance == null)
+            if (instans == null)
             {
-                _instance = new EfModels();
+                instans = new EfModels();
             }
-            return _instance;
+            return instans;
         }
+
         public EfModels()
         {
         }
@@ -182,7 +184,6 @@ namespace DIPloma.DataBase
 
                 entity.Property(e => e.Idjournal)
                     .HasColumnType("int(11)")
-                    .ValueGeneratedNever()
                     .HasColumnName("idjournal");
 
                 entity.Property(e => e.Aestimatio)
@@ -190,6 +191,8 @@ namespace DIPloma.DataBase
                     .HasColumnName("aestimatio");
 
                 entity.Property(e => e.Comment).HasMaxLength(100);
+
+                entity.Property(e => e.Date).HasColumnName("DATE");
 
                 entity.Property(e => e.ListItems)
                     .HasColumnType("int(11)")
