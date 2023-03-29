@@ -126,7 +126,7 @@
                     </Grid>
                     <Grid Grid.Row="1">
                         
-                        <ListView x:Name="lvWake"
+                        <ListView x:Name="lvWeek"
                                   Background="Transparent">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -135,7 +135,21 @@
                                         <Border.Background>
                                             <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
                                         </Border.Background>
+                                        <!--doble ListView-->            
+                                        <ListView x:Name="lvJornalAccep">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border>
+                                                        <Border.Background>
+                                                            <SolidColorBrush Opacity="1" Color="#FFFFFF"/>
+                                                        </Border.Background>
 
+                                                        <TextBlock Text="{Binding }"/>
+
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
                                         
                                     </Border>
                                 </DataTemplate>
