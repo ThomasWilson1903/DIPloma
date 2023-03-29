@@ -5,65 +5,151 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DIPloma.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="pgLvStudent">
+      d:DesignHeight="720" d:DesignWidth="1024"
+      Title="pgLvStudent"
+      Style="{StaticResource font}"
+      >
 
     <Grid>
         <Grid.Effect>
             <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
         </Grid.Effect>
 
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
-        
-        <Border MouseUp="muSerch2" Grid.Row="0" Height="37" VerticalAlignment="Top" CornerRadius="18">
-            <Border.Background>
-                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
-            </Border.Background>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="tblock" MouseDown="mdSerch" Text="Поиск" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" Foreground="#FFFFFF"/>
-                <TextBox x:Name="tbSerch" TextChanged="tcSerch" Foreground="#FFFFFF" SelectionTextBrush="Black" SelectionBrush="Black" BorderBrush="Transparent" Background="Transparent" Width="908" Margin="10 0 0 0">
-                    <TextBox.Style>
-                        <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type TextBox}">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type TextBox}">
-                                        <Border x:Name="Bd" 
-                                        BorderBrush="{TemplateBinding BorderBrush}" 
-                                        BorderThickness="{TemplateBinding BorderThickness}" 
-                                        Background="{TemplateBinding Background}" 
-                                        SnapsToDevicePixels="true">
-                                            <ScrollViewer x:Name="PART_ContentHost" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                        </Border>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
-                                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </TextBox.Style>
-                </TextBox>
-            </StackPanel>
-        </Border>
-        
-        <Border Grid.Row="1"
+
+
+
+
+        <Border 
                 CornerRadius="7" ClipToBounds="True">
             <Border.Background>
                 <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
             </Border.Background>
-            <DataGrid x:Name="dgMainJornal" AutoGenerateColumns="False" Margin="10">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding StudentsNavigation.SurnameStudent}" Header="Ученик"/>
-                    <DataGridTextColumn Binding="{Binding Aestimatio}" Header="Оценка"/>
-                    <DataGridTextColumn Binding="{Binding Comment}" Header="Комментарий"/>
-                </DataGrid.Columns>
-            </DataGrid>
+            <Grid Background="Transparent">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="252"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0" CornerRadius="7" Margin="5" ClipToBounds="True" >
+
+                    <Border.Background>
+                        <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                    </Border.Background>
+
+                    <Grid Background="Transparent">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="65"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" HorizontalAlignment="Center" Width="222">
+                            <TextBlock Text="Список учащихся 11 ”А”" FontSize="16" 
+                               HorizontalAlignment="Left" Margin="0 5 0 0"/>
+                            <Border CornerRadius="14" Height="25" Width="221" Margin="0 11 0 0">
+                                <Border.Background>
+                                    <SolidColorBrush Color="#656565" Opacity="1"/>
+                                </Border.Background>
+                                <StackPanel VerticalAlignment="Center">
+                                    <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                        <TextBlock Text="Поиск" Margin="14 0 0 0" 
+                                           FontSize="14" Foreground="#FFFFFF"/>
+                                        <TextBox FontSize="14" Background="Transparent"
+                                         BorderBrush="Transparent"
+                                         Style="{StaticResource tboxTransperent}" Width="155"
+                                         Foreground="#FFFFFF" Margin="3 0 0 0">
+
+                                        </TextBox>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                        <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent" Style="{StaticResource listView}">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="14" Height="25" Width="210" Margin="0 2 2 0" HorizontalAlignment="Center">
+                                        <Border.Background>
+                                            <SolidColorBrush Color="#022D73" Opacity="1"/>
+                                        </Border.Background>
+
+                                        <TextBlock  Text="{Binding SurnameStudent}" 
+                                                    VerticalAlignment="Center" Margin="11 0 0 0"
+                                                    Foreground="#FFFFFF"
+                                                    FontSize="14"/>
+
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+
+
+
+                </Border>
+                <Grid Grid.Column="1">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="46"/>
+                        <RowDefinition Height="79*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="92*"/>
+                            <ColumnDefinition Width="193"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" MouseUp="muSerch2" CornerRadius="7" Margin="5,5,5,5" ClipToBounds="True" >
+                            <Border.Background>
+                                <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                            </Border.Background>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
+                                <TextBlock Text="Поиск" MouseUp="muSerch"/>
+                                <TextBox x:Name="tboxSerch" Background="Transparent" 
+                                     BorderBrush="Transparent" Width="5000" ClipToBounds="True" 
+                                     FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center">
+
+                                </TextBox>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="1" CornerRadius="7" Margin="0,5,5,5" ClipToBounds="True"
+                            
+                            >
+                            <Border.Background>
+                                <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                            </Border.Background>
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="Март 2023 года" FontSize="20"/>
+
+                            </StackPanel>
+                        </Border>
+
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        
+                        <ListView x:Name="lvWake"
+                                  Background="Transparent">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border CornerRadius="7">
+
+                                        <Border.Background>
+                                            <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                                        </Border.Background>
+
+                                        
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>    
+                            
+                        
+                    </Grid>
+
+
+                </Grid>
+
+
+            </Grid>
         </Border>
     </Grid>
 </Page>
