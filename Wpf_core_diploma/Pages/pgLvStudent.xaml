@@ -95,13 +95,13 @@
                         <RowDefinition Height="46"/>
                         <RowDefinition Height="79*"/>
                     </Grid.RowDefinitions>
-                    <Grid Grid.Row="0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="92*"/>
-                            <ColumnDefinition Width="193"/>
-                        </Grid.ColumnDefinitions>
 
-                        <Border Grid.Column="0" MouseUp="muSerch2" CornerRadius="7" Margin="5,5,5,5" ClipToBounds="True" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="92*"/>
+                        <ColumnDefinition Width="193"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="0" Grid.Column="0">
+                        <Border Grid.Column="1" MouseUp="muSerch2" CornerRadius="7" Margin="5,5,5,5" ClipToBounds="True" >
                             <Border.Background>
                                 <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
                             </Border.Background>
@@ -112,9 +112,14 @@
                                      FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center">
 
                                 </TextBox>
-                                
+
                             </StackPanel>
                         </Border>
+                    </Grid>
+                    <Grid Grid.Row="0" Grid.Column="1">
+
+
+
                         <Border Grid.Column="1" CornerRadius="7" Margin="0,5,5,5" ClipToBounds="True" MouseUp="muAddEstimation"
                             
                             >
@@ -128,22 +133,38 @@
                         </Border>
 
                     </Grid>
-                    <Grid Grid.Row="1">
-                    
-                        <ListView Name="lvMain" Background="Transparent">
+                    <Grid Grid.Row="1" Grid.Column="0">
+
+                        <ListView Name="lvMain" Background="Transparent" BorderBrush="Transparent">
 
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border CornerRadius="15" VerticalAlignment="Center" Height="26" Margin="0 2 0 0" >
-                                        <Border.Background>
-                                            <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
-                                        </Border.Background>
+                                    <Grid>
 
-                                        <StackPanel Orientation="Horizontal" Width="696" Margin="0 5 0 0">
-                                            <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16"/>
-                                            <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16" />
-                                        </StackPanel>
-                                    </Border>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="450"/>
+                                            <ColumnDefinition Width="70"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Border Grid.Column="0" CornerRadius="15" VerticalAlignment="Center" Height="26" Margin="0 2 0 0" >
+                                            <Border.Background>
+                                                <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
+                                            </Border.Background>
+
+                                            <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                                                <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16"/>
+                                                <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16" />
+                                            </StackPanel>
+                                        </Border>
+                                        <Border Grid.Column="1" HorizontalAlignment="Center">
+                                            <Border.Background>
+                                                <SolidColorBrush Color="#FFFFFF" Opacity="0"/>
+                                            </Border.Background>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Content="del" FontSize="16" HorizontalAlignment="Center"/>
+                                            </StackPanel>
+                                        </Border>
+                                    </Grid>
 
                                 </DataTemplate>
                             </ListView.ItemTemplate>
@@ -154,7 +175,7 @@
                                         <DataTemplate>
                                             <Border CornerRadius="7" Background="#D9D9D9" Margin="10 10 0 10" Height="26">
                                                 <TextBlock  FontSize="20" Margin="15 0 0 0" Foreground="#022D73" Height="50"
-                                                            Text="{Binding Name, StringFormat= D, ConverterCulture='ru-RU'}" />    
+                                                            Text="{Binding Name, StringFormat= D, ConverterCulture='ru-RU'}" />
                                             </Border>
                                         </DataTemplate>
                                     </GroupStyle.HeaderTemplate>
