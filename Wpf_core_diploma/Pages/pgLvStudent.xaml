@@ -53,7 +53,8 @@
                                     <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
                                         <TextBlock Text="Поиск" Margin="14 0 0 0" 
                                            FontSize="14" Foreground="#FFFFFF"/>
-                                        <TextBox FontSize="14" Background="Transparent"
+                                        <TextBox x:Name="tbSerchStudent"
+                                            FontSize="14" Background="Transparent" TextChanged="tChangedSerchStuden"
                                          BorderBrush="Transparent"
                                          Style="{StaticResource tboxTransperent}" Width="155"
                                          Foreground="#FFFFFF" Margin="3 0 0 0">
@@ -63,7 +64,9 @@
                                 </StackPanel>
                             </Border>
                         </StackPanel>
-                        <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent" Style="{StaticResource listView}">
+                        <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent" Style="{StaticResource listView}"
+                                  SelectionChanged="scStudent"
+                                  >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <Border CornerRadius="14" Height="25" Width="210" Margin="0 2 2 0" HorizontalAlignment="Center">
@@ -109,60 +112,55 @@
                                      FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center">
 
                                 </TextBox>
+                                
                             </StackPanel>
                         </Border>
-                        <Border Grid.Column="1" CornerRadius="7" Margin="0,5,5,5" ClipToBounds="True"
+                        <Border Grid.Column="1" CornerRadius="7" Margin="0,5,5,5" ClipToBounds="True" MouseUp="muAddEstimation"
                             
                             >
                             <Border.Background>
-                                <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                                <SolidColorBrush Opacity="1" Color="#0070E0"/>
                             </Border.Background>
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <TextBlock Text="Март 2023 года" FontSize="20"/>
-
+                                <TextBlock Text="+ оценка" Foreground="#FFFFFF"/>
+                                <TextBlock Text="Март 2023 года" FontSize="20" Visibility="Collapsed"/>
                             </StackPanel>
                         </Border>
 
                     </Grid>
                     <Grid Grid.Row="1">
+                    
+                        <ListView Name="lvMain" Background="Transparent">
 
-                        <ListView x:Name="lvWeek"
-                                  Background="Transparent">
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <Border CornerRadius="7">
-
+                                    <Border CornerRadius="15" VerticalAlignment="Center" Height="26" Margin="0 2 0 0" >
                                         <Border.Background>
-                                            <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
+                                            <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
                                         </Border.Background>
 
-                                        <StackPanel>
-                                            <TextBlock Text="{Binding Date}"/>
-                                            
-                                            <!--doble ListView-->
-                                            <ListView x:Name="lvJornalAccep">
-                                                <ListView.ItemTemplate>
-                                                    <DataTemplate>
-                                                        <Border>
-                                                            <Border.Background>
-                                                                <SolidColorBrush Opacity="1" Color="#FFFFFF"/>
-                                                            </Border.Background>
-
-                                                            <TextBlock Text="{Binding }"/>
-
-                                                        </Border>
-                                                    </DataTemplate>
-                                                </ListView.ItemTemplate>
-                                            </ListView>
+                                        <StackPanel Orientation="Horizontal" Width="696" Margin="0 5 0 0">
+                                            <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16"/>
+                                            <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16" />
                                         </StackPanel>
-                                        
-
-
                                     </Border>
+
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-                        </ListView>
 
+                            <ListView.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border CornerRadius="7" Background="#D9D9D9" Margin="10 10 0 10" Height="26">
+                                                <TextBlock  FontSize="20" Margin="15 0 0 0" Foreground="#022D73" Height="50"
+                                                            Text="{Binding Name, StringFormat= D, ConverterCulture='ru-RU'}" />    
+                                            </Border>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                </GroupStyle>
+                            </ListView.GroupStyle>
+                        </ListView>
 
                     </Grid>
 

@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -29,33 +30,36 @@ namespace DIPloma.Pages
         public pgLvStudent()
         {
             InitializeComponent();
-            select();
             SelectStudentListViewLeft();
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
+
         }
 
-        class listAccell
-        {
-            public string nameStudent { get; set; }
+        
 
-            public string? access { get; set; }
+        
 
-            public listAccell(string name)
-            {
-                nameStudent = name;
-            }
-        }
+        
+
+
+        
+    
 
         void SelectStudentListViewLeft()
         {
-            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 ).ToList();
+            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
             lvStudentLeft.ItemsSource = students;
         }
 
-        void select()
+        void select(int SelectStudent)
         {
-            IEnumerable<Journal> listStudent = EfModels.init().Journals.Where(p=>p.Students == 1).Include(p => p.StudentsNavigation).ToList();
+            List<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent).ToList();
+            lvMain.ItemsSource = items;
 
-            lvWeek.ItemsSource = listStudent; 
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvMain.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("Date");
+            view.GroupDescriptions.Add(groupDescription);//тестовый комент
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
@@ -72,6 +76,28 @@ namespace DIPloma.Pages
         private void muSerch(object sender, MouseButtonEventArgs e)
         {
             Keyboard.Focus(tboxSerch);
+        }
+
+        private void scStudent(object sender, SelectionChangedEventArgs e)
+        {
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
+        }
+
+        private void tChangedSerchStuden(object sender, TextChangedEventArgs e)
+        {
+            SelectStudentListViewLeft();
+        }
+
+        private void scMonth(object sender, SelectionChangedEventArgs e)
+        {
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
+        }
+
+        private void muAddEstimation(object sender, MouseButtonEventArgs e)
+        {
+            new wdAddEstimation().Show();
         }
     }
 }
