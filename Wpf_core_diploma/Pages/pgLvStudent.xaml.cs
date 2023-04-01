@@ -97,7 +97,7 @@ namespace DIPloma.Pages
 
         private void muAddEstimation(object sender, MouseButtonEventArgs e)
         {
-            new wdAddEstimation().Show();
+
         }
     }
 }
