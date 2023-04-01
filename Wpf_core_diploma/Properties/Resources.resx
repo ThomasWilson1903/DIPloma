@@ -136,6 +136,9 @@
   <data name="msedge_O3xG2PAYzg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\msedge_O3xG2PAYzg.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="pngwing_com" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pngwing.com.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Добавить 2 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Добавить 2 2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

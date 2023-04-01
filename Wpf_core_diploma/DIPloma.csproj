@@ -16,6 +16,7 @@
     <None Remove="Resources\free-icon-dark-mode-6714978.png" />
     <None Remove="Resources\jornal 2.png" />
     <None Remove="Resources\msedge_O3xG2PAYzg.png" />
+    <None Remove="Resources\pngwing.com.png" />
     <None Remove="Resources\sunny.png" />
     <None Remove="Resources\Добавить 2 2.png" />
   </ItemGroup>
@@ -48,6 +49,7 @@
     <Resource Include="Resources\free-icon-dark-mode-6714978.png" />
     <Resource Include="Resources\jornal 2.png" />
     <Resource Include="Resources\msedge_O3xG2PAYzg.png" />
+    <Resource Include="Resources\pngwing.com.png" />
     <Resource Include="Resources\sunny.png" />
     <Resource Include="Resources\Добавить 2 2.png" />
   </ItemGroup>

@@ -97,7 +97,12 @@ namespace DIPloma.Pages
 
         private void muAddEstimation(object sender, MouseButtonEventArgs e)
         {
+            frAddChangRight.Navigate(new pgAddChangEvaluation());
+        }
 
+        private void clChang(object sender, RoutedEventArgs e)
+        {
+            frAddChangRight.Navigate(new pgAddChangEvaluation());
         }
     }
 }

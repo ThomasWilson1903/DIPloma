@@ -60,6 +60,29 @@
         <Style x:Key="listView" TargetType="ListView">
             
         </Style>
+        
+        <!---->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#3D5754"/>
+            
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Red"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+
+
     </Application.Resources>
 </Application>
 <!--

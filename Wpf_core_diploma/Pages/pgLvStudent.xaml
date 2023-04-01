@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DIPloma.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1024"
+      d:DesignHeight="720" d:DesignWidth="1030"
       Title="pgLvStudent"
       Style="{StaticResource font}"
       >
@@ -26,10 +26,10 @@
             </Border.Background>
             <Grid Background="Transparent">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="252"/>
+                    <ColumnDefinition Width="255"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-
+                <!--left -->
                 <Border Grid.Column="0" CornerRadius="7" Margin="5" ClipToBounds="True" >
 
                     <Border.Background>
@@ -65,7 +65,7 @@
                             </Border>
                         </StackPanel>
                         <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent" Style="{StaticResource listView}"
-                                  SelectionChanged="scStudent"
+                                  SelectionChanged="scStudent" BorderBrush="Transparent"
                                   >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
@@ -156,12 +156,20 @@
                                                 <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16" />
                                             </StackPanel>
                                         </Border>
-                                        <Border Grid.Column="1" HorizontalAlignment="Center">
+
+                                        <Border Grid.Column="1" HorizontalAlignment="Center" Style="{DynamicResource Button}">
                                             <Border.Background>
                                                 <SolidColorBrush Color="#FFFFFF" Opacity="0"/>
                                             </Border.Background>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button Content="del" FontSize="16" HorizontalAlignment="Center"/>
+                                                <Button Width="40" Height="40" BorderBrush="Transparent" Click="clChang">
+                                                    <Button.Background>
+                                                        
+                                                        <ImageBrush ImageSource="/Resources/pngwing.com.png" />
+                                                    </Button.Background>
+                                                    
+                                                    
+                                                </Button>
                                             </StackPanel>
                                         </Border>
                                     </Grid>
@@ -183,6 +191,9 @@
                             </ListView.GroupStyle>
                         </ListView>
 
+                    </Grid>
+                    <Grid Grid.Row="1" Grid.Column="1" >
+                        <Frame x:Name="frAddChangRight" />
                     </Grid>
 
 
