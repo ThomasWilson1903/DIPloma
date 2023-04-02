@@ -106,7 +106,19 @@
                                 <SolidColorBrush Opacity="1" Color="#D9D9D9"/>
                             </Border.Background>
                             <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="5 0 0 0">
-                                <TextBlock Text="Поиск" MouseUp="muSerch"/>
+                                <Grid Width="30">
+
+
+
+                                    <Button BorderBrush="Transparent" Click="clUpdate">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/Update1.png"/>
+
+                                        </Button.Background>
+                                    </Button>
+
+                                </Grid>
+                                <TextBlock Text="Поиск" MouseUp="muSerch" Margin="5 0 0 0" />
                                 <TextBox x:Name="tboxSerch" Background="Transparent" 
                                      BorderBrush="Transparent" Width="5000" ClipToBounds="True" 
                                      FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center">
@@ -142,7 +154,7 @@
                                     <Grid>
 
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="450"/>
+                                            <ColumnDefinition Width="430"/>
                                             <ColumnDefinition Width="70"/>
                                         </Grid.ColumnDefinitions>
 
@@ -162,13 +174,21 @@
                                                 <SolidColorBrush Color="#FFFFFF" Opacity="0"/>
                                             </Border.Background>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button Width="40" Height="40" BorderBrush="Transparent" Click="clChang">
+                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang">
                                                     <Button.Background>
-                                                        
+
                                                         <ImageBrush ImageSource="/Resources/pngwing.com.png" />
                                                     </Button.Background>
-                                                    
-                                                    
+
+
+                                                </Button>
+
+                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clDel">
+                                                    <Button.Background>
+                                                        <ImageBrush ImageSource="/Resources/delete.png" />
+                                                    </Button.Background>
+
+
                                                 </Button>
                                             </StackPanel>
                                         </Border>

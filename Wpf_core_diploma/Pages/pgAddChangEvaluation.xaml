@@ -7,17 +7,37 @@
       mc:Ignorable="d" 
       d:DesignHeight="500" d:DesignWidth="193"
       Title="pgAddChangEvaluation"
-      FontSize="16">
+      FontSize="16"
+      IsVisibleChanged="visibleChanged"
+      >
 
-        <Border CornerRadius="7" Margin="5">
-            <Border.Background>
-                <SolidColorBrush Color="#D9D9D9" Opacity="0.5"/>
-            </Border.Background>
-        <StackPanel VerticalAlignment="Center">
-            <TextBlock Text="Комментарий к оценки"/>
-            <TextBox/>
-            <TextBlock Text="Оценка" Margin="0 10 0 0 "/>
-            <TextBox/>
-        </StackPanel>    
-        </Border>
+    <Border CornerRadius="7" Margin="5">
+        <Border.Background>
+            <SolidColorBrush Color="#D9D9D9" Opacity="0.5"/>
+        </Border.Background>
+        <Grid Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="32*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Calendar x:Name="calendar1" FirstDayOfWeek="Monday"
+                          SelectedDatesChanged="calendar_SelectedDatesChanged">
+                            <Calendar.BlackoutDates>
+                            
+                            </Calendar.BlackoutDates>
+                </Calendar>
+            </Grid>
+            <Grid Grid.Row="1">
+
+                <StackPanel  VerticalAlignment="Center">
+                    <TextBlock Text="Комментарий к оценки"/>
+                    <TextBox Text="{Binding Comment}"/>
+                    <TextBlock Text="Оценка" Margin="0 10 0 0 "/>
+                    <TextBox Text="{Binding Aestimatio}"/>
+                    <Button Content="Сохранить" Margin="5" Foreground="#FFFFFF" Click="clSaveAddChang"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Border>
 </Page>

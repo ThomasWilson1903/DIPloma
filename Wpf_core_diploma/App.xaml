@@ -62,8 +62,8 @@
         </Style>
         
         <!---->
-        <Style TargetType="{x:Type Button}">
-            <Setter Property="Background" Value="#3D5754"/>
+        <Style x:Key="Button1" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#0070E0"/>
             
             <Setter Property="Template">
                 <Setter.Value>
@@ -76,7 +76,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="Red"/>
+                    <Setter Property="Background" Value="#022D73"/>
                 </Trigger>
             </Style.Triggers>
         </Style>

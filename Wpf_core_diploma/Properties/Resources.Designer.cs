@@ -93,6 +93,16 @@ namespace DIPloma.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] dw1 {
             get {
                 object obj = ResourceManager.GetObject("dw1", resourceCulture);
@@ -126,6 +136,16 @@ namespace DIPloma.Properties {
         internal static byte[] pngwing_com {
             get {
                 object obj = ResourceManager.GetObject("pngwing_com", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Update1 {
+            get {
+                object obj = ResourceManager.GetObject("Update1", resourceCulture);
                 return ((byte[])(obj));
             }
         }

@@ -36,15 +36,7 @@ namespace DIPloma.Pages
 
         }
 
-        
 
-        
-
-        
-
-
-        
-    
 
         void SelectStudentListViewLeft()
         {
@@ -54,7 +46,8 @@ namespace DIPloma.Pages
 
         void select(int SelectStudent)
         {
-            List<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent).ToList();
+            IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent).ToList();
+            items = items.OrderBy(p => p.Date);
             lvMain.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvMain.ItemsSource);
@@ -64,7 +57,7 @@ namespace DIPloma.Pages
 
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void muSerch2(object sender, MouseButtonEventArgs e)
@@ -97,12 +90,34 @@ namespace DIPloma.Pages
 
         private void muAddEstimation(object sender, MouseButtonEventArgs e)
         {
-            frAddChangRight.Navigate(new pgAddChangEvaluation());
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            frAddChangRight.Navigate(new pgAddChangEvaluation(new Journal(), selectStudent));
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-            frAddChangRight.Navigate(new pgAddChangEvaluation());
+            Journal chang = (sender as Button).DataContext as Journal;
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            frAddChangRight.Navigate(new pgAddChangEvaluation(chang, selectStudent));
+
+        }
+
+        private void clDel(object sender, RoutedEventArgs e)
+        {
+            Journal Del = (sender as Button).DataContext as Journal;
+            if (MessageBox.Show("точно да?", "dqw", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                EfModels.init().Journals.Remove(Del);
+                EfModels.init().SaveChanges();
+            }
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
+        }
+
+        private void clUpdate(object sender, RoutedEventArgs e)
+        {
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
         }
     }
 }
