@@ -9,7 +9,38 @@
       Title="pgAddUsers"
       FontSize="20"
       FontFamily="Inter"
-      >
+      
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <Page.Resources>
+        <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+            <Setter Property="Width" Value="8"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Cursor" Value="SizeWE"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Thumb}">
+                        <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="DataGridColumnHeaderStyle1" TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                        <Grid>
+                            <theme:DataGridHeaderBorder Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" IsClickable="{TemplateBinding CanUserSort}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}" SeparatorBrush="{TemplateBinding SeparatorBrush}">
+                                <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </theme:DataGridHeaderBorder>
+                            <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                            <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -22,7 +53,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="270"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Style="{StaticResource Button1}" Content="+ Добавить пользователя">
+            <Button Grid.Column="1" Style="{StaticResource Button1}" Content="+ Добавить пользователя" Foreground="#FFFFFF">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
@@ -41,22 +72,71 @@
                 <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
             </Border.Background>
 
-            <ListView Background="Transparent">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Border Background="#FFFFFF">
-                            <StackPanel Orientation="Horizontal">
-                                <Ellipse>
-                                    <Ellipse.Fill>
-                                        <ImageBrush ImageSource="{Binding PhotoUsers}"/>
-                                    </Ellipse.Fill>
-                                </Ellipse>
-                                <TextBlock Text="{Binding SurNameUser}"/>
-                            </StackPanel>
-                        </Border>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <DataGrid AutoGenerateColumns="False" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" RowStyle="{DynamicResource DataGridRowStyle1}" 
+                      x:Name="dgUserMember" Background="Transparent" SelectionChanged="dgUserMember_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn CanUserReorder="False" Width="auto">
+                        <DataGridCheckBoxColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <CheckBox Background="Transparent"/>
+                            </DataTemplate>
+                        </DataGridCheckBoxColumn.HeaderTemplate>
+                    </DataGridCheckBoxColumn>
+
+                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding IdUserss}"/>
+
+
+                    <DataGridTemplateColumn Header="Информация" IsReadOnly="True" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Ellipse Width="25" Height="25" Margin="0 0 10 0" >
+                                        <Ellipse.Fill>
+                                            <ImageBrush ImageSource="{Binding PhotoUsers, TargetNullValue={StaticResource photo}}"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+
+                                    <TextBlock Text="{Binding SurNameUser}" VerticalAlignment="Center"/>
+                                    <TextBlock Text=" " VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding NameUser}" VerticalAlignment="Center"/>
+                                    <TextBlock Text=" " VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding DobleNameUser}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTextColumn Header="Роль" IsReadOnly="True" CanUserReorder="False" Width="*" Binding="{Binding RoleNavigation.Names}"/>
+                    <DataGridTextColumn Header="Email" IsReadOnly="True" CanUserReorder="False" Width="*" Binding="{Binding Mail}"/>
+
+                    <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang" Style="{StaticResource Button1}">
+                                        <Button.Background>
+
+                                            <ImageBrush ImageSource="/Resources/pngwing.com.png" />
+                                        </Button.Background>
+
+
+                                    </Button>
+
+                                    <Button Width="30" Height="30" BorderBrush="Transparent" Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button1}">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Resources/delete.png" />
+                                        </Button.Background>
+
+
+                                    </Button>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+
+                </DataGrid.Columns>
+            </DataGrid>
 
         </Border>
     </Grid>
