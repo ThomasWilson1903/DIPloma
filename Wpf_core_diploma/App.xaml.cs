@@ -15,13 +15,13 @@ namespace DIPloma
     {
         public App()
         {
-            DispatcherUnhandledException += App_DispatcherUnhandledException;
+            //DispatcherUnhandledException += App_DispatcherUnhandledException;
         }
 
-        private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
+        /*private void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
             MessageBox.Show("Фатальная ошибка!");
             e.Handled= true;
-        }
+        }*/
     }
 }

@@ -64,7 +64,7 @@
                                 </StackPanel>
                             </Border>
                         </StackPanel>
-                        <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent" Style="{StaticResource listView}"
+                        <ListView x:Name="lvStudentLeft" Grid.Row="1" Background="Transparent"
                                   SelectionChanged="scStudent" BorderBrush="Transparent"
                                   >
                             <ListView.ItemTemplate>
@@ -169,12 +169,12 @@
                                             </StackPanel>
                                         </Border>
 
-                                        <Border Grid.Column="1" HorizontalAlignment="Center" Style="{DynamicResource Button}">
+                                        <Border Grid.Column="1" HorizontalAlignment="Center" >
                                             <Border.Background>
                                                 <SolidColorBrush Color="#FFFFFF" Opacity="0"/>
                                             </Border.Background>
                                             <StackPanel Orientation="Horizontal">
-                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang">
+                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang" Style="{DynamicResource Button1}">
                                                     <Button.Background>
 
                                                         <ImageBrush ImageSource="/Resources/pngwing.com.png" />
@@ -183,7 +183,7 @@
 
                                                 </Button>
 
-                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clDel">
+                                                <Button Width="30" Height="30" BorderBrush="Transparent" Click="clDel" Style="{DynamicResource Button1}">
                                                     <Button.Background>
                                                         <ImageBrush ImageSource="/Resources/delete.png" />
                                                     </Button.Background>
