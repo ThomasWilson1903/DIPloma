@@ -58,22 +58,22 @@
             </Setter>
         </Style>
         <!--tboxTransperent-->
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
         <!--ListView-->
         <Style x:Key="listView" TargetType="ListView">
-            
+
         </Style>
-        
+
         <!--Button1-->
         <Style x:Key="Button1" TargetType="{x:Type Button}">
             <Setter Property="Background" Value="#0070E0"/>
-            
+
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
@@ -88,8 +88,16 @@
                     <Setter Property="Background" Value="#022D73"/>
                 </Trigger>
             </Style.Triggers>
+            <Style.Setters >
+                <Setter TargetName="Border">
+                    
+                </Setter>
+                <Setter Property="CornerRadius" Value="14"/>
+                
+            </Style.Setters>
+
         </Style>
-        
+
         <!--#region DataGrid-->
         <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
             <Setter Property="Width" Value="8"/>
