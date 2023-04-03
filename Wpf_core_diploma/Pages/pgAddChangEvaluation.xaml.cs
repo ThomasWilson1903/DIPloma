@@ -34,7 +34,7 @@ namespace DIPloma.Pages
             this.Journal = journal;
             InitializeComponent();
             DataContext = Journal;
-            calendar1.SelectedDate = today;
+            //calendar1.SelectedDate = today;
         }
 
         private void clSaveAddChang(object sender, RoutedEventArgs e)
@@ -69,7 +69,7 @@ namespace DIPloma.Pages
 
         private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedDate = calendar1.SelectedDate;
+            //selectedDate = calendar1.SelectedDate;
         }
     }
 }

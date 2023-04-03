@@ -91,21 +91,19 @@ namespace DIPloma.Pages
         private void muAddEstimation(object sender, MouseButtonEventArgs e)
         {
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
-            frAddChangRight.Navigate(new pgAddChangEvaluation(new Journal(), selectStudent));
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
             Journal chang = (sender as Button).DataContext as Journal;
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
-            frAddChangRight.Navigate(new pgAddChangEvaluation(chang, selectStudent));
 
         }
 
         private void clDel(object sender, RoutedEventArgs e)
         {
             Journal Del = (sender as Button).DataContext as Journal;
-            if (MessageBox.Show("точно да?", "dqw", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Точно да?", "Удалить?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 EfModels.init().Journals.Remove(Del);
                 EfModels.init().SaveChanges();
@@ -118,6 +116,11 @@ namespace DIPloma.Pages
         {
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
             select(selectStudent);
+        }
+
+        private void clSaveAddChang(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

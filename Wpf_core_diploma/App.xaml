@@ -88,13 +88,7 @@
                     <Setter Property="Background" Value="#022D73"/>
                 </Trigger>
             </Style.Triggers>
-            <Style.Setters >
-                <Setter TargetName="Border">
-                    
-                </Setter>
-                <Setter Property="CornerRadius" Value="14"/>
-                
-            </Style.Setters>
+            
 
         </Style>
 

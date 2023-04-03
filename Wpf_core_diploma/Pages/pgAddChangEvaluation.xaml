@@ -195,7 +195,7 @@
 
     <Border CornerRadius="7" Margin="5">
         <Border.Background>
-            <SolidColorBrush Color="#D9D9D9" Opacity="0.5"/>
+            <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
         </Border.Background>
         <Grid Background="Transparent">
             <Grid.RowDefinitions>
