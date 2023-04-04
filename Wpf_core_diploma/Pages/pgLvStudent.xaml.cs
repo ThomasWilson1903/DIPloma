@@ -27,6 +27,10 @@ namespace DIPloma.Pages
     {
         private object dgMainJornal;
 
+        //DateTime today = DateTime.Today;
+        DateTime? selectedDate;
+        Journal Journal;
+
         public pgLvStudent()
         {
             InitializeComponent();
@@ -90,13 +94,17 @@ namespace DIPloma.Pages
 
         private void muAddEstimation(object sender, MouseButtonEventArgs e)
         {
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            addStringJornal(new Journal(), lvStudentLeft.SelectedIndex + 1, 1);
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
             Journal chang = (sender as Button).DataContext as Journal;
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            DataContext = chang;
+            DateTime date= DateTime.Now;
+            calendar1.SelectedDate = FromDateTime(Convert.ToDateTime(date));
+            //addStringJornal(chang, selectStudent, 1);
 
         }
 
@@ -112,15 +120,59 @@ namespace DIPloma.Pages
             select(selectStudent);
         }
 
-        private void clUpdate(object sender, RoutedEventArgs e)
+        void Update()
         {
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
             select(selectStudent);
         }
 
+        private void clUpdate(object sender, RoutedEventArgs e)
+        {
+            Update();
+        }
+
+        void addStringJornal(Journal journal, int lvStudentLeft, int listItem)
+        {
+            DataContext = journal;
+            journal.ListItems = listItem;
+
+
+            if (lvStudentLeft != 0)
+            {
+                journal.Students = lvStudentLeft;
+                if (journal.Idjournal == 0)
+                {
+                    if (calendar1.SelectedDate == null)
+                    {
+                        var date = DateOnly.FromDateTime(Convert.ToDateTime(DateTime.Today));
+                        journal.Date = date;
+                        calendar1.SelectedDate = DateTime.Today; 
+                    }
+                    EfModels.init().Add(journal);
+                }
+            }
+            else
+                MessageBox.Show("Вы не выбрали учащего");
+
+
+
+
+        }
+
         private void clSaveAddChang(object sender, RoutedEventArgs e)
         {
 
+            EfModels.init().SaveChanges();
+            Update();
+            tbComment.Text = "";
+            tbAestiomatio.Text = "";
+            MessageBox.Show($"Сохранено");
+
+        }
+
+        private void smcCalendar(object sender, SelectionChangedEventArgs e)
+        {
+            selectedDate = calendar1.SelectedDate;
         }
     }
 }

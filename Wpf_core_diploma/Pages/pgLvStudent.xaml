@@ -279,8 +279,8 @@
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="92*"/>
-                        <ColumnDefinition Width="193"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="220"/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Row="0" Grid.Column="0">
                         <Border Grid.Column="1" MouseUp="muSerch2" CornerRadius="7" Margin="5,5,5,5" ClipToBounds="True" >
@@ -403,11 +403,13 @@
                             </Border.Background>
                             <Grid Background="Transparent">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="17*"/>
-                                    <RowDefinition Height="32*"/>
+                                    <RowDefinition Height="219*"/>
+                                    <RowDefinition Height="445*"/>
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="0">
-                                    <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
+                                    <Calendar  x:Name="calendar1" FirstDayOfWeek="Monday" SelectedDatesChanged="smcCalendar" 
+                                               
+                                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
                                 </Grid>
                                 <Grid Grid.Row="1">
 
@@ -421,7 +423,7 @@
                                                 <Border.Background>
                                                     <SolidColorBrush Color="#FFFFFF"/>
                                                 </Border.Background>
-                                                <TextBox Text="{Binding Comment}" Height="30" 
+                                                <TextBox x:Name="tbComment" Text="{Binding Comment}" Height="30" 
                                                      Background="Transparent" BorderBrush="Transparent"/>
                                             </Border>
                                         </StackPanel>
@@ -432,7 +434,7 @@
                                                 <Border.Background>
                                                     <SolidColorBrush Color="#FFFFFF"/>
                                                 </Border.Background>
-                                                <TextBox Text="{Binding Aestimatio}" 
+                                                <TextBox x:Name="tbAestiomatio" Text="{Binding Aestimatio}" 
                                                          Background="Transparent" BorderBrush="Transparent" />
                                             </Border>
 

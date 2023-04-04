@@ -203,7 +203,7 @@
                 <RowDefinition Height="32*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Calendar CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
+                <Calendar FirstDayOfWeek="Monday" CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
             </Grid>
             <Grid Grid.Row="1">
 
