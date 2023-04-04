@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="500" Width="200" MinHeight="500" MinWidth="200"
         Background="#7C7C7C"
-        IsVisibleChanged="IsVisibleChanged1"
+        IsVisibleChanged="IsVisibleChanged1" WindowStartupLocation="CenterScreen"
         >
 
     <Window.Resources>
@@ -207,7 +207,7 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Calendar  x:Name="calendar1" FirstDayOfWeek="Monday" 
-                                     
+                               SelectedDate="{Binding Date}"      
                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
                 </Grid>
                 <Grid Grid.Row="1">
@@ -222,7 +222,10 @@
                                 <Border.Background>
                                     <SolidColorBrush Color="#FFFFFF"/>
                                 </Border.Background>
-                                <TextBox x:Name="tbComment" Text="{Binding Comment}" FontSize="16" Height="30" 
+                                <TextBox x:Name="tbComment" Margin="15 0 15 0"
+                                         TextWrapping="Wrap"  AcceptsReturn="True"
+                                         Style="{StaticResource tboxTransperent}" Text="{Binding Comment}" 
+                                         FontSize="16" Height="100" 
                                                              Background="Transparent" BorderBrush="Transparent"/>
                             </Border>
                         </StackPanel>
@@ -233,8 +236,11 @@
                                 <Border.Background>
                                     <SolidColorBrush Color="#FFFFFF"/>
                                 </Border.Background>
-                                <TextBox x:Name="tbAestiomatio" Text="{Binding Aestimatio}" FontSize="16" Height="30" 
-                                                                 Background="Transparent" BorderBrush="Transparent" />
+                                <TextBox x:Name="tbAestiomatio" 
+                                         Margin="15 0 15 0"
+                                         Text="{Binding Aestimatio}" FontSize="16" Height="30" 
+                                         Style="{StaticResource tboxTransperent}"                        
+                                         Background="Transparent" BorderBrush="Transparent" />
                             </Border>
 
                         </StackPanel>

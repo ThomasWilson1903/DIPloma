@@ -301,10 +301,11 @@
 
                                 </Grid>
                                 <TextBlock Text="Поиск" MouseUp="muSerch" Margin="5 0 0 0" />
-                                <TextBox x:Name="tboxSerch" Background="Transparent" 
-                                     BorderBrush="Transparent" Width="5000" ClipToBounds="True" 
-                                     FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center">
-
+                                <TextBox    x:Name="tboxSerch" Background="Transparent" 
+                                            BorderBrush="Transparent" Width="5000" ClipToBounds="True" 
+                                            FontSize="20" Style="{StaticResource tboxTransperent}" VerticalAlignment="Center"
+                                            TextChanged="tcSerchJornal">
+                                    
                                 </TextBox>
 
                             </StackPanel>
@@ -329,7 +330,7 @@
                                     <Grid>
 
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="430"/>
+                                            <ColumnDefinition Width="400"/>
                                             <ColumnDefinition Width="70"/>
                                         </Grid.ColumnDefinitions>
 
@@ -339,8 +340,8 @@
                                             </Border.Background>
 
                                             <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                                                <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16"/>
-                                                <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16" />
+                                                <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16" TextWrapping="Wrap"/>
+                                                <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16"/>
                                             </StackPanel>
                                         </Border>
 

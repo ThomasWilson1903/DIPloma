@@ -34,7 +34,7 @@ namespace DIPloma.Pages
         public pgLvStudent(int listItems)
         {
             InitializeComponent();
-            this.ListItems = listItems; 
+            this.ListItems = listItems;
             SelectStudentListViewLeft();
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
             select(selectStudent);
@@ -52,6 +52,7 @@ namespace DIPloma.Pages
         void select(int SelectStudent)//select A
         {
             IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
+            items = items.Where(p=> p.Comment.ToLower().Contains(tboxSerch.Text.ToLower())).ToList();
             items = items.OrderBy(p => p.Date);
             lvMain.ItemsSource = items;
 
@@ -93,7 +94,7 @@ namespace DIPloma.Pages
             select(selectStudent);
         }
 
-        
+
 
         private void clChang(object sender, RoutedEventArgs e)
         {
@@ -132,6 +133,12 @@ namespace DIPloma.Pages
             new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
             Update();
         }
+
+        private void tcSerchJornal(object sender, TextChangedEventArgs e)
+        {
+            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            select(selectStudent);
+        }
     }
-    }
+}
 

@@ -55,6 +55,7 @@ namespace DIPloma.Window
                 }
                 EfModels.init().Add(Journal);
             }
+
             EfModels.init().SaveChanges();
             Close();
 
