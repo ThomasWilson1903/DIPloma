@@ -36,7 +36,7 @@ namespace DIPloma
         }
         void FrMains()
         {
-            FrMain.Navigate(new pgLvStudent());
+            FrMain.Navigate(new pgLvStudent(1));
         }
 
         private void ClSingIn(object sender, RoutedEventArgs e)

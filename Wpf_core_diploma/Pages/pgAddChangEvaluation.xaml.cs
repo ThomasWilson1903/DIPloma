@@ -43,7 +43,8 @@ namespace DIPloma.Pages
             //Journal.Date = DateOnly.FromDateTime(today);
 
             //DateTime selectedDate = calendar1.SelectedDate;
-            Journal.Date = DateOnly.FromDateTime(Convert.ToDateTime(selectedDate));
+            //DateOnly.FromDateTime(Convert.ToDateTime(selectedDate));
+            Journal.Date = selectedDate;
             Journal.ListItems = 1;
             Journal.Students = lvStudentLeft;
             if (lvStudentLeft != 0)
@@ -59,7 +60,7 @@ namespace DIPloma.Pages
 
 
             EfModels.init().SaveChanges();
-            new pgLvStudent();
+            new pgLvStudent(1);
         }
 
         private void visibleChanged(object sender, DependencyPropertyChangedEventArgs e)

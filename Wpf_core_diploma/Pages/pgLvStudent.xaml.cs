@@ -27,13 +27,14 @@ namespace DIPloma.Pages
     {
         private object dgMainJornal;
 
-        //DateTime today = DateTime.Today;
-        DateTime? selectedDate;
-        Journal Journal;
 
-        public pgLvStudent()
+        //DateTime today = DateTime.Today;
+        int ListItems;
+
+        public pgLvStudent(int listItems)
         {
             InitializeComponent();
+            this.ListItems = listItems; 
             SelectStudentListViewLeft();
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
             select(selectStudent);
@@ -48,9 +49,9 @@ namespace DIPloma.Pages
             lvStudentLeft.ItemsSource = students;
         }
 
-        void select(int SelectStudent)
+        void select(int SelectStudent)//select A
         {
-            IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent).ToList();
+            IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
             items = items.OrderBy(p => p.Date);
             lvMain.ItemsSource = items;
 
@@ -92,20 +93,13 @@ namespace DIPloma.Pages
             select(selectStudent);
         }
 
-        private void muAddEstimation(object sender, MouseButtonEventArgs e)
-        {
-            addStringJornal(new Journal(), lvStudentLeft.SelectedIndex + 1, 1);
-        }
+        
 
         private void clChang(object sender, RoutedEventArgs e)
         {
             Journal chang = (sender as Button).DataContext as Journal;
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
-            DataContext = chang;
-            DateTime date= DateTime.Now;
-            calendar1.SelectedDate = FromDateTime(Convert.ToDateTime(date));
-            //addStringJornal(chang, selectStudent, 1);
-
+            int StudentIndex = lvStudentLeft.SelectedIndex + 1;
+            new pgAddChang(chang, chang.Students, chang.ListItems).ShowDialog();
         }
 
         private void clDel(object sender, RoutedEventArgs e)
@@ -131,48 +125,12 @@ namespace DIPloma.Pages
             Update();
         }
 
-        void addStringJornal(Journal journal, int lvStudentLeft, int listItem)
+        private void clAddEstimation(object sender, RoutedEventArgs e)
         {
-            DataContext = journal;
-            journal.ListItems = listItem;
-
-
-            if (lvStudentLeft != 0)
-            {
-                journal.Students = lvStudentLeft;
-                if (journal.Idjournal == 0)
-                {
-                    if (calendar1.SelectedDate == null)
-                    {
-                        var date = DateOnly.FromDateTime(Convert.ToDateTime(DateTime.Today));
-                        journal.Date = date;
-                        calendar1.SelectedDate = DateTime.Today; 
-                    }
-                    EfModels.init().Add(journal);
-                }
-            }
-            else
-                MessageBox.Show("Вы не выбрали учащего");
-
-
-
-
-        }
-
-        private void clSaveAddChang(object sender, RoutedEventArgs e)
-        {
-
-            EfModels.init().SaveChanges();
+            int StudentIndex = lvStudentLeft.SelectedIndex + 1;
+            new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
             Update();
-            tbComment.Text = "";
-            tbAestiomatio.Text = "";
-            MessageBox.Show($"Сохранено");
-
-        }
-
-        private void smcCalendar(object sender, SelectionChangedEventArgs e)
-        {
-            selectedDate = calendar1.SelectedDate;
         }
     }
-}
+    }
+
