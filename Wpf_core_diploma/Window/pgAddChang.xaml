@@ -207,7 +207,7 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
                     <Calendar  x:Name="calendar1" FirstDayOfWeek="Monday" 
-                               DisplayDate="{Binding Date}" SelectedDate="{Binding Date}"        
+                                     
                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" Style="{DynamicResource CalendarStyle1}"/>
                 </Grid>
                 <Grid Grid.Row="1">

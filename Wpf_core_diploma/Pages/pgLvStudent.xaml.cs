@@ -100,6 +100,7 @@ namespace DIPloma.Pages
             Journal chang = (sender as Button).DataContext as Journal;
             int StudentIndex = lvStudentLeft.SelectedIndex + 1;
             new pgAddChang(chang, chang.Students, chang.ListItems).ShowDialog();
+            Update();
         }
 
         private void clDel(object sender, RoutedEventArgs e)

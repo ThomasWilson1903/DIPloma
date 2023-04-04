@@ -44,10 +44,14 @@ namespace DIPloma.Window
         {
             if (Journal.Idjournal == 0)
             {
-                if (date == null)
+                if (calendar1.SelectedDate == null)
                 {
                     //var today = DateOnly.FromDateTime(DateTime.Today);
-                    Journal.Date = Journal.Date;
+                    Journal.Date = DateTime.Today;
+                }
+                else
+                {
+                    Journal.Date = calendar1.SelectedDate;
                 }
                 EfModels.init().Add(Journal);
             }
