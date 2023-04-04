@@ -222,7 +222,7 @@
                                 <Border.Background>
                                     <SolidColorBrush Color="#FFFFFF"/>
                                 </Border.Background>
-                                <TextBox x:Name="tbComment" Margin="15 0 15 0"
+                                <TextBox x:Name="tbComment" Margin="10 0 10 0"
                                          TextWrapping="Wrap"  AcceptsReturn="True"
                                          Style="{StaticResource tboxTransperent}" Text="{Binding Comment}" 
                                          FontSize="16" Height="100" 
@@ -237,7 +237,7 @@
                                     <SolidColorBrush Color="#FFFFFF"/>
                                 </Border.Background>
                                 <TextBox x:Name="tbAestiomatio" 
-                                         Margin="15 0 15 0"
+                                         Margin="10 0 10 0"
                                          Text="{Binding Aestimatio}" FontSize="16" Height="30" 
                                          Style="{StaticResource tboxTransperent}"                        
                                          Background="Transparent" BorderBrush="Transparent" />

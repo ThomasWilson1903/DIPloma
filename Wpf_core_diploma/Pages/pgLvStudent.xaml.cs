@@ -52,7 +52,7 @@ namespace DIPloma.Pages
         void select(int SelectStudent)//select A
         {
             IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
-            items = items.Where(p=> p.Comment.ToLower().Contains(tboxSerch.Text.ToLower())).ToList();
+            items = items.Where(p => p.Comment.ToLower().Contains(tboxSerch.Text.ToLower())).ToList();
             items = items.OrderBy(p => p.Date);
             lvMain.ItemsSource = items;
 
@@ -129,9 +129,17 @@ namespace DIPloma.Pages
 
         private void clAddEstimation(object sender, RoutedEventArgs e)
         {
-            int StudentIndex = lvStudentLeft.SelectedIndex + 1;
-            new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
-            Update();
+            if (lvStudentLeft.SelectedIndex > 0)
+            {
+
+                int StudentIndex = lvStudentLeft.SelectedIndex + 1;
+                new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
+                Update();
+            }
+            else
+            {
+                MessageBox.Show("выберите ученика для добавления оценки", "ошибка!");
+            }
         }
 
         private void tcSerchJornal(object sender, TextChangedEventArgs e)

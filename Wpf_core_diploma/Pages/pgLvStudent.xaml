@@ -340,7 +340,7 @@
                                             </Border.Background>
 
                                             <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
-                                                <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16" TextWrapping="Wrap"/>
+                                                <TextBlock Margin="15 0 0 0" Text="{Binding Comment}" FontSize="16"/>
                                                 <TextBlock Margin="5 0 0 0" Text="{Binding Aestimatio}" FontSize="16"/>
                                             </StackPanel>
                                         </Border>
