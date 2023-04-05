@@ -1,6 +1,6 @@
-﻿
-using DIPloma.DataBase;
+﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,30 +15,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static DIPloma.Pages.lvAppMain;
 
 namespace DIPloma.Pages
 {
     /// <summary>
-    /// Interaction logic for pgSubject.xaml
+    /// Interaction logic for pgListViewTeacher.xaml
     /// </summary>
-    public partial class pgSubject : Page
+    public partial class pgListViewTeacher : Page
     {
-        public pgSubject()
+        int SubiectumTeacher;
+        public pgListViewTeacher(int subiectumTeacher)
         {
+            this.SubiectumTeacher = subiectumTeacher;
             InitializeComponent();
             select();
         }
         void select()
         {
-            IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
-            
+            IEnumerable<DataBase.Entity.ListItem> listItems = EfModels.init().ListItems.Where(p=>p.Subiectum == SubiectumTeacher).Include(p=>p.TeachersNavigation).ToList();
+
             lvMain.ItemsSource = listItems;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new pgListViewTeacher(lvMain.SelectedIndex+1));
+
         }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)

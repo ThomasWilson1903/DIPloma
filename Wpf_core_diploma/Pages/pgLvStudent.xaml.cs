@@ -1,4 +1,6 @@
 ﻿
+using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using DIPloma.Window;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -27,7 +29,6 @@ namespace DIPloma.Pages
         private object dgMainJornal;
 
 
-        //DateTime today = DateTime.Today;
         int ListItems;
 
         public pgLvStudent(int listItems)
@@ -44,20 +45,20 @@ namespace DIPloma.Pages
 
         void SelectStudentListViewLeft()
         {
-            /*IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
-            lvStudentLeft.ItemsSource = students;*/
+            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
+            lvStudentLeft.ItemsSource = students;
         }
 
         void select(int SelectStudent)//select A
         {
-            /*IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
+            IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
             items = items.Where(p => p.Comment.ToLower().Contains(tboxSerch.Text.ToLower())).ToList();
             items = items.OrderBy(p => p.Date);
             lvMain.ItemsSource = items;
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvMain.ItemsSource);
             PropertyGroupDescription groupDescription = new PropertyGroupDescription("Date");
-            view.GroupDescriptions.Add(groupDescription);//тестовый комент*/
+            view.GroupDescriptions.Add(groupDescription);//тестовый комент
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
@@ -97,22 +98,22 @@ namespace DIPloma.Pages
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-            /*Journal chang = (sender as Button).DataContext as Journal;
+            Journal chang = (sender as Button).DataContext as Journal;
             int StudentIndex = lvStudentLeft.SelectedIndex + 1;
             new pgAddChang(chang, chang.Students, chang.ListItems).ShowDialog();
-            Update();*/
+            Update();
         }
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            /*Journal Del = (sender as Button).DataContext as Journal;
+            Journal Del = (sender as Button).DataContext as Journal;
             if (MessageBox.Show("Точно да?", "Удалить?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 EfModels.init().Journals.Remove(Del);
                 EfModels.init().SaveChanges();
             }
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
-            select(selectStudent);*/
+            select(selectStudent);
         }
 
         void Update()
@@ -128,9 +129,8 @@ namespace DIPloma.Pages
 
         private void clAddEstimation(object sender, RoutedEventArgs e)
         {
-            /*if (lvStudentLeft.SelectedIndex > 0)
+            if (lvStudentLeft.SelectedIndex != null)
             {
-
                 int StudentIndex = lvStudentLeft.SelectedIndex + 1;
                 new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
                 Update();
@@ -138,7 +138,7 @@ namespace DIPloma.Pages
             else
             {
                 MessageBox.Show("выберите ученика для добавления оценки", "ошибка!");
-            }*/
+            }
         }
 
         private void tcSerchJornal(object sender, TextChangedEventArgs e)

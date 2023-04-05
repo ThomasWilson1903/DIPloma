@@ -1,4 +1,6 @@
 ﻿
+using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,16 +22,16 @@ namespace DIPloma.Window
     /// </summary>
     public partial class pgAddChang
     {
-        //Journal Journal;
+        Journal Journal;
         int StudentIndex;
         DateTime? date;
-        public pgAddChang(/*Journal journal, int StudentIndex, int ListItems*/)
+        public pgAddChang(Journal journal, int StudentIndex, int ListItems)
         {
-            /*this.Journal = journal;
+            this.Journal = journal;
             this.StudentIndex = StudentIndex;
             DataContext = Journal;
             Journal.Students = StudentIndex;
-            Journal.ListItems = ListItems;*/
+            Journal.ListItems = ListItems;
             InitializeComponent();
         }
 
@@ -37,7 +39,7 @@ namespace DIPloma.Window
 
         private void clSaveAddChang(object sender, RoutedEventArgs e)
         {
-            /*if (Journal.Idjournal == 0)
+            if (Journal.Idjournal == 0)
             {
                 if (calendar1.SelectedDate == null)
                 {
@@ -52,7 +54,7 @@ namespace DIPloma.Window
             }
 
             EfModels.init().SaveChanges();
-            Close();*/
+            Close();
 
         }
 
@@ -65,11 +67,11 @@ namespace DIPloma.Window
 
         private void IsVisibleChanged1(object sender, DependencyPropertyChangedEventArgs e)
         {
-           /* if (Journal.Idjournal != null)
+            if (Journal.Idjournal != null)
             {
                 EfModels.init().Entry(Journal).Reload();
             }
-            EfModels.init().SaveChanges();*/
+            EfModels.init().SaveChanges();
         }
     }
 }

@@ -10,7 +10,7 @@ namespace DIPloma.DataBase.Entity
         public int Students { get; set; }
         public int? Aestimatio { get; set; }
         public string? Comment { get; set; }
-        public DateOnly Date { get; set; }
+        public DateTime? Date { get; set; }
 
         public virtual ListItem ListItemsNavigation { get; set; } = null!;
         public virtual Student StudentsNavigation { get; set; } = null!;
