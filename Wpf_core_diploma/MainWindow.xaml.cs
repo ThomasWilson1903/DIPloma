@@ -36,7 +36,7 @@ namespace DIPloma
         }
         void FrMains()
         {
-            FrMain.Navigate(new pgLvStudent(1));
+            FrMain.Navigate(new pgSubject());
         }
 
         private void ClSingIn(object sender, RoutedEventArgs e)
@@ -45,7 +45,6 @@ namespace DIPloma
 
             if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser != null)
             {
-                //MessageBox.Show("yes");
                 User user = wdAuthorization.AuthUser;
                 FrMain.Navigate(new lvAppMain(user));
                 MessageBox.Show(user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser);

@@ -1,0 +1,72 @@
+﻿<Page x:Class="DIPloma.Pages.pgSubject"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DIPloma.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="pgSubject">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Border MouseUp="muSerch2" Grid.Row="0" Height="37" VerticalAlignment="Top" CornerRadius="18">
+            <Border.Background>
+                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
+            </Border.Background>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="tblock" MouseDown="mdSerch" Text="Поиск" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" Foreground="#FFFFFF"/>
+                <TextBox x:Name="tbSerch" TextChanged="tcSerch"
+                         Foreground="#FFFFFF" SelectionTextBrush="Black" SelectionBrush="Black" 
+                         BorderBrush="Transparent" Background="Transparent" Width="888" Margin="10 0 0 0" 
+                         Style="{StaticResource tboxTransperent}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1" CornerRadius="7">
+            <Border.Background>
+                <SolidColorBrush Color="#7C7C7C" Opacity="0.5"/>
+            </Border.Background>
+            <ListView x:Name="lvMain"  
+                      Background="Transparent" Margin="10" BorderBrush="Transparent">
+
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="Margin"  Value="5"/>
+                        <EventSetter Event='MouseDoubleClick' Handler='HandleDoubleClick'/>
+                    </Style>
+
+                </ListView.ItemContainerStyle>
+
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Width="200" Height="200">
+                            <StackPanel>
+                                <Grid Height="150" 
+                                      Width="150">
+                                    <Ellipse Fill="#656565" />
+                                    <Image  Width="100" Height="100"
+                                            Source="{Binding image}"/>
+                                </Grid>
+                                <TextBlock Text="{Binding NameSubiectum}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Border>
+    </Grid>
+</Page>
