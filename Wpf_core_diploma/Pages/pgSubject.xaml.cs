@@ -31,7 +31,7 @@ namespace DIPloma.Pages
         }
         void select()
         {
-            IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.ToList();
+            IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
             IEnumerable<fun> list = new List<fun>
             {
                 new fun("Матиматика")
