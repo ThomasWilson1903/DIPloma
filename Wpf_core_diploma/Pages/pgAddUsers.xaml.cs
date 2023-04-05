@@ -1,5 +1,4 @@
-﻿using DIPloma.DataBase;
-using DIPloma.DataBase.Entity;
+﻿
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -30,9 +29,9 @@ namespace DIPloma.Pages
         }
         void select()
         {
-            IEnumerable<User> listUsers = EfModels.init().Users.Include(p=>p.RoleNavigation).ToList(); 
+            /*IEnumerable<User> listUsers = EfModels.init().Users.Include(p=>p.RoleNavigation).ToList(); 
             listUsers = listUsers.DistinctBy(p=>p.IdUserss);
-            dgUserMember.ItemsSource = listUsers;
+            dgUserMember.ItemsSource = listUsers;*/
         }
 
         private void dgUserMember_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,13 +46,13 @@ namespace DIPloma.Pages
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            User Del = (sender as Button).DataContext as User;
+            /*User Del = (sender as Button).DataContext as User;
             if (MessageBox.Show("точно да?", "dqw", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 EfModels.init().Users.Remove(Del);
                 EfModels.init().SaveChanges();
             }
-            select();
+            select();*/
         }
     }
 }

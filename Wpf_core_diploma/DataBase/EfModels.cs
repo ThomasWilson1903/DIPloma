@@ -464,6 +464,8 @@ namespace DIPloma.DataBase
                     .HasColumnType("int(11)")
                     .HasColumnName("idobjects");
 
+                entity.Property(e => e.ImageIcon).HasColumnName("imageIcon");
+
                 entity.Property(e => e.NameSubiectum).HasMaxLength(45);
             });
 

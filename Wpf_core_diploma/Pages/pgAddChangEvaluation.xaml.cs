@@ -1,5 +1,4 @@
-﻿using DIPloma.DataBase;
-using DIPloma.DataBase.Entity;
+﻿
 using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
@@ -23,28 +22,25 @@ namespace DIPloma.Pages
     /// </summary>
     public partial class pgAddChangEvaluation : Page
     {
-        Journal Journal;
+        //Journal Journal;
         int lvStudentLeft;
         DateTime today = DateTime.Today;
         DateTime? selectedDate;
 
-        public pgAddChangEvaluation(Journal journal, int lvStudentLeft)
+        public pgAddChangEvaluation(/*Journal journal, int lvStudentLeft*/)
         {
             this.lvStudentLeft = lvStudentLeft;
-            this.Journal = journal;
+            //this.Journal = journal;
             InitializeComponent();
-            DataContext = Journal;
+           // DataContext = Journal;
             //calendar1.SelectedDate = today;
         }
 
         private void clSaveAddChang(object sender, RoutedEventArgs e)
         {
 
-            //Journal.Date = DateOnly.FromDateTime(today);
-
-            //DateTime selectedDate = calendar1.SelectedDate;
-            //DateOnly.FromDateTime(Convert.ToDateTime(selectedDate));
-            Journal.Date = selectedDate;
+            
+            /*Journal.Date = selectedDate;
             Journal.ListItems = 1;
             Journal.Students = lvStudentLeft;
             if (lvStudentLeft != 0)
@@ -60,7 +56,7 @@ namespace DIPloma.Pages
 
 
             EfModels.init().SaveChanges();
-            new pgLvStudent(1);
+            new pgLvStudent(1);*/
         }
 
         private void visibleChanged(object sender, DependencyPropertyChangedEventArgs e)

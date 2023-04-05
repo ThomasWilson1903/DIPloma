@@ -59,7 +59,7 @@
                                       Width="150">
                                     <Ellipse Fill="#656565" />
                                     <Image  Width="100" Height="100"
-                                            Source="{Binding image}"/>
+                                            Source="{Binding ImageIcon}"/>
                                 </Grid>
                                 <TextBlock Text="{Binding NameSubiectum}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
                             </StackPanel>
