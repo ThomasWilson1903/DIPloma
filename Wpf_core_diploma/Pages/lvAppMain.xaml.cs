@@ -122,7 +122,7 @@ namespace DIPloma.Pages
 
                     break;
                 case 1:
-                    NavigationService.Navigate(new pgLvStudent(1));
+                    //NavigationService.Navigate());
 
                     break;
                 case 2:

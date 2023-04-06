@@ -1,4 +1,4 @@
-﻿<Page x:Class="DIPloma.Pages.pgListViewTeacher"
+﻿<Page x:Class="DIPloma.Pages.pgGroups"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,9 +6,9 @@
       xmlns:local="clr-namespace:DIPloma.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="pgListViewTeacher">
+      Title="pgGroups">
 
-    
+    <Grid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -33,7 +33,7 @@
                 <Border.Background>
                     <SolidColorBrush Color="#7C7C7C" Opacity="0.5"/>
                 </Border.Background>
-                <ListView x:Name="lvMain"  
+                <ListView x:Name="lvMain" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                       Background="Transparent" Margin="10" BorderBrush="Transparent">
 
                     <ListView.ItemContainerStyle>
@@ -53,26 +53,14 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Width="230" Height="200">
+                            <Grid Width="150" Height="150">
                                 <StackPanel>
                                     <Grid Height="150" 
                                       Width="150">
                                         <Ellipse Fill="#656565" />
-                                        <Ellipse>
-                                            <Ellipse.Fill>
-
-                                                <ImageBrush ImageSource="{Binding TeachersNavigation.PhotoTeachers}" Opacity="1"/>
-                                            </Ellipse.Fill>
-                                        </Ellipse>
+                                        <TextBlock Text="{Binding ClassNumber}" Foreground="#FFFFFF" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                                     </Grid>
-                                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
-
-                                        <TextBlock Text="{Binding TeachersNavigation.SurnameTeacher}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
-                                        <TextBlock Text=" " HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
-                                        <TextBlock Text="{Binding TeachersNavigation.NameTeacher}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
-                                        <TextBlock Text=" " HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
-                                        <TextBlock Text="{Binding TeachersNavigation.MiddleNameTeacher}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
-                                    </StackPanel>
+                                    
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
@@ -80,5 +68,5 @@
                 </ListView>
             </Border>
         </Grid>
-    
+    </Grid>
 </Page>

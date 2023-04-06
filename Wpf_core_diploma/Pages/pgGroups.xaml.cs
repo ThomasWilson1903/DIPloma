@@ -1,5 +1,4 @@
-﻿
-using DIPloma.DataBase;
+﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
 using System;
 using System.Collections.Generic;
@@ -15,34 +14,31 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static DIPloma.Pages.lvAppMain;
 
 namespace DIPloma.Pages
 {
     /// <summary>
-    /// Interaction logic for pgSubject.xaml
+    /// Interaction logic for pgGroups.xaml
     /// </summary>
-    public partial class pgSubject : Page
+    public partial class pgGroups : Page
     {
-        public pgSubject()
+        int listitems;
+        public pgGroups(int listitems)
         {
             InitializeComponent();
             select();
+            this.listitems = listitems;
         }
+
         void select()
         {
-            IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
-            lvMain.ItemsSource = listItems;
+            IEnumerable<EducationalClass> listClass = EfModels.init().EducationalClasses.ToList();
+            lvMain.ItemsSource = listClass;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new pgGroups(lvMain.SelectedIndex + 1));
-        }
-
-        private void mdSerch(object sender, MouseButtonEventArgs e)
-        {
-
+            NavigationService.Navigate(new pgLvStudent(listitems, lvMain.SelectedIndex + 1)); ;
         }
 
         private void muSerch2(object sender, MouseButtonEventArgs e)
@@ -51,6 +47,11 @@ namespace DIPloma.Pages
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void mdSerch(object sender, MouseButtonEventArgs e)
         {
 
         }

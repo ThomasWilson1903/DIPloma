@@ -32,14 +32,14 @@ namespace DIPloma.Pages
         }
         void select()
         {
-            IEnumerable<DataBase.Entity.ListItem> listItems = EfModels.init().ListItems.Where(p=>p.Subiectum == SubiectumTeacher).Include(p=>p.TeachersNavigation).ToList();
+            IEnumerable<DataBase.Entity.ListItem> listItems = EfModels.init().ListItems.Where(p => p.Subiectum == SubiectumTeacher).Include(p => p.TeachersNavigation).ToList();
 
             lvMain.ItemsSource = listItems;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-
+            
         }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)

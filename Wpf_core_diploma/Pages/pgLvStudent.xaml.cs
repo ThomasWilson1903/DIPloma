@@ -28,24 +28,25 @@ namespace DIPloma.Pages
     {
         private object dgMainJornal;
 
-
+        int Groups;
         int ListItems;
 
-        public pgLvStudent(int listItems)
+        public pgLvStudent(int listItems, int groups)
         {
             InitializeComponent();
             this.ListItems = listItems;
-            SelectStudentListViewLeft();
+            Groups = groups;
+
+            SelectStudentListViewLeft(Groups);
             int selectStudent = lvStudentLeft.SelectedIndex + 1;
             select(selectStudent);
-
         }
 
 
 
-        void SelectStudentListViewLeft()
+        void SelectStudentListViewLeft(int Groups)
         {
-            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == 39 && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
+            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == Groups && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
             lvStudentLeft.ItemsSource = students;
         }
 
@@ -85,7 +86,7 @@ namespace DIPloma.Pages
 
         private void tChangedSerchStuden(object sender, TextChangedEventArgs e)
         {
-            SelectStudentListViewLeft();
+            SelectStudentListViewLeft(Groups);
         }
 
         private void scMonth(object sender, SelectionChangedEventArgs e)
