@@ -53,7 +53,7 @@
 
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Width="200" Height="200">
+                            <Grid Width="230" Height="200">
                                 <StackPanel>
                                     <Grid Height="150" 
                                       Width="150">
