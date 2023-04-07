@@ -50,7 +50,7 @@ namespace DIPloma.Pages
             lvStudentLeft.ItemsSource = students;
         }
 
-        void select(int SelectStudent)//select A
+        void select(int SelectStudent)//selectUser A
         {
             IEnumerable<Journal> items = EfModels.init().Journals.Where(p => p.Students == SelectStudent && p.ListItems == ListItems).ToList();
             items = items.Where(p => p.Comment.ToLower().Contains(tboxSerch.Text.ToLower())).ToList();

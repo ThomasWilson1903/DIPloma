@@ -1,6 +1,7 @@
 ﻿
 using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Pages.pgUserEntity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,17 +25,28 @@ namespace DIPloma.Pages
     /// </summary>
     public partial class pgAddUsers : Page
     {
+        SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0061FF"));
+        int buttonSelect;
         public pgAddUsers()
         {
             InitializeComponent();
-            select();
+            selectUser();
         }
-        void select()
+        void selectUser()
         {
-            IEnumerable<User> listUsers = EfModels.init().Users.Include(p => p.RoleNavigation).ToList();
-            listUsers = listUsers.DistinctBy(p => p.IdUserss);
-            dgUserMember.ItemsSource = listUsers;
+            /*List<User> listUsers = EfModels.init().Users.Include(p => p.RoleNavigation).ToList();
+            //listUsers = listUsers.OrderBy(p => p.SurNameUser);
+            listUsers = listUsers.Where(p => p.SurNameUser.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+            dgUserMember.ItemsSource = listUsers;*/
         }
+        void selectTeacher()
+        {
+            /*List<Teacher> listUsers = EfModels.init().Teachers.ToList();
+            //listUsers = listUsers.OrderBy(p => p.SurNameUser);
+            listUsers = listUsers.Where(p => p.SurnameTeacher.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+            dgUserMember.ItemsSource = listUsers;*/
+        }
+
 
         private void dgUserMember_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -54,7 +66,46 @@ namespace DIPloma.Pages
                 EfModels.init().Users.Remove(Del);
                 EfModels.init().SaveChanges();
             }
-            select();
+            selectUser();
+        }
+
+        private void tcSerch(object sender, TextChangedEventArgs e)
+        {
+            selectUser();
+        }
+
+        private void clSelectUser(object sender, RoutedEventArgs e)
+        {
+            buttonSelect = 1;
+
+            borderTransperent();
+            btUserSelect.BorderBrush = color;
+            frMain.Navigate(new pgUserSelect());
+            
+        }
+
+        private void clSelectTeacher(object sender, RoutedEventArgs e)
+        {
+            buttonSelect = 2;
+
+            btUserSelect.BorderBrush = Brushes.Transparent;
+            btTeacherSelect.BorderBrush = color;
+            
+        }
+
+        private void clSelectStudent(object sender, RoutedEventArgs e)
+        {
+            buttonSelect = 3;
+
+            borderTransperent();
+            btStudentSelect.BorderBrush = color;
+        }
+
+        void borderTransperent()
+        {
+            btUserSelect.BorderBrush = Brushes.Transparent;
+            btTeacherSelect.BorderBrush = Brushes.Transparent;
+            btStudentSelect.BorderBrush = Brushes.Transparent;
         }
     }
 }

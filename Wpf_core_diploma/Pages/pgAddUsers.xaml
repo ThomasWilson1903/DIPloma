@@ -45,15 +45,26 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="37"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="350"/>
+                <ColumnDefinition Width="18*"/>
                 <ColumnDefinition Width="270"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="1" Style="{StaticResource Button1}" Content="+ Добавить пользователя" Foreground="#FFFFFF">
+            <Border CornerRadius="7" Margin="0,0,5,0">
+                <Border.Background>
+                    <SolidColorBrush Color="#FFFFFF"/>
+                </Border.Background>
+                <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button x:Name="btUserSelect" Content="Пользователи" Style="{StaticResource tapButton}" BorderBrush="#0061FF" Click="clSelectUser"/>
+                    <Button x:Name="btTeacherSelect" Content="Учителя" Style="{StaticResource tapButton}" Click="clSelectTeacher"/>
+                    <Button x:Name="btStudentSelect" Content="Ученики" Style="{StaticResource tapButton}" Click="clSelectStudent"/>
+                </StackPanel>
+            </Border>
+
+            <Button Grid.Column="2" Style="{StaticResource Button1}" Content="+ Добавить пользователя" Foreground="#FFFFFF">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>
@@ -62,82 +73,11 @@
                 </Button.Resources>
             </Button>
         </Grid>
-        <Border Grid.Row="1" CornerRadius="7" Margin="0 6 0 0">
-            <Border.Background>
-                <SolidColorBrush Color="#7C7C7C" Opacity="0.5"/>
-            </Border.Background>
-        </Border>
-        <Border Grid.Row="2" CornerRadius="7" Margin="0 6 0 0">
-            <Border.Background>
-                <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
-            </Border.Background>
 
-            <DataGrid AutoGenerateColumns="False" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle2}" RowStyle="{DynamicResource DataGridRowStyle1}" 
-                      x:Name="dgUserMember" Background="Transparent" SelectionChanged="dgUserMember_SelectionChanged">
-                <DataGrid.Columns>
-                    <DataGridCheckBoxColumn CanUserReorder="False" Width="auto">
-                        <DataGridCheckBoxColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <CheckBox Background="Transparent"/>
-                            </DataTemplate>
-                        </DataGridCheckBoxColumn.HeaderTemplate>
-                    </DataGridCheckBoxColumn>
+        <Grid Grid.Row="1" Margin="0 6 0 0">
+            <Frame x:Name="frMain" Margin="5">
 
-                    <DataGridTextColumn Header="#" IsReadOnly="True" CanUserReorder="False" Width="auto" Binding="{Binding IdUserss}"/>
-
-
-                    <DataGridTemplateColumn Header="Информация" IsReadOnly="True" Width="*">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Ellipse Width="25" Height="25" Margin="0 0 10 0" >
-                                        <Ellipse.Fill>
-                                            <ImageBrush ImageSource="{Binding PhotoUsers, TargetNullValue={StaticResource photo}}"/>
-                                        </Ellipse.Fill>
-                                    </Ellipse>
-
-                                    <TextBlock Text="{Binding SurNameUser}" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" " VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding NameUser}" VerticalAlignment="Center"/>
-                                    <TextBlock Text=" " VerticalAlignment="Center"/>
-                                    <TextBlock Text="{Binding DobleNameUser}" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-                    <DataGridTextColumn Header="Роль" IsReadOnly="True" CanUserReorder="False" Width="*" Binding="{Binding RoleNavigation.Names}"/>
-                    <DataGridTextColumn Header="Email" IsReadOnly="True" CanUserReorder="False" Width="*" Binding="{Binding Mail}"/>
-
-                    <DataGridTemplateColumn Header="Операции" IsReadOnly="True" Width="auto">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang" Style="{StaticResource Button1}">
-                                        <Button.Background>
-
-                                            <ImageBrush ImageSource="/Resources/pngwing.com.png" />
-                                        </Button.Background>
-
-
-                                    </Button>
-
-                                    <Button Width="30" Height="30" BorderBrush="Transparent" Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button1}">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="/Resources/delete.png" />
-                                        </Button.Background>
-
-
-                                    </Button>
-                                </StackPanel>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-
-
-                </DataGrid.Columns>
-            </DataGrid>
-
-        </Border>
+            </Frame>
+        </Grid>
     </Grid>
 </Page>
