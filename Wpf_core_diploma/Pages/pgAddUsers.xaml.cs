@@ -31,6 +31,7 @@ namespace DIPloma.Pages
         {
             InitializeComponent();
             selectUser();
+            frMain.Navigate(new pgUserSelect());
         }
         void selectUser()
         {
@@ -90,7 +91,7 @@ namespace DIPloma.Pages
 
             btUserSelect.BorderBrush = Brushes.Transparent;
             btTeacherSelect.BorderBrush = color;
-            
+            frMain.Navigate(new pgTeacerSelect());
         }
 
         private void clSelectStudent(object sender, RoutedEventArgs e)
@@ -99,6 +100,7 @@ namespace DIPloma.Pages
 
             borderTransperent();
             btStudentSelect.BorderBrush = color;
+            frMain.Navigate(new pgStudentSelect());
         }
 
         void borderTransperent()
