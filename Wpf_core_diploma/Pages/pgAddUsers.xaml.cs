@@ -102,10 +102,12 @@ namespace DIPloma.Pages
                     frMain.Navigate(new pgUserSelect());
                     break;
                 case 2:
-
+                    //new wdUserAddEntity().ShowDialog();
+                    frMain.Navigate(new pgTeacerSelect());
                     break;
                 case 3:
-
+                    //new wdUserAddEntity().ShowDialog();
+                    frMain.Navigate(new pgStudentSelect());
                     break;
 
             }
