@@ -32,6 +32,7 @@ namespace DIPloma.Pages
         void select()
         {
             IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+
             lvMain.ItemsSource = listItems;
         }
 

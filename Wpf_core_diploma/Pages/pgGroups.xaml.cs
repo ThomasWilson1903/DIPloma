@@ -33,6 +33,7 @@ namespace DIPloma.Pages
         void select()
         {
             IEnumerable<EducationalClass> listClass = EfModels.init().EducationalClasses.ToList();
+            
             lvMain.ItemsSource = listClass;
         }
 
