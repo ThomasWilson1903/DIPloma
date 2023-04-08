@@ -29,16 +29,6 @@ namespace DIPloma.Pages.pgUserEntity
             selectUser();
         }
 
-        private void clDel(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void clChang(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         void selectUser()
         {
             List<User> listUsers = EfModels.init().Users.Include(p => p.RoleNavigation).ToList();
@@ -50,6 +40,16 @@ namespace DIPloma.Pages.pgUserEntity
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
             selectUser();
+        }
+
+        private void clChang(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void clDel(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

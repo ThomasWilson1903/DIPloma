@@ -34,9 +34,9 @@ namespace DIPloma.Pages.pgUserEntity
             dgUserMember.ItemsSource = listTeacher;
         }
 
-        private void clDel(object sender, RoutedEventArgs e)
+        private void tcSerch(object sender, TextChangedEventArgs e)
         {
-
+            selectTeacher();
         }
 
         private void clChang(object sender, RoutedEventArgs e)
@@ -44,9 +44,9 @@ namespace DIPloma.Pages.pgUserEntity
 
         }
 
-        private void tcSerch(object sender, TextChangedEventArgs e)
+        private void clDel(object sender, RoutedEventArgs e)
         {
-            selectTeacher();
+
         }
     }
 }

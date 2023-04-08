@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DIPloma.Pages;
+using DIPloma.Pages.pgUserEntity;
 using DIPloma.Window;
 
 namespace DIPloma
@@ -35,7 +36,7 @@ namespace DIPloma
         }
         void FrMains()
         {
-            FrMain.Navigate(new pgLvStudent(1,39));
+            FrMain.Navigate(new pgAddUsers());
         }
 
         private void ClSingIn(object sender, RoutedEventArgs e)

@@ -64,7 +64,7 @@
                 </StackPanel>
             </Border>
 
-            <Button Grid.Column="2" Style="{StaticResource Button1}" Content="+ Добавить пользователя" Foreground="#FFFFFF">
+            <Button Grid.Column="2" x:Name="btAddUserEntity" Style="{StaticResource Button1}" Content="+ Добавить пользователя" Foreground="#FFFFFF" Click="clAddUser">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="7"/>

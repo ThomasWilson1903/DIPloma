@@ -35,18 +35,21 @@ namespace DIPloma.Pages.pgUserEntity
             dgUserMember.ItemsSource = listStudent;
         }
 
-        private void clDel(object sender, RoutedEventArgs e)
+        
+
+        private void tcSerch(object sender, TextChangedEventArgs e)
         {
+            selectStudent();
 
         }
 
         private void clChang(object sender, RoutedEventArgs e)
         {
+
         }
 
-        private void tcSerch(object sender, TextChangedEventArgs e)
+        private void clDel(object sender, RoutedEventArgs e)
         {
-            selectStudent();
 
         }
     }

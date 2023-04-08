@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="41*"/>
         </Grid.RowDefinitions>
         <Border Grid.Row="0"  CornerRadius="7" Margin="0 5 ">
@@ -43,9 +43,10 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Ellipse Width="25" Height="25" Margin="0 0 10 0" >
+                                    <Ellipse Width="45" Height="45" Margin="0 0 10 0" >
                                         <Ellipse.Fill>
-                                            <ImageBrush ImageSource="{Binding PhotoUsers, TargetNullValue={StaticResource photo}}"/>
+                                            <ImageBrush ImageSource="{Binding PhotoUsers, TargetNullValue={StaticResource photo}}" Stretch="UniformToFill" 
+                                                        RenderOptions.BitmapScalingMode="HighQuality"/>
                                         </Ellipse.Fill>
                                     </Ellipse>
 
@@ -66,20 +67,31 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang" Style="{StaticResource Button1}">
-                                        <Button.Background>
+                                    <Button Width="30" Height="30" BorderBrush="Transparent" Click="clChang" Style="{DynamicResource Button1}">
 
-                                            <ImageBrush ImageSource="/Resources/pngwing.com.png" />
-                                        </Button.Background>
+                                        <Button.Content>
+                                            <Image Source="/Resources/edit1While.png" RenderOptions.BitmapScalingMode="HighQuality"/>
+                                        </Button.Content>
 
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </Button.Resources>
 
                                     </Button>
 
-                                    <Button Width="30" Height="30" BorderBrush="Transparent" Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button1}">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="/Resources/delete.png" />
-                                        </Button.Background>
+                                    <Button Width="30" Height="30" BorderBrush="Transparent" Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button2}">
 
+                                        <Button.Content>
+                                            <Image Source="/Resources/del1While.png"/>
+                                        </Button.Content>
+
+                                        <Button.Resources>
+                                            <Style TargetType="Border">
+                                                <Setter Property="CornerRadius" Value="7"/>
+                                            </Style>
+                                        </Button.Resources>
 
                                     </Button>
                                 </StackPanel>

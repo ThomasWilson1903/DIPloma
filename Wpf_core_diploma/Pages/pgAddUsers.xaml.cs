@@ -2,6 +2,7 @@
 using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
 using DIPloma.Pages.pgUserEntity;
+using DIPloma.Window.wdAddUserEntity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,26 +27,11 @@ namespace DIPloma.Pages
     public partial class pgAddUsers : Page
     {
         SolidColorBrush color = (SolidColorBrush)(new BrushConverter().ConvertFrom("#0061FF"));
-        int buttonSelect;
+        int buttonSelect = 1;
         public pgAddUsers()
         {
             InitializeComponent();
-            selectUser();
             frMain.Navigate(new pgUserSelect());
-        }
-        void selectUser()
-        {
-            /*List<User> listUsers = EfModels.init().Users.Include(p => p.RoleNavigation).ToList();
-            //listUsers = listUsers.OrderBy(p => p.SurNameUser);
-            listUsers = listUsers.Where(p => p.SurNameUser.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
-            dgUserMember.ItemsSource = listUsers;*/
-        }
-        void selectTeacher()
-        {
-            /*List<Teacher> listUsers = EfModels.init().Teachers.ToList();
-            //listUsers = listUsers.OrderBy(p => p.SurNameUser);
-            listUsers = listUsers.Where(p => p.SurnameTeacher.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
-            dgUserMember.ItemsSource = listUsers;*/
         }
 
 
@@ -67,29 +53,25 @@ namespace DIPloma.Pages
                 EfModels.init().Users.Remove(Del);
                 EfModels.init().SaveChanges();
             }
-            selectUser();
         }
 
-        private void tcSerch(object sender, TextChangedEventArgs e)
-        {
-            selectUser();
-        }
 
         private void clSelectUser(object sender, RoutedEventArgs e)
         {
             buttonSelect = 1;
-
+            btAddUserEntity.Content = "+ Добавить пользователя";
             borderTransperent();
             btUserSelect.BorderBrush = color;
             frMain.Navigate(new pgUserSelect());
-            
+
         }
 
         private void clSelectTeacher(object sender, RoutedEventArgs e)
         {
             buttonSelect = 2;
 
-            btUserSelect.BorderBrush = Brushes.Transparent;
+            btAddUserEntity.Content = "+ Добавить учителя";
+            borderTransperent();
             btTeacherSelect.BorderBrush = color;
             frMain.Navigate(new pgTeacerSelect());
         }
@@ -97,6 +79,7 @@ namespace DIPloma.Pages
         private void clSelectStudent(object sender, RoutedEventArgs e)
         {
             buttonSelect = 3;
+            btAddUserEntity.Content = "+ Добавить ученика";
 
             borderTransperent();
             btStudentSelect.BorderBrush = color;
@@ -108,6 +91,24 @@ namespace DIPloma.Pages
             btUserSelect.BorderBrush = Brushes.Transparent;
             btTeacherSelect.BorderBrush = Brushes.Transparent;
             btStudentSelect.BorderBrush = Brushes.Transparent;
+        }
+
+        private void clAddUser(object sender, RoutedEventArgs e)
+        {
+            switch (buttonSelect)
+            {
+                case 1:
+                    new wdUserAddEntity().ShowDialog();
+                    frMain.Navigate(new pgUserSelect());
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+
+                    break;
+
+            }
         }
     }
 }
