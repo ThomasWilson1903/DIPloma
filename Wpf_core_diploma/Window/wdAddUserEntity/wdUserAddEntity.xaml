@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:DIPloma.Window.wdAddUserEntity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Добавления пользователя" Height="450" Width="800" ResizeMode="NoResize" FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Добавления пользователя" Height="500" Width="800" ResizeMode="NoResize" FontSize="15" FontFamily="{DynamicResource MaterialDesignFont}"
         
         >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Red" SecondaryColor="Lime"/>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
@@ -33,7 +30,7 @@
             <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg"  Stretch="UniformToFill"/>
             <Border Margin="10" CornerRadius="7">
                 <Border.Background>
-                    <SolidColorBrush Color="#FFFFFF" Opacity="0.7"/>
+                    <SolidColorBrush Color="#FFFFFF" Opacity="0.8"/>
                 </Border.Background>
 
                 <Grid>
@@ -44,29 +41,29 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" HorizontalAlignment="Center" Width="260">
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Логин"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
                      />
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Email"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0" materialDesign:HintAssist.HintOpacity="1"
                      />
                         <ComboBox Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="0 17 0 0"/>
                         <PasswordBox Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Password="" materialDesign:HintAssist.Hint="Пароль"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
                      />
                         <StackPanel>
                             <Button Content="Добавить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
-                        materialDesign:ButtonAssist.CornerRadius="15" Width="120" BorderBrush="Transparent"/>
+                                materialDesign:ButtonAssist.CornerRadius="15" Width="120" BorderBrush="Transparent"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center" Width="260">
 
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Имя"
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0"
                      />
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Фамилия"
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
                      />
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Отчество" 
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
                      />
 

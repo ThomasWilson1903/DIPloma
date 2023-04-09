@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 using DIPloma.Pages.pgUserEntity;
 using DIPloma.Window;
@@ -41,12 +42,12 @@ namespace DIPloma
 
         private void ClSingIn(object sender, RoutedEventArgs e)
         {
-            /*WdAuthorization wdAuthorization = new WdAuthorization();
+            WdAuthorization wdAuthorization = new WdAuthorization();
 
             if (wdAuthorization.ShowDialog() == true && wdAuthorization.AuthUser != null)
             {
                 User user = wdAuthorization.AuthUser;
-                FrMain.Navigate(new lvAppMain(user));
+                //FrMain.Navigate(new lvAppMain(user));
                 MessageBox.Show(user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser);
                 visibleUsers(true);
                 tbFIO.Text = user.SurNameUser + " " + user.NameUser + " " + user.DobleNameUser;
@@ -59,7 +60,7 @@ namespace DIPloma
             {
                 visibleUsers(false);
                 MessageBox.Show("авторизацию не была выполнена");
-            }*/
+            }
 
         }
 

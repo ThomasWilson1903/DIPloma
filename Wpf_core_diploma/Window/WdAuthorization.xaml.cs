@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using DIPloma.Pages;
 
 namespace DIPloma.Window
@@ -22,8 +24,8 @@ namespace DIPloma.Window
     {
 
 
-        /*private User? _authUser;
-        public User? AuthUser => _authUser;*/
+        private User? _authUser;
+        public User? AuthUser => _authUser;
 
         public WdAuthorization()
         {
@@ -55,14 +57,14 @@ namespace DIPloma.Window
 
         private void clEnter(object sender, RoutedEventArgs e)
         {
-            /*_authUser = EfModels.init().Users.FirstOrDefault(u => u.Login == tbLogin.Text && (u.Password == tbPassword.Text || u.Password == pbPassword.Password));
+            _authUser = EfModels.init().Users.FirstOrDefault(u => u.Login == tbLogin.Text && (u.Password == tbPassword.Text || u.Password == pbPassword.Password));
             if (_authUser != null)
             {
                 DialogResult = true;
                 Close();
             }
             else
-                MessageBox.Show("Ошибка! неверный логин или пароль");*/
+                MessageBox.Show("Ошибка! неверный логин или пароль");
         }
     }
 }

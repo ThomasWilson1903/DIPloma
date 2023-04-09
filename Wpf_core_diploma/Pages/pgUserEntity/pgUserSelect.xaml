@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:DIPloma.Pages.pgUserEntity"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="pgUserSelect">
+      Title="pgUserSelect" >
     
     <Grid>
         <Grid.RowDefinitions>

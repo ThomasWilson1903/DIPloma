@@ -11,7 +11,17 @@
         ResizeMode="NoResize"
         
         >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Blue"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
+    </Window.Resources>
     <Grid >
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="107"/>
             <RowDefinition Height="529"/>
@@ -33,27 +43,21 @@
                 </Border.Background>
                 <StackPanel  Width="316" VerticalAlignment="Top" Margin="0 50 0 0" HorizontalAlignment="Center">
                     <StackPanel>
-                        <TextBlock Text="Логин"/>
-                        <TextBox x:Name="tbLogin" />
+                        <TextBox x:Name="tbLogin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 materialDesign:HintAssist.Hint="Логин" materialDesign:HintAssist.HintOpacity="1"
+                                 />
                     </StackPanel>
                     
                     <StackPanel Margin="0 20 0 0">
-                        <TextBlock Text="Пароль"/>
-                        <PasswordBox x:Name="pbPassword"/>
+                        <PasswordBox Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" materialDesign:HintAssist.Hint="Пароль" 
+                                     x:Name="pbPassword" materialDesign:HintAssist.HintOpacity="1" />
                         <TextBox x:Name="tbPassword" Visibility="Collapsed"/>
                     </StackPanel>
                     
-                    <StackPanel Margin=" 0 7 0 0" Orientation="Horizontal" HorizontalAlignment="Right">
-                        <TextBlock Text="Показать пароль" FontSize="16"/>
-                        <CheckBox VerticalAlignment="Center"/>
-                    </StackPanel>
-                    <Button HorizontalAlignment="Left" x:Name="btEnter" Click="clEnter"
-                            Margin="0 25 0 0" Style="{StaticResource ButtonStyle}" Width="167" Height="48" Content="Вход">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="14"/>
-                            </Style>
-                        </Button.Resources>
+                    <Button HorizontalAlignment="Left" x:Name="btEnter" Click="clEnter" 
+                            Margin="0 25 0 0" Style="{StaticResource MaterialDesignFlatAccentBgButton}" materialDesign:ButtonAssist.CornerRadius="15" 
+                            Width="167" Height="48" Content="Вход" FontSize="18">
+                        
                     </Button>
                 </StackPanel>
             </Border>
