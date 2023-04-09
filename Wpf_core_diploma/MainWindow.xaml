@@ -8,6 +8,7 @@
         WindowStartupLocation="CenterScreen"    
         Title="ГБОУ СОШ с.Красный Яр" Height="720" Width="1024" MinHeight="720" MinWidth="1024"
         Style="{StaticResource font}"
+        
         >
     <Grid >
         <Grid.RowDefinitions>

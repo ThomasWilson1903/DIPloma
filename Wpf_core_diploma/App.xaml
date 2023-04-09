@@ -5,12 +5,16 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    
     <Application.Resources>
+
         <Style x:Key="font">
             <Setter Property="TextElement.FontSize" Value="25"/>
             <Setter Property="TextElement.FontFamily" Value="Inter"/>
         </Style>
 
+        
+        
         <Style x:Key="fontTitle">
             <Setter Property="TextElement.FontSize" Value="25"/>
             <Setter Property="TextElement.FontFamily" Value="Inter"/>
@@ -356,6 +360,8 @@
         </Style>
         <!--#endRegion DataGrid-->
 
+
+        
 
     </Application.Resources>
 </Application>

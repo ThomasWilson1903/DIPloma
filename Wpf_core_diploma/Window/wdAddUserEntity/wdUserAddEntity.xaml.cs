@@ -23,5 +23,10 @@ namespace DIPloma.Window.wdAddUserEntity
         {
             InitializeComponent();
         }
+
+        private void BundledTheme_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+
+        }
     }
 }

@@ -4,9 +4,76 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma.Window.wdAddUserEntity"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="wdUserAddEntity" Height="450" Width="800">
-    <Grid>
+        Title="Добавления пользователя" Height="450" Width="800" ResizeMode="NoResize" FontFamily="{DynamicResource MaterialDesignFont}"
         
+        >
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="Red" SecondaryColor="Lime"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="355*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#022D73">
+            <TextBlock Text="Добавить пользователя" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" FontSize="36"/>
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg"  Stretch="UniformToFill"/>
+            <Border Margin="10" CornerRadius="7">
+                <Border.Background>
+                    <SolidColorBrush Color="#FFFFFF" Opacity="0.7"/>
+                </Border.Background>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center" Width="260">
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Логин"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Email"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+                     />
+                        <ComboBox Style="{StaticResource MaterialDesignOutlinedComboBox}" Margin="0 17 0 0"/>
+                        <PasswordBox Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Password="" materialDesign:HintAssist.Hint="Пароль"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     />
+                        <StackPanel>
+                            <Button Content="Добавить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
+                        materialDesign:ButtonAssist.CornerRadius="15" Width="120" BorderBrush="Transparent"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" Width="260">
+
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Имя"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Фамилия"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Отчество" 
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+                     />
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
     </Grid>
 </Window>
