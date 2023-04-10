@@ -25,7 +25,7 @@
                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
                                 Style="{DynamicResource CalendarStyle1}"/>
             <Button Content="Подтвердить" Margin="5" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
-                                materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent"/>
+                                materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clSaveDate"/>
         </StackPanel>
     </Grid>
 </Window>
