@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,18 @@ namespace DIPloma.Window.wdAddUserEntity
     /// </summary>
     public partial class wdTeacherAddEntity 
     {
-        public wdTeacherAddEntity()
+        Teacher Teacher;
+        public wdTeacherAddEntity(Teacher teacher)
         {
+            this.Teacher = teacher;
             InitializeComponent();
+        }
+
+        private void clOpenCalendarHB(object sender, RoutedEventArgs e)
+        {
+            wdCalendar calendar = new wdCalendar();//attention dibil
+            calendar.ShowDialog();//attention dibil, da blute, aaaaa!
+            MessageBox.Show($"{calendar.TeacherHB}");
         }
     }
 }

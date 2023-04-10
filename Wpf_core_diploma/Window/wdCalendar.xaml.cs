@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +18,38 @@ namespace DIPloma.Window
     /// <summary>
     /// Interaction logic for wdCalendar.xaml
     /// </summary>
-    public partial class wdCalendar 
+    public partial class wdCalendar
     {
+        Teacher Teacher;
+
+        private DateTime _teacherHB;
+        public DateTime TeacherHB => _teacherHB;
+
         public wdCalendar()
         {
+            //_teacherHB.DateBirth = DateTime.Now;
             InitializeComponent();
         }
 
         private void clSaveDate(object sender, RoutedEventArgs e)
         {
+            
+            //_teacherHB.DateBirth = date.Value;
+            Close();
+        }
+
+        private void sdcDateHB(object sender, SelectionChangedEventArgs e)
+        {
+            DateTime? date = calendar1.SelectedDate;
+
+            if (date != null)
+            {
+                _teacherHB = date.Value;
+                //MessageBox.Show($"{date}");
+
+            }
+            else
+                _teacherHB = new DateTime();
 
         }
     }

@@ -31,12 +31,9 @@ namespace DIPloma.Window
         {
 
             InitializeComponent();
-            FrameSelect();
+           
         }
-        void FrameSelect()
-        {
-
-        }
+        
 
 
 

@@ -23,7 +23,7 @@
         <Calendar  x:Name="calendar1" FirstDayOfWeek="Monday" 
                                SelectedDate="{Binding Date}"      
                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
-                                Style="{DynamicResource CalendarStyle1}"/>
+                                Style="{DynamicResource CalendarStyle1}" SelectedDatesChanged="sdcDateHB"/>
             <Button Content="Подтвердить" Margin="5" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
                                 materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clSaveDate"/>
         </StackPanel>
