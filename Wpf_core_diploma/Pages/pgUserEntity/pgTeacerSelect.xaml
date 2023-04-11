@@ -46,7 +46,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Ellipse Width="45" Height="45" Margin="0 0 10 0" >
                                             <Ellipse.Fill>
-                                                <ImageBrush ImageSource="{Binding PhotoTeachers, TargetNullValue={StaticResource photo}}" 
+                                                <ImageBrush ImageSource="{Binding PhotoTeachers, TargetNullValue={StaticResource photo}}" AlignmentY="Top" 
                                                             RenderOptions.BitmapScalingMode="HighQuality" Stretch="UniformToFill" />
                                             </Ellipse.Fill>
                                         </Ellipse>
@@ -82,7 +82,8 @@
 
                                     </Button>
 
-                                    <Button Width="30" Height="30" BorderBrush="Transparent" Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button2}">
+                                    <Button Width="30" Height="30" BorderBrush="Transparent" 
+                                            Margin="5 0 0 0" Click="clDel" Style="{StaticResource Button2}">
 
                                         <Button.Content>
                                             <Image Source="/Resources/del1While.png"/>

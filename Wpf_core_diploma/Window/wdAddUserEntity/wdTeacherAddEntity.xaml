@@ -43,11 +43,14 @@
 
                             <Ellipse Width="120" Height="120" HorizontalAlignment="Left">
                                 <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding PhotoTeachers, TargetNullValue= {StaticResource photo}}"/>
+                                    <ImageBrush  x:Name="ImageTeacher" Stretch="UniformToFill" AlignmentY="Top"
+                                                 ImageSource="{Binding PhotoTeachers, TargetNullValue= {StaticResource photo}}"/>
                                 </Ellipse.Fill>
                             </Ellipse>
                             
-                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" VerticalAlignment="Top" Width="40" Height="40" Margin="5 0 0 0 ">
+                            <Button Style="{StaticResource MaterialDesignFloatingActionButton}" 
+                                    VerticalAlignment="Top" Width="40" Height="40" Margin="5 0 0 0 "
+                                    Click="clDomlodeImage">
                                 <Button.Content>
                                     <Image Source="/Resources/download.png" Margin="5"/>
                                 </Button.Content>

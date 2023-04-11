@@ -36,7 +36,8 @@
                     <Ellipse x:Name="elImage" Width="100" Visibility="Visible" 
                              Height="100">
                         <Ellipse.Fill>
-                            <ImageBrush x:Name="ibImage" ImageSource="{Binding PhotoUsers,  TargetNullValue={StaticResource photo}}" Stretch="UniformToFill" />
+                            <ImageBrush x:Name="ibImage" AlignmentY="Top"
+                                        ImageSource="{Binding PhotoUsers,  TargetNullValue={StaticResource photo}}" Stretch="UniformToFill" />
                         </Ellipse.Fill>
                     </Ellipse>
                     <StackPanel VerticalAlignment="Center">

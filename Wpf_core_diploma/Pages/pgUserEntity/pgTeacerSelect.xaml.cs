@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window.wdAddUserEntity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,7 +42,8 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-
+            Teacher chang = (sender as Button).DataContext as Teacher;
+            new wdTeacherAddEntity(chang).ShowDialog();
         }
 
         private void clDel(object sender, RoutedEventArgs e)
