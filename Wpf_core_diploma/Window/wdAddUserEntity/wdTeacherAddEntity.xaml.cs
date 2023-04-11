@@ -29,7 +29,7 @@ namespace DIPloma.Window.wdAddUserEntity
 
         private void clOpenCalendarHB(object sender, RoutedEventArgs e)
         {
-            wdCalendar calendar = new wdCalendar();//attention dibil
+            wdCalendar calendar = new wdCalendar(DateTime.Today);//attention dibil
             calendar.ShowDialog();//attention dibil, da blute, aaaaa!
             MessageBox.Show($"{calendar.TeacherHB}");
         }

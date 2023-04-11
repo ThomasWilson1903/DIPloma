@@ -7,25 +7,32 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         
         mc:Ignorable="d"
-        Title="Календарь" Height="230" Width="200" ResizeMode="NoResize">
+        Title="Календарь" Height="250" Width="200" ResizeMode="NoResize">
     <Window.Resources>
-        
+
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
+
     </Window.Resources>
     <Grid>
-        <StackPanel>
-        <Calendar  x:Name="calendar1" FirstDayOfWeek="Monday" 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="170"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Calendar Grid.Row="0" x:Name="calendar1" FirstDayOfWeek="Monday" 
                                SelectedDate="{Binding Date}"      
                                CalendarItemStyle="{DynamicResource CalendarCalendarItemStyle1}" 
                                 Style="{DynamicResource CalendarStyle1}" SelectedDatesChanged="sdcDateHB"/>
-            <Button Content="Подтвердить" Margin="5" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
-                                materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clSaveDate"/>
-        </StackPanel>
+
+
+        <Button Grid.Row="1" Content="Подтвердить"  Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
+                             materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clSaveDate" 
+                             VerticalAlignment="Center"/>
+
+
     </Grid>
 </Window>

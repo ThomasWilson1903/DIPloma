@@ -22,35 +22,25 @@ namespace DIPloma.Window
     {
         Teacher Teacher;
 
-        private DateTime _teacherHB;
+        private DateTime _teacherHB = DateTime.Today;
         public DateTime TeacherHB => _teacherHB;
 
-        public wdCalendar()
+        public wdCalendar(DateTime dataSelect)
         {
-            //_teacherHB.DateBirth = DateTime.Now;
+            _teacherHB = dataSelect;
             InitializeComponent();
         }
 
         private void clSaveDate(object sender, RoutedEventArgs e)
         {
-            
-            //_teacherHB.DateBirth = date.Value;
+
             Close();
         }
 
         private void sdcDateHB(object sender, SelectionChangedEventArgs e)
         {
             DateTime? date = calendar1.SelectedDate;
-
-            if (date != null)
-            {
-                _teacherHB = date.Value;
-                //MessageBox.Show($"{date}");
-
-            }
-            else
-                _teacherHB = new DateTime();
-
+            _teacherHB = date.Value;
         }
     }
 }
