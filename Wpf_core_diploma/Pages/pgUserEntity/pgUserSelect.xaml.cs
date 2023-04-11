@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window.wdAddUserEntity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,7 @@ namespace DIPloma.Pages.pgUserEntity
     /// </summary>
     public partial class pgUserSelect : Page
     {
+        
         public pgUserSelect()
         {
             InitializeComponent();
@@ -44,6 +46,9 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clChang(object sender, RoutedEventArgs e)
         {
+            User user = (sender as Button).DataContext as User;
+            new wdUserAddEntity(user).ShowDialog();
+            NavigationService.Navigate(new pgUserSelect());
 
         }
 
