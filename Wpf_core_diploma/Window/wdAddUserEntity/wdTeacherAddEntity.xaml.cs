@@ -1,4 +1,5 @@
-﻿using DIPloma.DataBase.Entity;
+﻿using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -39,7 +40,8 @@ namespace DIPloma.Window.wdAddUserEntity
             }
             wdCalendar calendar = new wdCalendar(date);//attention dibil
             calendar.ShowDialog();//attention dibil, da blute, aaaaa!
-            MessageBox.Show($"{calendar.TeacherHB}");
+            Teacher.DateBirth = calendar.TeacherHB;
+            //MessageBox.Show($"{calendar.TeacherHB}");
         }
 
         private void clDomlodeImage(object sender, RoutedEventArgs e)
@@ -60,6 +62,41 @@ namespace DIPloma.Window.wdAddUserEntity
 
                
             }
+        }
+
+        private void clOpenCalendarWork(object sender, RoutedEventArgs e)
+        {
+            DateTime date = Teacher.DateWork;
+            if (date == new DateTime(0001, 01, 01))
+            {
+                date = DateTime.Today;
+            }
+            wdCalendar calendar = new wdCalendar(date);//attention dibil
+            calendar.ShowDialog();//attention dibil, da blute, aaaaa!
+            Teacher.DateWork = calendar.TeacherHB;
+            //MessageBox.Show($"{calendar.TeacherHB}");
+        }
+
+        private void clSaveDataBase(object sender, RoutedEventArgs e)
+        {
+            if (Teacher == null)
+            {
+                EfModels.init().Add(Teacher);
+
+            }
+            EfModels.init().SaveChanges();
+            Close();
+        }
+
+        private void isVisibleChang1(object sender, DependencyPropertyChangedEventArgs e)
+        {
+
+            if (Teacher.IdTeachers != null)
+            {
+                EfModels.init().Entry(Teacher).Reload();
+            }
+            EfModels.init().SaveChanges();
+
         }
     }
 }

@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:DIPloma.Window.wdAddUserEntity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="wdTeacherAddEntity" Height="500" Width="800" ResizeMode="NoResize">
+        Title="wdTeacherAddEntity" Height="500" Width="800" ResizeMode="NoResize"
+        IsVisibleChanged="isVisibleChang1">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -56,17 +57,20 @@
                                 </Button.Content>
                             </Button>
                         </StackPanel>
+                        <!--fio-->
 
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Логин"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding NameTeacher}" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0"
                      />
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Email"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0" materialDesign:HintAssist.HintOpacity="1"
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding SurnameTeacher}" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
                      />
-                        <PasswordBox Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}" Password="" materialDesign:HintAssist.Hint="Пароль"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding MiddleNameTeacher}" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
                      />
-                        
+
+
+                        <!--fio-->
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center" Width="300">
                         <StackPanel Orientation="Vertical">
@@ -74,22 +78,19 @@
                         <Button Content="Дата рождения" Margin="0 10 0 0 " Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
                                 materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clOpenCalendarHB"/>
                         <Button Content="Дата устройства" Margin="0 10 0 0 " Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
-                                materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" 
+                                materialDesign:ButtonAssist.CornerRadius="15" BorderBrush="Transparent" Click="clOpenCalendarWork" 
                                 />
                         </StackPanel>
 
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0"
-                     />
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
-                     />
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+
+                        
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding OfficeNumber}" materialDesign:HintAssist.Hint="№ Кабинета" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 10 0 0"
                      />
                         <StackPanel Margin="0 27" HorizontalAlignment="Left" >
-                            <Button Content="Добавить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
-                                materialDesign:ButtonAssist.CornerRadius="15" Width="120" BorderBrush="Transparent"/>
+                            <Button Content="Сохранить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
+                                materialDesign:ButtonAssist.CornerRadius="15" Width="120" BorderBrush="Transparent"
+                                    Click="clSaveDataBase"/>
                         </StackPanel>
 
                     </StackPanel>

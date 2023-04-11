@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,12 +20,15 @@ namespace DIPloma.Window.wdAddUserEntity
     /// </summary>
     public partial class wdUserAddEntity 
     {
-        public wdUserAddEntity()
+        User User;
+        public wdUserAddEntity(User user)
         {
+            this.User = user;
+            DataContext = User;
             InitializeComponent();
         }
 
-        private void BundledTheme_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        private void clSaveChangUser(object sender, RoutedEventArgs e)
         {
 
         }

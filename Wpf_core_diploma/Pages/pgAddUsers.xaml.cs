@@ -98,7 +98,7 @@ namespace DIPloma.Pages
             switch (buttonSelect)
             {
                 case 1:
-                    new wdUserAddEntity().ShowDialog();
+                    new wdUserAddEntity(new User()).ShowDialog();
                     frMain.Navigate(new pgUserSelect());
                     break;
                 case 2:

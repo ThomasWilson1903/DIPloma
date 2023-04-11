@@ -44,6 +44,7 @@ namespace DIPloma.Pages.pgUserEntity
         {
             Teacher chang = (sender as Button).DataContext as Teacher;
             new wdTeacherAddEntity(chang).ShowDialog();
+            NavigationService.Navigate(new pgTeacerSelect());
         }
 
         private void clDel(object sender, RoutedEventArgs e)
