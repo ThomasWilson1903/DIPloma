@@ -1,0 +1,92 @@
+﻿<Window x:Class="DIPloma.Window.wdAddUserEntity.wdStudentAddEntity"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DIPloma.Window.wdAddUserEntity"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="wdStudentAddEntity" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="79*"/>
+            <RowDefinition Height="355*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="#022D73">
+            <TextBlock Text="Добавить пользователя" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFFFFF" FontSize="36"/>
+        </Grid>
+        <Grid Grid.Row="1">
+
+            <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg"  Stretch="UniformToFill"/>
+            <Border Margin="10" CornerRadius="7">
+                <Border.Background>
+                    <SolidColorBrush Color="#FFFFFF" Opacity="0.8"/>
+                </Border.Background>
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel Grid.Column="0" HorizontalAlignment="Center" Width="260">
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                            <!--ImageBlok-->
+                            <Ellipse Width="100" Height="100" HorizontalAlignment="Left">
+                                <Ellipse.Fill>
+                                    <ImageBrush  x:Name="ImageUser" Stretch="UniformToFill" AlignmentY="Top"
+                                                 ImageSource="{Binding PhotoUsers, TargetNullValue= {StaticResource photo}}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
+                            <!--EndImageBlok-->
+                            
+                        </StackPanel>
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Login}" materialDesign:HintAssist.Hint="Логин"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Mail}" materialDesign:HintAssist.Hint="Email"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0" materialDesign:HintAssist.HintOpacity="1"
+                     />
+
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Password}"  materialDesign:HintAssist.Hint="Пароль"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
+                     />
+
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" HorizontalAlignment="Center" Width="260">
+
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding NameStudent}" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 0 0 0"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding SurNameStudent}" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     />
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding DobleNameStudent}" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+                     />
+                        <ComboBox x:Name="cbRoleUser" Style="{StaticResource MaterialDesignComboBox}" SelectedItem="{Binding GroupNavigation}" 
+                                  DisplayMemberPath="ClassNumber" Margin="0 17 0 0"/>
+                        <StackPanel>
+                            <Button Content="Сохранить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
+                                materialDesign:ButtonAssist.CornerRadius="15" Width="150" BorderBrush="Transparent"
+                                    Click="clSaveChangUser" Margin="0 20 0 0" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</Window>

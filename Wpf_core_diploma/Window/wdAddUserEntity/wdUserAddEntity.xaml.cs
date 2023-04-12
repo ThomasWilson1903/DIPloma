@@ -21,7 +21,7 @@ namespace DIPloma.Window.wdAddUserEntity
     /// <summary>
     /// Interaction logic for wdUserAddEntity.xaml
     /// </summary>
-    public partial class wdUserAddEntity 
+    public partial class wdUserAddEntity
     {
         User User;
         public wdUserAddEntity(User user)
@@ -39,11 +39,15 @@ namespace DIPloma.Window.wdAddUserEntity
 
         private void clSaveChangUser(object sender, RoutedEventArgs e)
         {
-            if(User == null)
+            User.Role = cbRoleUser.SelectedIndex + 1;
+            if (User.IdUserss == 0)
             {
-                EfModels.init().Add(User);
+            EfModels.init().Add(this.User);
             }
+
             EfModels.init().SaveChanges();
+            Close();
+
         }
         void downloadImage()
         {
@@ -73,6 +77,7 @@ namespace DIPloma.Window.wdAddUserEntity
                 EfModels.init().Entry(User).Reload();
             }
             EfModels.init().SaveChanges();
+
         }
     }
 }
