@@ -39,7 +39,11 @@ namespace DIPloma.Window.wdAddUserEntity
 
         private void clSaveChangUser(object sender, RoutedEventArgs e)
         {
-
+            if(User == null)
+            {
+                EfModels.init().Add(User);
+            }
+            EfModels.init().SaveChanges();
         }
         void downloadImage()
         {
@@ -60,6 +64,15 @@ namespace DIPloma.Window.wdAddUserEntity
         private void clDomlodeImage(object sender, RoutedEventArgs e)
         {
             downloadImage();
+        }
+
+        private void isVisibleChandg1(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (User.IdUserss != null)
+            {
+                EfModels.init().Entry(User).Reload();
+            }
+            EfModels.init().SaveChanges();
         }
     }
 }
