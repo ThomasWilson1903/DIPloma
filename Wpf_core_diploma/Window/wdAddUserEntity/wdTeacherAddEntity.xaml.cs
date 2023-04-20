@@ -79,7 +79,7 @@ namespace DIPloma.Window.wdAddUserEntity
 
         private void clSaveDataBase(object sender, RoutedEventArgs e)
         {
-            if (Teacher == null)
+            if (Teacher.IdTeachers == 0)//bad zero
             {
                 EfModels.init().Add(Teacher);
 
@@ -95,6 +95,7 @@ namespace DIPloma.Window.wdAddUserEntity
             {
                 EfModels.init().Entry(Teacher).Reload();
             }
+
             EfModels.init().SaveChanges();
 
         }

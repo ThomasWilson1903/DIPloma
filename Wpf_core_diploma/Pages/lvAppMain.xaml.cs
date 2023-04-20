@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,22 +36,22 @@ namespace DIPloma.Pages
                 namefun = name;
             }
         }
-        //User User;
-        public lvAppMain(/*User user*/)
+        User User;
+        public lvAppMain(User user)
         {
-            //User = user;
+            User = user;
             InitializeComponent();
-            //Select2(User);
+            Select2(User);
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
         {
-            //Select2(User);
+            Select2(User);
         }
 
 
 
-        /*void Select2(User user)
+        void Select2(User user)
         {
             switch (user.Role)
             {
@@ -100,7 +101,7 @@ namespace DIPloma.Pages
 
 
 
-        }*/
+        }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)
         {
@@ -122,12 +123,11 @@ namespace DIPloma.Pages
 
                     break;
                 case 1:
-                    //NavigationService.Navigate());
+                    NavigationService.Navigate(new pgSubject());
 
                     break;
                 case 2:
-                    MessageBox.Show("В разработки функция №" + lvMain.SelectedIndex);
-
+                   NavigationService.Navigate(new pgAddUsers());
                     break;
             }
         }
