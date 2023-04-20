@@ -106,7 +106,7 @@ namespace DIPloma.Pages
                     frMain.Navigate(new pgTeacerSelect());
                     break;
                 case 3:
-                    //new wdUserAddEntity().ShowDialog();
+                    new wdStudentAddEntity(new Student()).ShowDialog();
                     frMain.Navigate(new pgStudentSelect());
                     break;
 
