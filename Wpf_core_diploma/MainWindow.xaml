@@ -4,12 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"    
         Title="ГБОУ СОШ с.Красный Яр" Height="720" Width="1024" MinHeight="720" MinWidth="1024"
         Style="{StaticResource font}"
         
         >
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="132"/>
@@ -41,11 +51,11 @@
                         </Ellipse.Fill>
                     </Ellipse>
                     <StackPanel VerticalAlignment="Center">
-                    <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" 
+                        <TextBlock x:Name="tbFIO" Text="Иванов Иван Иванович" 
                                VerticalAlignment="Center" Margin="5"
                                Foreground="#ffffff"
-                               Visibility="Visible" />
-                        <TextBlock x:Name="btBack"  
+                               Visibility="Collapsed" />
+                        <TextBlock x:Name="btBack"  Visibility="Collapsed"
                             Width="100" Text="Выход" Foreground="#0070E0"
                             MouseUp="muBack"       
                             Margin="5 5 0 0"  HorizontalAlignment="Left"/>
@@ -53,15 +63,12 @@
                 </StackPanel>
                 <!--кнопки-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Visible" Height="87" >
-                    <Button Visibility="Collapsed" x:Name="btLogin" Width="167" Content="Вход"
-                            Style="{StaticResource ButtonStyle}"
+                    <Button Visibility="Visible" x:Name="btLogin" Width="167" Content="Вход"
                             Click="ClSingIn" Margin="2" Height="45" 
-                            >
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="14"/>
-                            </Style>
-                        </Button.Resources>
+                            Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
+                            materialDesign:ButtonAssist.CornerRadius="15"
+                            BorderBrush="Transparent">
+
                     </Button>
                 </StackPanel>
             </Grid>
