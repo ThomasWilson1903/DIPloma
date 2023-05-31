@@ -236,7 +236,7 @@
                                 <Border.Background>
                                     <SolidColorBrush Color="#FFFFFF"/>
                                 </Border.Background>
-                                <TextBox x:Name="tbAestiomatio" 
+                                <TextBox x:Name="tbAestiomatio" MaxLength="1" PreviewTextInput="NumberValidationTextBox"
                                          Margin="10 0 10 0"
                                          Text="{Binding Aestimatio}" FontSize="16" Height="30" 
                                          Style="{StaticResource tboxTransperent}"                        

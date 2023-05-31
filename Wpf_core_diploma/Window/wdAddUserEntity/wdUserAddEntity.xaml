@@ -56,7 +56,7 @@
                                     VerticalAlignment="Top" Width="40" Height="40" Margin="5 0 0 0 "
                                     Click="clDomlodeImage">
                                 <Button.Content>
-                                    <Image Source="/Resources/download.png" Margin="5"/>
+                                    <materialDesign:PackIcon Kind="download" Foreground="#FFFFFF"/>
                                 </Button.Content>
                             </Button>
                         </StackPanel>

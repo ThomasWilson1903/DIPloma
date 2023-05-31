@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -67,6 +68,12 @@ namespace DIPloma.Pages
         private void calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             //selectedDate = calendar1.SelectedDate;
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^2-5]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -33,6 +34,8 @@ namespace DIPloma.Window
             Journal.Students = StudentIndex;
             Journal.ListItems = ListItems;
             InitializeComponent();
+            calendar1.DisplayDateStart = DateTime.Today.AddDays(-7);
+            calendar1.DisplayDateEnd = DateTime.Today;
         }
 
 
@@ -72,6 +75,12 @@ namespace DIPloma.Window
                 EfModels.init().Entry(Journal).Reload();
             }
             EfModels.init().SaveChanges();
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^2-5]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
     }
 }

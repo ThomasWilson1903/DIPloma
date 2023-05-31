@@ -211,8 +211,8 @@
                     <TextBlock Text="Комментарий к оценки"/>
                     <TextBox Text="{Binding Comment}"/>
                     <TextBlock Text="Оценка" Margin="0 10 0 0 "/>
-                    <TextBox Text="{Binding Aestimatio}"/>
-                    <Button Content="Сохранить" Margin="5" Foreground="#FFFFFF" Click="clSaveAddChang"/>
+                    <TextBox Text="{Binding Aestimatio}" PreviewTextInput="NumberValidationTextBox"/>
+                    <Button Content="Сохранить" Margin="5" Foreground="#FFFFFF" Click="clSaveAddChang" Style="{StaticResource Button1}"/>
                 </StackPanel>
             </Grid>
         </Grid>

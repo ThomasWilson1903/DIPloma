@@ -56,6 +56,7 @@ namespace DIPloma.Pages.pgUserEntity
             Student del = (sender as Button).DataContext as Student;
             EfModels.init().Remove(del);
             EfModels.init().SaveChanges();
+            selectStudent();
         }
     }
 }
