@@ -38,7 +38,7 @@ namespace DIPloma.Window.wdAddUserEntity
         {
 
 
-            if (this.Student != null)
+            if (this.Student.Idstudents == 0)
             {
                 if (loginString != "")
                 {
@@ -51,6 +51,20 @@ namespace DIPloma.Window.wdAddUserEntity
 
 
             }
+
+            if (Student.Idstudents != 0)
+            {
+                if (loginString != "")
+                {
+                    Student.Login = loginString;
+                    Student.Password = loginString;
+                    EfModels.init().Update(Student);
+                }
+                else
+                    MessageBox.Show("Заполните данные");
+
+            }
+
             EfModels.init().SaveChanges();
             Close();
         }

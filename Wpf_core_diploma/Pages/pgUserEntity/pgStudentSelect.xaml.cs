@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window.wdAddUserEntity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -45,12 +46,16 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clChang(object sender, RoutedEventArgs e)
         {
-
+            Student change = (sender as Button).DataContext as Student;
+            new wdStudentAddEntity(change).ShowDialog();
+            selectStudent();
         }
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-
+            Student del = (sender as Button).DataContext as Student;
+            EfModels.init().Remove(del);
+            EfModels.init().SaveChanges();
         }
     }
 }

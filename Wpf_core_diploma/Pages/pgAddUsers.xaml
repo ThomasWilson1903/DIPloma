@@ -75,7 +75,7 @@
         </Grid>
 
         <Grid Grid.Row="1" Margin="0 6 0 0">
-            <Frame x:Name="frMain" Margin="5">
+            <Frame x:Name="frMain" Margin="5" NavigationUIVisibility="Hidden">
 
             </Frame>
         </Grid>

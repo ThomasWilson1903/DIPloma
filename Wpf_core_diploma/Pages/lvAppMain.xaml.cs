@@ -48,15 +48,7 @@ namespace DIPloma.Pages
         {
             Select2(User);
         }
-
-
-
-        void Select2(User user)
-        {
-            switch (user.Role)
-            {
-                case 1:
-                    IEnumerable<fun> list = new List<fun>
+        IEnumerable<fun> list = new List<fun>
             {
                 new fun("тестовая иконка")
                 {
@@ -69,11 +61,8 @@ namespace DIPloma.Pages
                     image = "\\Resources\\jornal 2.png",
                     access = 0,
                 },
-            }.Where(p => p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
-                    lvMain.ItemsSource = list;
-                    break;
-                case 2:
-                    IEnumerable<fun> list1 = new List<fun>
+            };
+        IEnumerable<fun> list1 = new List<fun>
             {
                 new fun("тестовая иконка")
                 {
@@ -92,7 +81,18 @@ namespace DIPloma.Pages
                     image = "\\Resources\\Добавить 2 2.png",
                     access = 1
                 }
-            }.Where(p => p.namefun.ToLower().Contains(tbSerch.Text.ToLower()));
+            };
+
+        void Select2(User user)
+        {
+            switch (user.Role)
+            {
+                case 1:
+                    lvMain.ItemsSource = list;
+                    break;
+
+
+                case 2:
                     lvMain.ItemsSource = list1;
                     break;
 
@@ -103,15 +103,7 @@ namespace DIPloma.Pages
 
         }
 
-        private void mdSerch(object sender, MouseButtonEventArgs e)
-        {
-            Keyboard.Focus(tbSerch);
-        }
 
-        private void muSerch2(object sender, MouseButtonEventArgs e)
-        {
-            Keyboard.Focus(tbSerch);
-        }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {

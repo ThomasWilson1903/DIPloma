@@ -16,7 +16,7 @@
             </Grid.RowDefinitions>
             <Border Grid.Row="0"  CornerRadius="7" Margin="0 5 ">
                 <Border.Background>
-                    <SolidColorBrush Color="#7C7C7C" Opacity="0.5"/>
+                    <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal" >
                     <TextBlock Text="Поиск" VerticalAlignment="Center" Margin="5 0 0 0" Foreground="#FFFFFF"/>
