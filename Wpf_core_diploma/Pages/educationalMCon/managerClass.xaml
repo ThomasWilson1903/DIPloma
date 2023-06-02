@@ -32,7 +32,9 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
-                <ComboBox Margin="5" Grid.Row="0" x:Name="cbFirst"/>
+
+                <ComboBox Margin="5" Grid.Row="0" x:Name="cbFirst" DisplayMemberPath="ClassNumber"/>
+                
                 <ListBox Grid.Row="1" Margin="5,0,0,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -50,7 +52,9 @@
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
-                <ComboBox Margin="5" Grid.Row="0" x:Name="cbSecond"/>
+
+                <ComboBox Margin="5" Grid.Row="0" x:Name="cbSecond" DisplayMemberPath="ClassNumber"/>
+                
                 <ListBox Grid.Row="1" Margin="5 0 0 0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

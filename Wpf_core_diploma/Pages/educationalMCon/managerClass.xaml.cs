@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,18 @@ namespace DIPloma.Pages.educationalMCon
     /// </summary>
     public partial class managerClass : Page
     {
+        List<Student> students = new();
+        List<EducationalClass> educationalClasses = new();
+
+
         public managerClass()
         {
             InitializeComponent();
+
+            educationalClasses = EfModels.init().EducationalClasses.ToList();
+
+            cbFirst.ItemsSource = educationalClasses;
+            cbSecond.ItemsSource = educationalClasses;
         }
     }
 }

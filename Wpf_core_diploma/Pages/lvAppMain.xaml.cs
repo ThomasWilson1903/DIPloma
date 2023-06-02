@@ -1,4 +1,5 @@
 ﻿using DIPloma.DataBase.Entity;
+using DIPloma.Pages.educationalMCon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,7 +65,7 @@ namespace DIPloma.Pages
             };
         IEnumerable<fun> list1 = new List<fun>
             {
-                new fun("тестовая иконка")
+                new fun("Управления классами")
                 {
                     image = "\\Resources\\free-icon-dark-mode-6714978.png",
                     access = 0,
@@ -111,7 +112,7 @@ namespace DIPloma.Pages
             {
                 case 0:
                     //MessageBox.Show("DW" + lvMain.SelectedIndex);
-                    NavigationService.Navigate(new PgWelcomes());
+                    NavigationService.Navigate(new managerClass());
 
                     break;
                 case 1:
