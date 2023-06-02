@@ -53,7 +53,7 @@ namespace DIPloma.Pages
             {
                 new fun("тестовая иконка")
                 {
-                    image = "\\Resources\\free-icon-dark-mode-6714978.png",
+                    image = "\\Resources\\free-icon-classroom-906175.png",
                     access = 0,
                 },
 
@@ -67,7 +67,7 @@ namespace DIPloma.Pages
             {
                 new fun("Управления классами")
                 {
-                    image = "\\Resources\\free-icon-dark-mode-6714978.png",
+                    image = "\\Resources\\free-icon-classroom-906175.png",
                     access = 0,
                 },
 

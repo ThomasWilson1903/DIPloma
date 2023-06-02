@@ -148,6 +148,9 @@
   <data name="edit1While" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit1While.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="free-icon-classroom-906175" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\free-icon-classroom-906175.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="jornal 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\jornal 2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
