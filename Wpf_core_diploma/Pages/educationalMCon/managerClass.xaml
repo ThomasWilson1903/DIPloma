@@ -7,7 +7,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="managerClass">
+      Title="managerClass" FontSize="20">
 
     <Page.Resources>
         <ResourceDictionary>
@@ -17,7 +17,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
-    
+
     <Border Padding="20" CornerRadius="10">
         <Border.Background>
             <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
@@ -25,6 +25,7 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
+                <ColumnDefinition Width="100"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
@@ -34,34 +35,62 @@
                 </Grid.RowDefinitions>
 
                 <ComboBox Margin="5" Grid.Row="0" x:Name="cbFirst" DisplayMemberPath="ClassNumber"/>
-                
-                <ListBox Grid.Row="1" Margin="5,0,0,0">
+
+                <ListBox x:Name="lvFirst" Grid.Row="1" Margin="5,0,0,0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock />
                                 <TextBlock />
                                 <TextBlock />
+
+                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon  Kind="ArrowRight" Foreground="#FFFFFF"/>
+                                    </Button.Content>
+                                </Button>
+                                
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </Grid>
-            <Grid Grid.Column="1">
+
+            <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
+                    <Button.Content>
+                        <materialDesign:PackIcon  Kind="ArrowRight" Foreground="#FFFFFF"/>
+                    </Button.Content>
+                </Button>
+                <Button Margin="0 15" Style="{StaticResource MaterialDesignFloatingActionButton}">
+                    <Button.Content>
+                        <materialDesign:PackIcon Kind="ArrowLeft" Foreground="#FFFFFF"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
 
                 <ComboBox Margin="5" Grid.Row="0" x:Name="cbSecond" DisplayMemberPath="ClassNumber"/>
-                
-                <ListBox Grid.Row="1" Margin="5 0 0 0">
+
+                <ListBox x:Name="lvSecond" Grid.Row="1" Margin="5 0 0 0">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock />
                                 <TextBlock />
                                 <TextBlock />
+
+                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
+                                    <Button.Content>
+                                        <materialDesign:PackIcon  Kind="ArrowLeft" Foreground="#FFFFFF"/>
+                                    </Button.Content>
+                                </Button>
+                                
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

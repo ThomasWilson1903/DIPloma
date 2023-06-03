@@ -31,9 +31,27 @@ namespace DIPloma.Pages.educationalMCon
             InitializeComponent();
 
             educationalClasses = EfModels.init().EducationalClasses.ToList();
-
             cbFirst.ItemsSource = educationalClasses;
             cbSecond.ItemsSource = educationalClasses;
+            select();
         }
+
+        void select()
+        {
+            students = EfModels.init().Students.Where(p => p.GroupNavigation == educationalClasses[cbFirst.SelectedIndex]).ToList();
+            lvFirst.ItemsSource = students;
+        }
+
+        List<Student> raising(List<Student> list)
+        {
+            for (int i = 0; i < list.Count; i++)
+            {
+                
+            }
+
+
+            return students;
+        }
+
     }
 }
