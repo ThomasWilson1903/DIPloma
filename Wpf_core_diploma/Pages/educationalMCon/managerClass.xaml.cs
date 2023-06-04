@@ -22,7 +22,8 @@ namespace DIPloma.Pages.educationalMCon
     /// </summary>
     public partial class managerClass : Page
     {
-        List<Student> students = new();
+        List<Student> students;
+        List<Student> studentsSecond;
         List<EducationalClass> educationalClasses = new();
 
 
@@ -33,25 +34,82 @@ namespace DIPloma.Pages.educationalMCon
             educationalClasses = EfModels.init().EducationalClasses.ToList();
             cbFirst.ItemsSource = educationalClasses;
             cbSecond.ItemsSource = educationalClasses;
-            select();
+            cbFirst.SelectedIndex = 0;
+            cbSecond.SelectedIndex = 0;
+            selectFirst();
+            selectSecond();
         }
 
-        void select()
+        void selectFirst()
         {
-            students = EfModels.init().Students.Where(p => p.GroupNavigation == educationalClasses[cbFirst.SelectedIndex]).ToList();
-            lvFirst.ItemsSource = students;
+            students = EfModels.init().Students.Where(p => p.Group == educationalClasses[cbFirst.SelectedIndex].Idgroup).ToList();
+            dgFirst.ItemsSource = students;
+            //students[1].Group = 2;
         }
 
-        List<Student> raising(List<Student> list)
+        void selectSecond()
         {
-            for (int i = 0; i < list.Count; i++)
+            studentsSecond = EfModels.init().Students.Where(p => p.Group == educationalClasses[cbSecond.SelectedIndex].Idgroup).ToList();
+            dgSecond.ItemsSource = studentsSecond;
+        }
+
+        void raising()
+        {
+            for (int i = 0; i < students.Count(); i++)
             {
-                
+                students[i].Group = educationalClasses[cbSecond.SelectedIndex].Idgroup;
+                EfModels.init().Update(students[i]);
             }
-
-
-            return students;
+            EfModels.init().SaveChanges();
+            selectFirst();
+            selectSecond();
         }
 
+        private void scFirst(object sender, SelectionChangedEventArgs e)
+        {
+            selectFirst();
+        }
+
+        private void clAllRaising(object sender, RoutedEventArgs e)
+        {
+            raising();
+        }
+
+        private void scSecond(object sender, SelectionChangedEventArgs e)
+        {
+            selectSecond();
+        }
+
+        private void clFromFirstIsSecond(object sender, RoutedEventArgs e)
+        {
+            Student student = (sender as Button).DataContext as Student;
+            student.Group = educationalClasses[cbSecond.SelectedIndex].Idgroup;
+            EfModels.init().Update(student);
+            EfModels.init().SaveChanges();
+            selectFirst();
+            selectSecond();
+        }
+
+        private void clFromSecondIsFirst(object sender, RoutedEventArgs e)
+        {
+            Student student = (sender as Button).DataContext as Student;
+            student.Group = educationalClasses[cbFirst.SelectedIndex].Idgroup;
+            EfModels.init().Update(student);
+            EfModels.init().SaveChanges();
+            selectFirst();
+            selectSecond();
+        }
+
+        private void clAllEditRaising(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < studentsSecond.Count(); i++)
+            {
+                studentsSecond[i].Group = educationalClasses[cbFirst.SelectedIndex].Idgroup;
+                EfModels.init().Update(studentsSecond[i]);
+            }
+            EfModels.init().SaveChanges();
+            selectFirst();
+            selectSecond();
+        }
     }
 }

@@ -20,7 +20,7 @@
 
     <Border Padding="20" CornerRadius="10">
         <Border.Background>
-            <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
+            <SolidColorBrush Color="#FFFFFF" Opacity="0.7"/>
         </Border.Background>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -34,35 +34,47 @@
                     <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox Margin="5" Grid.Row="0" x:Name="cbFirst" DisplayMemberPath="ClassNumber"/>
+                <ComboBox Margin="5" SelectionChanged="scFirst" Grid.Row="0" x:Name="cbFirst" DisplayMemberPath="ClassNumber"/>
 
-                <ListBox x:Name="lvFirst" Grid.Row="1" Margin="5,0,0,0">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock />
-                                <TextBlock />
-                                <TextBlock />
+                <DataGrid x:Name="dgFirst" IsReadOnly="True" Style="{StaticResource MaterialDesignDataGrid}" Grid.Row="1" Margin="5 0 0 0" AutoGenerateColumns="False" Background="Transparent">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="ФИО" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding SurnameStudent}" FontSize="16"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding NameStudent}" FontSize="16"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding MiddleNameStudent}" FontSize="16"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon  Kind="ArrowRight" Foreground="#FFFFFF"/>
-                                    </Button.Content>
-                                </Button>
-                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+
+                        <DataGridTemplateColumn Header="Опции" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="clFromFirstIsSecond" Margin="5 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}">
+                                        <Button.Content>
+                                            <materialDesign:PackIcon  Kind="ArrowRight" Foreground="#FFFFFF"/>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
 
             <StackPanel Grid.Column="1" VerticalAlignment="Center">
-                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
+                <Button Click="clAllRaising" Style="{StaticResource MaterialDesignFloatingActionButton}">
                     <Button.Content>
                         <materialDesign:PackIcon  Kind="ArrowRight" Foreground="#FFFFFF"/>
                     </Button.Content>
                 </Button>
-                <Button Margin="0 15" Style="{StaticResource MaterialDesignFloatingActionButton}">
+                <Button Click="clAllEditRaising" Margin="0 15" Style="{StaticResource MaterialDesignFloatingActionButton}">
                     <Button.Content>
                         <materialDesign:PackIcon Kind="ArrowLeft" Foreground="#FFFFFF"/>
                     </Button.Content>
@@ -75,26 +87,44 @@
                     <RowDefinition Height="21*"/>
                 </Grid.RowDefinitions>
 
-                <ComboBox Margin="5" Grid.Row="0" x:Name="cbSecond" DisplayMemberPath="ClassNumber"/>
+                <ComboBox SelectionChanged="scSecond" Margin="5" Grid.Row="0" x:Name="cbSecond" DisplayMemberPath="ClassNumber"/>
 
-                <ListBox x:Name="lvSecond" Grid.Row="1" Margin="5 0 0 0">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock />
-                                <TextBlock />
-                                <TextBlock />
+                <DataGrid x:Name="dgSecond" IsReadOnly="True" Style="{StaticResource MaterialDesignDataGrid}" Grid.Row="1" Margin="5 0 0 0" AutoGenerateColumns="False" Background="Transparent">
+                    <DataGrid.Columns>
 
-                                <Button Style="{StaticResource MaterialDesignFloatingActionButton}">
-                                    <Button.Content>
-                                        <materialDesign:PackIcon  Kind="ArrowLeft" Foreground="#FFFFFF"/>
-                                    </Button.Content>
-                                </Button>
-                                
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                        <DataGridTemplateColumn Header="Опции" Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="clFromSecondIsFirst" Margin="5 0 0 0" Style="{StaticResource MaterialDesignFloatingActionButton}">
+                                        <Button.Content>
+                                            <materialDesign:PackIcon  Kind="ArrowLeft" Foreground="#FFFFFF"/>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+                        <DataGridTemplateColumn Header="ФИО" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding SurnameStudent}" FontSize="16"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding NameStudent}" FontSize="16"/>
+                                        <TextBlock Text=" "/>
+                                        <TextBlock Text="{Binding MiddleNameStudent}" FontSize="16"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+
+
+                    </DataGrid.Columns>
+                </DataGrid>
+
+
             </Grid>
         </Grid>
     </Border>
