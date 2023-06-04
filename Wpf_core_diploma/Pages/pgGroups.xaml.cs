@@ -23,6 +23,8 @@ namespace DIPloma.Pages
     public partial class pgGroups : Page
     {
         int listitems;
+
+        List<EducationalClass> listClass;
         public pgGroups(int listitems)
         {
             InitializeComponent();
@@ -32,14 +34,14 @@ namespace DIPloma.Pages
 
         void select()
         {
-            IEnumerable<EducationalClass> listClass = EfModels.init().EducationalClasses.ToList();
+            listClass = EfModels.init().EducationalClasses.ToList();
             
             lvMain.ItemsSource = listClass;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new pgLvStudent(listitems, lvMain.SelectedIndex + 1)); ;
+            NavigationService.Navigate(new pgLvStudent(listitems, listClass[lvMain.SelectedIndex].Idgroup)); ;
         }
 
         private void muSerch2(object sender, MouseButtonEventArgs e)
