@@ -77,11 +77,13 @@ namespace DIPloma
                     tbFIO.Visibility = Visibility.Visible;
                     btLogin.Visibility = Visibility.Collapsed;
                     elImage.Visibility = Visibility.Visible;
+                    btBack.Visibility = Visibility.Visible;
                     break;
                 case false:
                     tbFIO.Visibility = Visibility.Collapsed;
                     elImage.Visibility = Visibility.Collapsed;
                     btLogin.Visibility = Visibility.Visible;
+                    btBack.Visibility= Visibility.Collapsed;
                     break;
 
             }
@@ -89,8 +91,9 @@ namespace DIPloma
 
         private void muBack(object sender, MouseButtonEventArgs e)
         {
-            FrMain.Navigate(new PgWelcomes());
+            //FrMain.Navigate(new PgWelcomes());
             //FrMain.RemoveBackEntry();
+            FrMain.Navigate(new PgWelcomes());
             ClearHistory();
             visibleUsers(false);
         }

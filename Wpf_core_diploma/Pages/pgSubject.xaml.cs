@@ -24,6 +24,7 @@ namespace DIPloma.Pages
     /// </summary>
     public partial class pgSubject : Page
     {
+        List<Subiectum> listItems;
         public pgSubject()
         {
             InitializeComponent();
@@ -31,14 +32,14 @@ namespace DIPloma.Pages
         }
         void select()
         {
-            IEnumerable<Subiectum> listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+            listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
 
             lvMain.ItemsSource = listItems;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new pgGroups(lvMain.SelectedIndex + 1));
+            NavigationService.Navigate(new pgGroups(listItems[lvMain.SelectedIndex].Idobjects));
         }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)

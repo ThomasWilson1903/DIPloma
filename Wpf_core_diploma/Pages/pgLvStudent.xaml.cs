@@ -30,7 +30,7 @@ namespace DIPloma.Pages
 
         int Groups;
         int ListItems;
-
+        List<Student> students;
         public pgLvStudent(int listItems, int groups)
         {
             InitializeComponent();
@@ -38,7 +38,7 @@ namespace DIPloma.Pages
             Groups = groups;
 
             SelectStudentListViewLeft(Groups);
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[ lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
 
@@ -46,7 +46,7 @@ namespace DIPloma.Pages
 
         void SelectStudentListViewLeft(int Groups)
         {
-            IEnumerable<Student> students = EfModels.init().Students.Where(p => p.Group == Groups && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
+            students = EfModels.init().Students.Where(p => p.Group == Groups && p.SurnameStudent.Contains(tbSerchStudent.Text)).ToList();
             lvStudentLeft.ItemsSource = students;
         }
 
@@ -59,7 +59,7 @@ namespace DIPloma.Pages
 
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lvMain.ItemsSource);
             PropertyGroupDescription groupDescription = new PropertyGroupDescription("Date");
-            view.GroupDescriptions.Add(groupDescription);//тестовый комент
+            view.GroupDescriptions.Add(groupDescription);
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)
@@ -80,7 +80,7 @@ namespace DIPloma.Pages
 
         private void scStudent(object sender, SelectionChangedEventArgs e)
         {
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
 
@@ -91,7 +91,7 @@ namespace DIPloma.Pages
 
         private void scMonth(object sender, SelectionChangedEventArgs e)
         {
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
 
@@ -100,7 +100,7 @@ namespace DIPloma.Pages
         private void clChang(object sender, RoutedEventArgs e)
         {
             Journal chang = (sender as Button).DataContext as Journal;
-            int StudentIndex = lvStudentLeft.SelectedIndex + 1;
+            int StudentIndex = students[lvStudentLeft.SelectedIndex].Idstudents;
             new pgAddChang(chang, chang.Students, chang.ListItems).ShowDialog();
             Update();
         }
@@ -113,13 +113,13 @@ namespace DIPloma.Pages
                 EfModels.init().Journals.Remove(Del);
                 EfModels.init().SaveChanges();
             }
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
 
         void Update()
         {
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
 
@@ -144,7 +144,7 @@ namespace DIPloma.Pages
 
         private void tcSerchJornal(object sender, TextChangedEventArgs e)
         {
-            int selectStudent = lvStudentLeft.SelectedIndex + 1;
+            int selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
             select(selectStudent);
         }
     }
