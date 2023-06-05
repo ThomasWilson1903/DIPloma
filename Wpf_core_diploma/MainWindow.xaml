@@ -78,7 +78,11 @@
             <Frame x:Name="FrMain" Margin="10 10 10 10 "  NavigationUIVisibility="Hidden">
 
             </Frame>
-            <Button Click="clBackFrame" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+            <Button Click="clBackFrame" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 20">
+                <Button.Content>
+                    <materialDesign:PackIcon Kind="ArrowBack" Foreground="#FFFFFF"/>
+                </Button.Content>
+            </Button>
         </Grid>
     </Grid>
 </Window>
