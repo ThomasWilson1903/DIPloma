@@ -46,7 +46,7 @@ namespace DIPloma.Pages
 
         private void muSerch2(object sender, MouseButtonEventArgs e)
         {
-
+            
         }
 
         private void tcSerch(object sender, TextChangedEventArgs e)

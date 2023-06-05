@@ -78,6 +78,7 @@
             <Frame x:Name="FrMain" Margin="10 10 10 10 "  NavigationUIVisibility="Hidden">
 
             </Frame>
+            <Button Click="clBackFrame" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         </Grid>
     </Grid>
 </Window>

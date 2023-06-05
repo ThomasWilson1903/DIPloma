@@ -26,7 +26,7 @@ namespace DIPloma
     public partial class MainWindow
     {
 
-        
+
 
         public MainWindow()
         {
@@ -83,7 +83,7 @@ namespace DIPloma
                     tbFIO.Visibility = Visibility.Collapsed;
                     elImage.Visibility = Visibility.Collapsed;
                     btLogin.Visibility = Visibility.Visible;
-                    btBack.Visibility= Visibility.Collapsed;
+                    btBack.Visibility = Visibility.Collapsed;
                     break;
 
             }
@@ -111,6 +111,14 @@ namespace DIPloma
             }
 
             this.FrMain.Navigate(new PageFunction<string>() { RemoveFromJournal = true });
+        }
+
+        private void clBackFrame(object sender, RoutedEventArgs e)
+        {
+            if (FrMain.CanGoBack)
+            {
+                FrMain.NavigationService.GoBack();
+            }
         }
     }//Server=twilson.ru;Port=3306;User ID=Diplom2;Password=QvjG{td4lrrb;Database=ISPr22-33_BirukovAA_WpfApp_diploma2;Character Set=utf8
     //scaffold-dbContext "Server=twilson.ru;Port=3306;User ID=Diplom2;Password=QvjG{td4lrrb;Database=ISPr22-33_BirukovAA_WpfApp_diploma2;Character Set=utf8" Pomelo.EntityFrameworkCore.MySql -contextDir DataBase -outputDir DataBase/Entity
