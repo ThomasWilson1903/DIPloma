@@ -26,6 +26,8 @@ namespace DIPloma.Pages
 
         public class fun
         {
+            public int id;
+
             public string namefun { get; set; }
 
             public string? image { get; set; }
@@ -49,36 +51,41 @@ namespace DIPloma.Pages
         {
             Select2(User);
         }
-        IEnumerable<fun> list = new List<fun>
+        List<fun> list = new List<fun>
             {
-                new fun("тестовая иконка")
+                new fun("Управления классами")
                 {
+                    id = 1,
                     image = "\\Resources\\free-icon-classroom-906175.png",
                     access = 0,
                 },
 
                 new fun("Журнал")
                 {
+                    id = 2,
                     image = "\\Resources\\jornal 2.png",
                     access = 0,
                 },
             };
-        IEnumerable<fun> list1 = new List<fun>
+        List<fun> list1 = new List<fun>
             {
                 new fun("Управления классами")
                 {
+                    id = 1,
                     image = "\\Resources\\free-icon-classroom-906175.png",
                     access = 0,
                 },
 
                 new fun("Журнал")
                 {
+                    id = 2,
                     image = "\\Resources\\jornal 2.png",
                     access = 0,
                 },
 
                 new fun("Добавления пользователя")
                 {
+                    id = 3,
                     image = "\\Resources\\Добавить 2 2.png",
                     access = 1
                 }
@@ -108,21 +115,44 @@ namespace DIPloma.Pages
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            switch (lvMain.SelectedIndex)
+            switch (User.Role)
             {
-                case 0:
-                    //MessageBox.Show("DW" + lvMain.SelectedIndex);
-                    NavigationService.Navigate(new managerClass());
-
-                    break;
                 case 1:
-                    NavigationService.Navigate(new pgSubject());
+                    switch (list[lvMain.SelectedIndex].id)
+                    {
+                        case 1:
+                            //MessageBox.Show("DW" + lvMain.SelectedIndex);
+                            NavigationService.Navigate(new managerClass());
 
+                            break;
+                        case 2:
+                            NavigationService.Navigate(new pgSubject());
+
+                            break;
+                       /* case 3:
+                            NavigationService.Navigate(new pgAddUsers());
+                            break;*/
+                    }
                     break;
                 case 2:
-                   NavigationService.Navigate(new pgAddUsers());
+                    switch (list1[lvMain.SelectedIndex].id)
+                    {
+                        case 1:
+                            //MessageBox.Show("DW" + lvMain.SelectedIndex);
+                            NavigationService.Navigate(new managerClass());
+
+                            break;
+                        case 2:
+                            NavigationService.Navigate(new pgSubject());
+
+                            break;
+                        case 3:
+                            NavigationService.Navigate(new pgAddUsers());
+                            break;
+                    }
                     break;
             }
+
         }
     }
 }
