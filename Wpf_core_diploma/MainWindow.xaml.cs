@@ -78,12 +78,14 @@ namespace DIPloma
                     btLogin.Visibility = Visibility.Collapsed;
                     elImage.Visibility = Visibility.Visible;
                     btBack.Visibility = Visibility.Visible;
+                    btFrameBacks.Visibility = Visibility.Visible;
                     break;
                 case false:
                     tbFIO.Visibility = Visibility.Collapsed;
                     elImage.Visibility = Visibility.Collapsed;
                     btLogin.Visibility = Visibility.Visible;
                     btBack.Visibility = Visibility.Collapsed;
+                    btFrameBacks.Visibility = Visibility.Collapsed;
                     break;
 
             }
