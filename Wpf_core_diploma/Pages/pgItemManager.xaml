@@ -120,7 +120,7 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 
-                <DataGridTemplateColumn Header="Опции" Width="100">
+                <DataGridTemplateColumn Header="Опции" Width="130">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -140,7 +140,7 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="1" Margin="20 0 100 20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionButton}">
+        <Button Grid.Row="1" Margin="20 0 150 20" VerticalAlignment="Bottom" HorizontalAlignment="Right" Style="{StaticResource MaterialDesignFloatingActionButton}">
             <Button.Content>
                 <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>
             </Button.Content>
