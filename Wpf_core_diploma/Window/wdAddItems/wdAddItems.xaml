@@ -32,7 +32,7 @@
                     <Image x:Name="imageIcon"  Width="100" Height="100"
                                             Source="{Binding ImageIcon}" Stretch="UniformToFill"/>
                 </Border>
-                    <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="5 0 0 0">
+                    <Button Click="clAddImage" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="5 0 0 0">
                         <Button.Content>
                             <materialDesign:PackIcon Kind="Download" Foreground="#FFFFFF" />
                         </Button.Content>
