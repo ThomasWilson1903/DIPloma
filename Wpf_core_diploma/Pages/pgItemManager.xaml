@@ -79,7 +79,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"
+            <Button Grid.Column="2" Click="clAddItems" HorizontalAlignment="Center" VerticalAlignment="Center"
                 Style="{StaticResource MaterialDesignFloatingActionMiniButton}">
                 <Button.Content>
                     <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>

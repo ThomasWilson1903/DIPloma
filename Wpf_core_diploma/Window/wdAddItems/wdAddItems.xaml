@@ -29,8 +29,8 @@
                     <Border.Background>
                         <SolidColorBrush Color="#656565"/>
                     </Border.Background>
-                    <Image  Width="100" Height="100"
-                                            Source="{Binding image}" Stretch="UniformToFill"/>
+                    <Image x:Name="imageIcon"  Width="100" Height="100"
+                                            Source="{Binding ImageIcon}" Stretch="UniformToFill"/>
                 </Border>
                     <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="5 0 0 0">
                         <Button.Content>
@@ -38,9 +38,9 @@
                         </Button.Content>
                     </Button>
                 </StackPanel>
-                <TextBox x:Name="tbNameItems" Margin="0 15 0 0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:HintAssist.Hint="Названия" materialDesign:HintAssist.HintOpacity="1"/>
+                <TextBox x:Name="tbNameItems" Text="{Binding NameSubiectums}" Margin="0 15 0 0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:HintAssist.Hint="Названия" materialDesign:HintAssist.HintOpacity="1"/>
 
-                <Button Margin="0 15 0 0">
+                <Button Margin="0 15 0 0" Click="clAddItems">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>

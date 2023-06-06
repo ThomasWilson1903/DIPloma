@@ -1,5 +1,7 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window;
+using DIPloma.Window.wdAddItems;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -60,7 +62,8 @@ namespace DIPloma.Pages
 
         private void clAddItems(object sender, RoutedEventArgs e)
         {
-
+            new wdAddItems(new Subiectum()).ShowDialog();
+            selectItem();
         }
     }
 }
