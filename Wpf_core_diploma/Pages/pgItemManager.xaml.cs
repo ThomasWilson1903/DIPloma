@@ -57,5 +57,10 @@ namespace DIPloma.Pages
         {
             selectDataGrid();
         }
+
+        private void clAddItems(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

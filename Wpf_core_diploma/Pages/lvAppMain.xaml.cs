@@ -92,7 +92,7 @@ namespace DIPloma.Pages
                 new fun("Управления предметами")
                 {
                     id = 4,
-                    image = "\\Resources\\free-icon-classroom-906175.png",
+                    image = "\\Resources\\free-icon-frequency-2961248.png",
                     access = 0,
                 },
             };

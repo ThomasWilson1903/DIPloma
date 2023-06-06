@@ -22,6 +22,7 @@
     <None Remove="Resources\edit1While.png" />
     <None Remove="Resources\free-icon-classroom-906175.png" />
     <None Remove="Resources\free-icon-dark-mode-6714978.png" />
+    <None Remove="Resources\free-icon-frequency-2961248.png" />
     <None Remove="Resources\jornal 2.png" />
     <None Remove="Resources\msedge_O3xG2PAYzg.png" />
     <None Remove="Resources\pngwing.com.png" />
@@ -65,6 +66,7 @@
     <Resource Include="Resources\edit1While.png" />
     <Resource Include="Resources\free-icon-classroom-906175.png" />
     <Resource Include="Resources\free-icon-dark-mode-6714978.png" />
+    <Resource Include="Resources\free-icon-frequency-2961248.png" />
     <Resource Include="Resources\jornal 2.png" />
     <Resource Include="Resources\msedge_O3xG2PAYzg.png" />
     <Resource Include="Resources\pngwing.com.png" />
