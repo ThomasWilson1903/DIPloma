@@ -88,7 +88,13 @@ namespace DIPloma.Pages
                     id = 3,
                     image = "\\Resources\\Добавить 2 2.png",
                     access = 1
-                }
+                },
+                new fun("Управления предметами")
+                {
+                    id = 4,
+                    image = "\\Resources\\free-icon-classroom-906175.png",
+                    access = 0,
+                },
             };
 
         void Select2(User user)
@@ -148,6 +154,9 @@ namespace DIPloma.Pages
                             break;
                         case 3:
                             NavigationService.Navigate(new pgAddUsers());
+                            break;
+                        case 4:
+                            NavigationService.Navigate(new pgItemManager());
                             break;
                     }
                     break;

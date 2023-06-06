@@ -17,7 +17,7 @@ namespace DIPloma.Window
     /// <summary>
     /// Interaction logic for wdAddItems.xaml
     /// </summary>
-    public partial class wdAddItems : Window
+    public partial class wdAddItems
     {
         public wdAddItems()
         {
