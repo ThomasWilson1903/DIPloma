@@ -60,21 +60,29 @@
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Width="50" Height="150">
+                        <Grid Width="60" Height="150">
                             <StackPanel>
-                                <Grid Height="50" 
-                                      Width="50">
-                                    <Border Width="50" Height="50" CornerRadius="360">
+                                <Grid Height="60" 
+                                      Width="60">
+                                    <Border Width="60" Height="60" CornerRadius="360">
                                         <Border.Background>
                                             <SolidColorBrush Color="#656565"/>
                                         </Border.Background>
-                                        <Image  Width="50" Height="50"
+                                        <Image  Width="40" Height="40"
                                             Source="{Binding ImageIcon, TargetNullValue={StaticResource photo}}"/>
 
                                     </Border>
                                 </Grid>
                                 <TextBlock Text="{Binding NameSubiectum}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" FontSize="12" Foreground="#FFFFFF"/>
+                                
                             </StackPanel>
+                            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" 
+                                    Width="20" Height="20" Click="clEditItems"
+                                    VerticalAlignment="Top" HorizontalAlignment="Right">
+                                <Button.Content>
+                                    <materialDesign:PackIcon Kind="edit" Foreground="#FFFFFF"/>
+                                </Button.Content>
+                            </Button>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>

@@ -25,24 +25,44 @@ namespace DIPloma.Window.wdAddItems
     {
 
         Subiectum Subiectum;
-        public wdAddItems(Subiectum subiectum)
+        public wdAddItems(Subiectum subiectum, int visible)
         {
             this.Subiectum = subiectum;
             InitializeComponent();
             DataContext = Subiectum;
+
+            switch (visible)
+            {
+                case 0:
+                    btDel.Visibility = Visibility.Collapsed;
+                    break;
+                case 1:
+                    btDel.Visibility = Visibility.Visible;
+                    break;
+            }
         }
 
         private void clAddItems(object sender, RoutedEventArgs e)
         {
             Subiectum.NameSubiectum = tbNameItems.Text;
-            if (this.Subiectum.NameSubiectum != null)
+            if (Subiectum.Idobjects == null)
             {
-                EfModels.init().Add(Subiectum);
-                EfModels.init().SaveChanges();
-                Close();
+
+                if (this.Subiectum.NameSubiectum != null)
+                {
+                    EfModels.init().Add(Subiectum);
+                }
+                else
+                    MessageBox.Show("Введите название предмета", "Ошибка!");
             }
-            else
-                MessageBox.Show("Введите название предмета", "Ошибка!");
+
+            if (Subiectum.Idobjects != null)
+            {
+                EfModels.init().Update(Subiectum);
+            }
+            EfModels.init().SaveChanges();
+            Close();
+
         }
         void downloadImage()
         {
@@ -63,6 +83,13 @@ namespace DIPloma.Window.wdAddItems
         private void clAddImage(object sender, RoutedEventArgs e)
         {
             downloadImage();
+        }
+
+        private void clDel(object sender, RoutedEventArgs e)
+        {
+            EfModels.init().Remove(Subiectum);
+            EfModels.init().SaveChanges();
+            Close();
         }
     }
 }

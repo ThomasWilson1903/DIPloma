@@ -62,7 +62,14 @@ namespace DIPloma.Pages
 
         private void clAddItems(object sender, RoutedEventArgs e)
         {
-            new wdAddItems(new Subiectum()).ShowDialog();
+            new wdAddItems(new Subiectum(), 0).ShowDialog();
+            selectItem();
+        }
+
+        private void clEditItems(object sender, RoutedEventArgs e)
+        {
+            Subiectum edit = (sender as Button).DataContext as Subiectum;
+            new wdAddItems(edit, 1).ShowDialog();
             selectItem();
         }
     }

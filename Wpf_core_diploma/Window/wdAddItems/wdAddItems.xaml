@@ -11,7 +11,7 @@
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Red"/>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
@@ -30,7 +30,7 @@
                         <SolidColorBrush Color="#656565"/>
                     </Border.Background>
                     <Image x:Name="imageIcon"  Width="100" Height="100"
-                                            Source="{Binding ImageIcon}" Stretch="UniformToFill"/>
+                                            Source="{Binding ImageIcon,TargetNullValue= {StaticResource photo}}" Stretch="UniformToFill"/>
                 </Border>
                     <Button Click="clAddImage" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" Margin="5 0 0 0">
                         <Button.Content>
@@ -38,18 +38,26 @@
                         </Button.Content>
                     </Button>
                 </StackPanel>
-                <TextBox x:Name="tbNameItems" Text="{Binding NameSubiectums}" Margin="0 15 0 0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:HintAssist.Hint="Названия" materialDesign:HintAssist.HintOpacity="1"/>
+                <TextBox x:Name="tbNameItems" Text="{Binding NameSubiectum}" Margin="0 15 0 0" Style="{StaticResource MaterialDesignTextBox}" materialDesign:HintAssist.Hint="Названия" materialDesign:HintAssist.HintOpacity="1"/>
 
                 <Button Margin="0 15 0 0" Click="clAddItems">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>
-                            <TextBlock Text="Добавить" Foreground="#FFFFFF"/>
+                            <TextBlock Text="Сохранить" Foreground="#FFFFFF"/>
                         </StackPanel>
                     </Button.Content>
                 </Button>
 
             </StackPanel>
         </Border>
+        <Button x:Name="btDel" Margin="20 0 0 20" Click="clDel" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Delete" Foreground="#FFFFFF"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>
