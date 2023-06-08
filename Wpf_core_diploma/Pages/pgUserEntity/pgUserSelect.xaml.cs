@@ -54,21 +54,24 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            User del = (sender as Button).DataContext as User;
-
-
-            List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p => p.Users == del.IdUserss).ToList();
-            if (delListItems.Count > 0)
+            if (MessageBox.Show("", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                for (int i = 0; i < delListItems.Count; i++)
-                {
-                    EfModels.init().Remove(delListItems[i]);
-                }
+                User del = (sender as Button).DataContext as User;
 
+
+                List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p => p.Users == del.IdUserss).ToList();
+                if (delListItems.Count > 0)
+                {
+                    for (int i = 0; i < delListItems.Count; i++)
+                    {
+                        EfModels.init().Remove(delListItems[i]);
+                    }
+
+                }
+                EfModels.init().Remove(del);
+                EfModels.init().SaveChanges();
+                NavigationService.Navigate(new pgUserSelect());
             }
-            EfModels.init().Remove(del);
-            EfModels.init().SaveChanges();
-            NavigationService.Navigate(new pgUserSelect());
         }
     }
 }

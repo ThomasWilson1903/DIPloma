@@ -31,7 +31,7 @@ namespace DIPloma.Pages.pgUserEntity
 
         void selectTeacher()
         {
-            IEnumerable<Teacher> listTeacher = EfModels.init().Teachers.Where(p=>p.SurnameTeacher.Contains(tbSerch.Text)).ToList();
+            IEnumerable<Teacher> listTeacher = EfModels.init().Teachers.Where(p => p.SurnameTeacher.Contains(tbSerch.Text)).ToList();
             dgUserMember.ItemsSource = listTeacher;
         }
 
@@ -49,20 +49,24 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            Teacher del = (sender as Button).DataContext as Teacher;
-
-            List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p => p.Teachers == del.IdTeachers).ToList();
-            if (delListItems.Count > 0)
+            if (MessageBox.Show("", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                for (int i = 0; i < delListItems.Count; i++)
-                {
-                    EfModels.init().Remove(delListItems[i]);
-                }
 
+                Teacher del = (sender as Button).DataContext as Teacher;
+
+                List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p => p.Teachers == del.IdTeachers).ToList();
+                if (delListItems.Count > 0)
+                {
+                    for (int i = 0; i < delListItems.Count; i++)
+                    {
+                        EfModels.init().Remove(delListItems[i]);
+                    }
+
+                }
+                EfModels.init().Remove(del);
+                EfModels.init().SaveChanges();
+                NavigationService.Navigate(new pgTeacerSelect());
             }
-            EfModels.init().Remove(del);
-            EfModels.init().SaveChanges();
-            NavigationService.Navigate(new pgTeacerSelect());
         }
     }
 }

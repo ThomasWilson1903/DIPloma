@@ -53,42 +53,45 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            Student del = (sender as Button).DataContext as Student;
-            List<Journal> list = EfModels.init().Journals.Where(p => p.Students == del.Idstudents).ToList();
-            if (list.Count > 0)
+            if (MessageBox.Show("Уверены? ", "Уверены? ", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                for (int i = 0; i < list.Count; i++)
+                Student del = (sender as Button).DataContext as Student;
+                List<Journal> list = EfModels.init().Journals.Where(p => p.Students == del.Idstudents).ToList();
+                if (list.Count > 0)
                 {
-                    EfModels.init().Remove(list[i]);
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        EfModels.init().Remove(list[i]);
+                    }
+
                 }
 
-            }
+                List<StudentInfoParent> delStudentInfoParent = EfModels.init().StudentInfoParents.Where(p => p.StudentParentsStudent == del.Idstudents).ToList();
 
-            List<StudentInfoParent> delStudentInfoParent = EfModels.init().StudentInfoParents.Where(p => p.StudentParentsStudent == del.Idstudents).ToList();
-
-            if (delStudentInfoParent.Count > 0)
-            {
-                for (int i = 0; i < list.Count; i++)
+                if (delStudentInfoParent.Count > 0)
                 {
-                    EfModels.init().Remove(delStudentInfoParent[i]);
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        EfModels.init().Remove(delStudentInfoParent[i]);
+                    }
+
                 }
 
+
+                List<Attendance> delAttendance = EfModels.init().Attendances.Where(p => p.Students == del.Idstudents).ToList();
+                if (delAttendance.Count > 0)
+                {
+                    for (int i = 0; i < list.Count; i++)
+                    {
+                        EfModels.init().Remove(delAttendance[i]);
+                    }
+
+                }
+
+                EfModels.init().Remove(del);
+                EfModels.init().SaveChanges();
+                selectStudent();
             }
-
-
-            List<Attendance> delAttendance = EfModels.init().Attendances.Where(p => p.Students == del.Idstudents).ToList();
-            if (delAttendance.Count > 0)
-            {
-            for (int i = 0; i < list.Count; i++)
-            {
-                EfModels.init().Remove(delAttendance[i]);
-            }
-
-            }
-
-            EfModels.init().Remove(del);
-            EfModels.init().SaveChanges();
-            selectStudent();
         }
     }
 }
