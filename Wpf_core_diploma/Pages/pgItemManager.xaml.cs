@@ -72,5 +72,11 @@ namespace DIPloma.Pages
             new wdAddItems(edit, 1).ShowDialog();
             selectItem();
         }
+
+        private void clAddListItem(object sender, RoutedEventArgs e)
+        {
+            new wdAddListItemNew(new ListItem()).ShowDialog();
+            selectDataGrid();
+        }
     }
 }

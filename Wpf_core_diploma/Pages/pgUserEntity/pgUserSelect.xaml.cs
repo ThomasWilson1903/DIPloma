@@ -54,7 +54,7 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clDel(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show("", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Уверены? ", "Уверены? ", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 User del = (sender as Button).DataContext as User;
 
