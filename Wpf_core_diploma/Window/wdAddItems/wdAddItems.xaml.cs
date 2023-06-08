@@ -87,6 +87,16 @@ namespace DIPloma.Window.wdAddItems
 
         private void clDel(object sender, RoutedEventArgs e)
         {
+            List<Journal> listDel = EfModels.init().Journals.Where(p=>p.ListItemsNavigation.Subiectum == Subiectum.Idobjects).ToList();
+            for (int i = 0; i < listDel.Count; i++)
+            {
+                EfModels.init().Remove(listDel[i]);
+            }
+            List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p=>p.Subiectum == Subiectum.Idobjects).ToList();
+            for (int i = 0; i < delListItems.Count; i++)
+            {
+                EfModels.init().Remove(delListItems[i]);
+            }
             EfModels.init().Remove(Subiectum);
             EfModels.init().SaveChanges();
             Close();
