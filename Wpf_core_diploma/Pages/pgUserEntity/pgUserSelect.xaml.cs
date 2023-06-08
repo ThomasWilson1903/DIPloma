@@ -24,7 +24,7 @@ namespace DIPloma.Pages.pgUserEntity
     /// </summary>
     public partial class pgUserSelect : Page
     {
-        
+
         public pgUserSelect()
         {
             InitializeComponent();
@@ -54,7 +54,21 @@ namespace DIPloma.Pages.pgUserEntity
 
         private void clDel(object sender, RoutedEventArgs e)
         {
+            User del = (sender as Button).DataContext as User;
 
+
+            List<DataBase.Entity.ListItem> delListItems = EfModels.init().ListItems.Where(p => p.Users == del.IdUserss).ToList();
+            if (delListItems.Count > 0)
+            {
+                for (int i = 0; i < delListItems.Count; i++)
+                {
+                    EfModels.init().Remove(delListItems[i]);
+                }
+
+            }
+            EfModels.init().Remove(del);
+            EfModels.init().SaveChanges();
+            NavigationService.Navigate(new pgUserSelect());
         }
     }
 }
