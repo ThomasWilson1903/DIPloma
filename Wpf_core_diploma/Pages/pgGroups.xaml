@@ -10,6 +10,7 @@
 
     <Grid>
         <Grid>
+            <!--
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="9*"/>
@@ -30,6 +31,8 @@
                          Style="{StaticResource tboxTransperent}"/>
                 </StackPanel>
             </Border>
+            -->
+            
             <Border Grid.Row="1" CornerRadius="7">
                 <Border.Background>
                     <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
