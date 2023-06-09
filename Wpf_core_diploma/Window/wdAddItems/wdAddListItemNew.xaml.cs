@@ -22,8 +22,11 @@ namespace DIPloma.Window.wdAddItems
     {
         ListItem ListItem;
         List<Subiectum> subiecta = new();
+        List<Subiectum> subiecta1;
         List<Teacher> teachers = new();
+        List<Teacher> teachers1;
         List<User> users = new();
+        List<User> users1;
 
         public wdAddListItemNew(ListItem listItem)
         {
@@ -56,20 +59,48 @@ namespace DIPloma.Window.wdAddItems
 
         private void tcTeacher(object sender, TextChangedEventArgs e)
         {
-            var list = teachers.Where(p=>p.SurnameTeacher.ToLower().ToString().Contains(tbSerchTeacher.Text.ToLower())).ToList();
-            dgTeacher.ItemsSource = list;
+            teachers1 = teachers.Where(p => p.SurnameTeacher.ToLower().ToString().Contains(tbSerchTeacher.Text.ToLower())).ToList();
+            dgTeacher.ItemsSource = teachers1;
         }
 
         private void tcItems(object sender, TextChangedEventArgs e)
         {
-            var list = subiecta.Where(p => p.NameSubiectum.ToLower().ToString().Contains(tbSerchItems.Text.ToLower())).ToList();
-            dgSubiecta.ItemsSource = list;
+            subiecta1 = subiecta.Where(p => p.NameSubiectum.ToLower().ToString().Contains(tbSerchItems.Text.ToLower())).ToList();
+            dgSubiecta.ItemsSource = subiecta1;
         }
 
         private void tcUser(object sender, TextChangedEventArgs e)
         {
-            var list = users.Where(p=>p.SurNameUser.ToLower().ToString().Contains(tbSerchUser.Text.ToLower())).ToList();
-            dgUsers.ItemsSource = list;
+            users1 = users.Where(p => p.SurNameUser.ToLower().ToString().Contains(tbSerchUser.Text.ToLower())).ToList();
+            dgUsers.ItemsSource = users1;
+        }
+
+        private void clSaveEdit(object sender, RoutedEventArgs e)
+        {
+            if (ListItem.Idschedule == 0)
+            {
+                if (dgTeacher.SelectedItem != null)
+                {
+                    if (dgSubiecta.SelectedItem != null)
+                    {
+                        if (dgUsers.SelectedItem != null)
+                        {
+                            EfModels.init().Add(ListItem);
+                            EfModels.init().SaveChanges();
+                            Close();
+
+                        }
+                        else
+                            MessageBox.Show("Выберите элемент из каждого списка");
+
+                    }
+                    else
+                        MessageBox.Show("Выберите элемент из каждого списка");
+
+                }
+                else
+                    MessageBox.Show("Выберите элемент из каждого списка");
+            }
         }
     }
 }
