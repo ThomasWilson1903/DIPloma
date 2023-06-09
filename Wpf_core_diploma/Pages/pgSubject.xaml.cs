@@ -1,6 +1,7 @@
 ﻿
 using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,22 +25,26 @@ namespace DIPloma.Pages
     /// </summary>
     public partial class pgSubject : Page
     {
-        List<Subiectum> listItems;
-        public pgSubject()
+        List<DataBase.Entity.ListItem> listItems;
+
+        User User;
+        public pgSubject(User user)
         {
+            this.User = user;
             InitializeComponent();
             select();
         }
         void select()
-        {
-            listItems = EfModels.init().Subiecta.Where(p => p.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+        {//Where(p => p.SubiectumNavigation.NameSubiectum.ToLower().Contains(tbSerch.Text.ToLower()))
+            listItems = EfModels.init().ListItems.Include(p => p.SubiectumNavigation)
+                .Where(p => p.Users == User.IdUserss).ToList();
 
             lvMain.ItemsSource = listItems;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new pgGroups(listItems[lvMain.SelectedIndex].Idobjects));
+            NavigationService.Navigate(new pgGroups(listItems[lvMain.SelectedIndex].Subiectum));
         }
 
         private void mdSerch(object sender, MouseButtonEventArgs e)

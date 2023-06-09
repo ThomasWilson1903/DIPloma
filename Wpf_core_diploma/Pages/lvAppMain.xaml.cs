@@ -132,7 +132,7 @@ namespace DIPloma.Pages
 
                             break;
                         case 2:
-                            NavigationService.Navigate(new pgSubject());
+                            NavigationService.Navigate(new pgSubject(User));
 
                             break;
                        /* case 3:
@@ -149,7 +149,7 @@ namespace DIPloma.Pages
 
                             break;
                         case 2:
-                            NavigationService.Navigate(new pgSubject());
+                            NavigationService.Navigate(new pgSubject(User));
 
                             break;
                         case 3:

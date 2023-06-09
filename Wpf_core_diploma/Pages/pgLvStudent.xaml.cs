@@ -38,7 +38,15 @@ namespace DIPloma.Pages
             Groups = groups;
 
             SelectStudentListViewLeft(Groups);
-            int selectStudent = students[ lvStudentLeft.SelectedIndex].Idstudents;
+            int selectStudent;
+            if (lvStudentLeft.SelectedItem != null)
+            {
+                selectStudent = students[lvStudentLeft.SelectedIndex].Idstudents;
+            }
+            else
+            {
+                selectStudent = 0;
+            }
             select(selectStudent);
         }
 
@@ -138,7 +146,7 @@ namespace DIPloma.Pages
             }
             else
             {
-                MessageBox.Show("выберите ученика для добавления оценки", "ошибка!");
+                MessageBox.Show("выберите ученика для добавления оценки", "Error!");
             }
         }
 

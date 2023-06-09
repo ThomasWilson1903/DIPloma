@@ -99,6 +99,7 @@ namespace DIPloma.Pages
                 }
                 EfModels.init().Remove(del);
                 EfModels.init().SaveChanges();
+                selectDataGrid();
             }
         }
     }
