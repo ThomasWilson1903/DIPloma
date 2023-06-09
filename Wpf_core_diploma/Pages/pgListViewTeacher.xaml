@@ -19,7 +19,7 @@
 
             <Border MouseUp="muSerch2" Grid.Row="0" Height="37" VerticalAlignment="Top" CornerRadius="18">
                 <Border.Background>
-                    <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
+                    <SolidColorBrush Opacity="0.5" Color="#FFFFFF"/>
                 </Border.Background>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock x:Name="tblock" MouseDown="mdSerch" Text="Поиск" VerticalAlignment="Center" Margin="20 0 0 0" FontSize="20" Foreground="#FFFFFF"/>
@@ -31,7 +31,7 @@
             </Border>
             <Border Grid.Row="1" CornerRadius="7">
                 <Border.Background>
-                    <SolidColorBrush Color="#7C7C7C" Opacity="0.5"/>
+                    <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
                 </Border.Background>
                 <ListView x:Name="lvMain"  
                       Background="Transparent" Margin="10" BorderBrush="Transparent">

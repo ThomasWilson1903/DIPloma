@@ -32,7 +32,8 @@
                 <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
             </Border.Background>
 
-            <ListView x:Name="lvMain"  
+            <ListView x:Name="lvMain" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                       Background="Transparent" Margin="10" BorderBrush="Transparent">
 
                 <ListView.ItemContainerStyle>
@@ -60,7 +61,7 @@
                                     <Image  Width="100" Height="100"
                                             Source="{Binding image}"/>
                                 </Grid>
-                                <TextBlock Text="{Binding namefun}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#FFFFFF"/>
+                                <TextBlock Text="{Binding namefun}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#000000"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

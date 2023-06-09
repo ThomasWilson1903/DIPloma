@@ -83,7 +83,7 @@ namespace DIPloma.Pages
                     access = 0,
                 },
 
-                new fun("Добавления пользователя")
+                new fun("Управления пользователями")
                 {
                     id = 3,
                     image = "\\Resources\\Добавить 2 2.png",
@@ -93,6 +93,13 @@ namespace DIPloma.Pages
                 {
                     id = 4,
                     image = "\\Resources\\free-icon-frequency-2961248.png",
+                    access = 0,
+                },
+
+                new fun("Секции/Кружки")
+                {
+                    id = 5,
+                    image = "\\Resources\\download.png",
                     access = 0,
                 },
             };
@@ -135,9 +142,16 @@ namespace DIPloma.Pages
                             NavigationService.Navigate(new pgSubject(User));
 
                             break;
-                       /* case 3:
-                            NavigationService.Navigate(new pgAddUsers());
-                            break;*/
+                        /* case 3:
+                             NavigationService.Navigate(new pgAddUsers());
+                             break;*/
+                        default:
+                            MessageBox.Show("Вероятнее всего, эта функция находится в разработке. Если вы уверены, " +
+                                "что она должна быть доступна, попробуйте обновить программу. Обновление программы может включать " +
+                                "в себя новые функции и исправления ошибок, которые могут помочь решить вашу проблему. Если обновление " +
+                                "программы не решит вашу проблему, пожалуйста, свяжитесь с технической поддержкой для получения помощи.",
+                                "Ошибка функционала!!");
+                            break;
                     }
                     break;
                 case 2:
@@ -157,6 +171,13 @@ namespace DIPloma.Pages
                             break;
                         case 4:
                             NavigationService.Navigate(new pgItemManager());
+                            break;
+                        default:
+                            MessageBox.Show("Вероятнее всего, эта функция находится в разработке. Если вы уверены, " +
+                                "что она должна быть доступна, попробуйте обновить программу. Обновление программы может включать " +
+                                "в себя новые функции и исправления ошибок, которые могут помочь решить вашу проблему. Если обновление " +
+                                "программы не решит вашу проблему, пожалуйста, свяжитесь с технической поддержкой для получения помощи.",
+                                "Ошибка функционала!!");
                             break;
                     }
                     break;
