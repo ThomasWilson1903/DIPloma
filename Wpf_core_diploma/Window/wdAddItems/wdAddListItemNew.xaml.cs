@@ -53,5 +53,23 @@ namespace DIPloma.Window.wdAddItems
             dgUsers.ItemsSource = users;
 
         }
+
+        private void tcTeacher(object sender, TextChangedEventArgs e)
+        {
+            var list = teachers.Where(p=>p.SurnameTeacher.ToLower().ToString().Contains(tbSerchTeacher.Text.ToLower())).ToList();
+            dgTeacher.ItemsSource = list;
+        }
+
+        private void tcItems(object sender, TextChangedEventArgs e)
+        {
+            var list = subiecta.Where(p => p.NameSubiectum.ToLower().ToString().Contains(tbSerchItems.Text.ToLower())).ToList();
+            dgSubiecta.ItemsSource = list;
+        }
+
+        private void tcUser(object sender, TextChangedEventArgs e)
+        {
+            var list = users.Where(p=>p.SurNameUser.ToLower().ToString().Contains(tbSerchUser.Text.ToLower())).ToList();
+            dgUsers.ItemsSource = list;
+        }
     }
 }

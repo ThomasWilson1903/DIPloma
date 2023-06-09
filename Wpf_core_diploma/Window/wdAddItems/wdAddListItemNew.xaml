@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DIPloma.Window.wdAddItems"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800" FontSize="16" ResizeMode="NoResize"
+        Title="" Height="500" Width="1000" FontSize="16" ResizeMode="NoResize"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         >
     <Window.Resources>
@@ -16,103 +16,115 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-
     <Grid>
         <Image Source="/Resources/1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17.jpg" Stretch="UniformToFill"/>
 
         <Border Padding="1" Margin="10" CornerRadius="5">
             <Border.Background>
-                <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
+                <SolidColorBrush Color="#FFFFFF" Opacity="0.7"/>
             </Border.Background>
             <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="192*"/>
-                    </Grid.RowDefinitions>
-                    <TextBox materialDesign:HintAssist.Hint="Преподаватель" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="192*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="tbSerchTeacher" materialDesign:HintAssist.Hint="Преподаватель" TextChanged="tcTeacher" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <DataGrid x:Name="dgTeacher" AutoGenerateColumns="False" Grid.Row="1" Margin="2 4">
-                        <DataGrid.Columns >
+                        <DataGrid x:Name="dgTeacher" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Margin="2 4">
+                            <DataGrid.Columns >
 
-                            <DataGridTemplateColumn Header="ФИО Преподавателя">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding SurNameTeacher}"/>
-                                            <TextBlock Text="{Binding NameTeacher}" Margin="5 0"/>
-                                            <TextBlock Text="{Binding DobleNameTeacher}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="ФИО Преподавателя">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding SurnameTeacher}"/>
+                                                <TextBlock Text="{Binding NameTeacher}" Margin="5 0"/>
+                                                <TextBlock Text="{Binding MiddleNameTeacher}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
 
-                <Grid Grid.Column="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="192*"/>
-                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="192*"/>
+                        </Grid.RowDefinitions>
 
-                    <TextBox materialDesign:HintAssist.Hint="Предмет" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
+                        <TextBox x:Name="tbSerchItems" TextChanged="tcItems" materialDesign:HintAssist.Hint="Предмет" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <DataGrid x:Name="dgSubiecta" AutoGenerateColumns="False" Grid.Row="1" Margin="2 4">
-                        <DataGrid.Columns >
+                        <DataGrid x:Name="dgSubiecta" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Margin="2 4">
+                            <DataGrid.Columns >
 
-                            <DataGridTemplateColumn Header="Информация о предмете">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <Border Height="30" Width="30">
-                                                <Border.Background>
-                                                    <SolidColorBrush Color="#656565"/>
-                                                </Border.Background>
-                                                <Image Source="{Binding ImageIcon}" Width="20" Height="20"/>
-                                            </Border>
-                                            <TextBlock Text="{Binding NameSubiectum}" Margin="5 0 0 0"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="Информация о предмете">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border Height="30" Width="30">
+                                                    <Border.Background>
+                                                        <SolidColorBrush Color="#656565"/>
+                                                    </Border.Background>
+                                                    <Image Source="{Binding ImageIcon}" Width="20" Height="20"/>
+                                                </Border>
+                                                <TextBlock Text="{Binding NameSubiectum}" Margin="5 0 0 0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
 
-                <Grid Grid.Column="2">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="25*"/>
-                        <RowDefinition Height="192*"/>
-                    </Grid.RowDefinitions>
-                    <TextBox materialDesign:HintAssist.Hint="Ответственный пользователь" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
+                    <Grid Grid.Column="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="192*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox x:Name="tbSerchUser" TextChanged="tcUser" materialDesign:HintAssist.Hint="Ответственный пользователь" Margin="2 0" materialDesign:HintAssist.HintOpacity="1"
                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                    <DataGrid Grid.Row="1" Margin="2 4" AutoGenerateColumns="False" x:Name="dgUsers">
-                        <DataGrid.Columns >
+                        <DataGrid Grid.Row="1" Margin="2 4" IsReadOnly="True" AutoGenerateColumns="False" x:Name="dgUsers">
+                            <DataGrid.Columns >
 
-                            <DataGridTemplateColumn Header="ФИО пользователя">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding SurNameUser}"/>
-                                            <TextBlock Text="{Binding NameUser}" Margin="5 0"/>
-                                            <TextBlock Text="{Binding DobleNameUser}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="ФИО пользователя">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding SurNameUser}"/>
+                                                <TextBlock Text="{Binding NameUser}" Margin="5 0"/>
+                                                <TextBlock Text="{Binding DobleNameUser}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
 
-                        </DataGrid.Columns>
-                    </DataGrid>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+
                 </Grid>
-
+                <Button Grid.Row="1" Style="{StaticResource MaterialDesignFlatMidBgButton}" Foreground="#FFFFFF" materialDesign:ButtonAssist.CornerRadius="20" Height="40" 
+                VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="150" Margin="0 0 5 5">
+                    <Button.Content>
+                        <TextBlock Text="Сохранить"/>
+                    </Button.Content>
+                </Button>
             </Grid>
         </Border>
     </Grid>
