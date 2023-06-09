@@ -77,21 +77,24 @@ namespace DIPloma.Window.wdAddItems
 
         private void clSaveEdit(object sender, RoutedEventArgs e)
         {
-            if (ListItem.Idschedule == 0)
+
+            if (dgTeacher.SelectedItem != null)
             {
-                if (dgTeacher.SelectedItem != null)
+                if (dgSubiecta.SelectedItem != null)
                 {
-                    if (dgSubiecta.SelectedItem != null)
+                    if (dgUsers.SelectedItem != null)
                     {
-                        if (dgUsers.SelectedItem != null)
+                        if (ListItem.Idschedule == 0)
                         {
                             EfModels.init().Add(ListItem);
-                            EfModels.init().SaveChanges();
-                            Close();
 
                         }
-                        else
-                            MessageBox.Show("Выберите элемент из каждого списка");
+                        if (ListItem.Idschedule != 0)
+                        {
+                            EfModels.init().Update(ListItem);
+                        }
+                        EfModels.init().SaveChanges();
+                        Close();
 
                     }
                     else
@@ -100,7 +103,11 @@ namespace DIPloma.Window.wdAddItems
                 }
                 else
                     MessageBox.Show("Выберите элемент из каждого списка");
+
             }
+            else
+                MessageBox.Show("Выберите элемент из каждого списка");
+
         }
     }
 }

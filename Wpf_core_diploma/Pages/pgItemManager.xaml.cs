@@ -51,7 +51,7 @@ namespace DIPloma.Pages
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
             IEnumerable<ListItem> list = listItems;
-            list = list.Where(p=>p.Subiectum == subiecta[lvItems.SelectedIndex].Idobjects);
+            list = list.Where(p => p.Subiectum == subiecta[lvItems.SelectedIndex].Idobjects);
             dgItemsList.ItemsSource = list;
         }
 
@@ -77,6 +77,29 @@ namespace DIPloma.Pages
         {
             new wdAddListItemNew(new ListItem()).ShowDialog();
             selectDataGrid();
+        }
+
+        private void clEditItemsNew(object sender, RoutedEventArgs e)
+        {
+            ListItem listItem = (sender as Button).DataContext as ListItem;
+            new wdAddListItemNew(listItem).ShowDialog();
+            selectDataGrid();
+        }
+
+        private void clDelItemsNew(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Уверены?", "Уверены?", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                ListItem del = (sender as Button).DataContext as ListItem;
+
+                List<Journal> journals = EfModels.init().Journals.Where(p => p.ListItems == del.Idschedule).ToList();
+                for (int i = 0; i < journals.Count; i++)
+                {
+                    EfModels.init().Remove(journals[i]);
+                }
+                EfModels.init().Remove(del);
+                EfModels.init().SaveChanges();
+            }
         }
     }
 }
