@@ -183,6 +183,16 @@ namespace DIPloma.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] free_icon_innovation_1430941 {
+            get {
+                object obj = ResourceManager.GetObject("free-icon-innovation-1430941", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] jornal_2 {
             get {
                 object obj = ResourceManager.GetObject("jornal 2", resourceCulture);

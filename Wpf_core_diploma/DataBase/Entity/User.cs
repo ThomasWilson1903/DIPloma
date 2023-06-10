@@ -8,6 +8,7 @@ namespace DIPloma.DataBase.Entity
         public User()
         {
             ListItems = new HashSet<ListItem>();
+            Sections = new HashSet<Section>();
         }
 
         public int IdUserss { get; set; }
@@ -22,5 +23,6 @@ namespace DIPloma.DataBase.Entity
 
         public virtual Role RoleNavigation { get; set; } = null!;
         public virtual ICollection<ListItem> ListItems { get; set; }
+        public virtual ICollection<Section> Sections { get; set; }
     }
 }

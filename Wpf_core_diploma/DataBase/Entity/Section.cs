@@ -13,8 +13,11 @@ namespace DIPloma.DataBase.Entity
         public int Idsections { get; set; }
         public int Teachers { get; set; }
         public string? NameSection { get; set; }
+        public int User { get; set; }
+        public byte[]? Icon { get; set; }
 
         public virtual Teacher TeachersNavigation { get; set; } = null!;
+        public virtual User UserNavigation { get; set; } = null!;
         public virtual ICollection<SectionSchedule> SectionSchedules { get; set; }
     }
 }

@@ -18,7 +18,6 @@ namespace DIPloma.DataBase
             }
             return instans;
         }
-
         public EfModels()
         {
         }
@@ -226,7 +225,7 @@ namespace DIPloma.DataBase
 
                 entity.HasIndex(e => e.Subiectum, "fk_listItems_Objects_idx");
 
-                entity.HasIndex(e => e.Teachers, "fk_listItems_Teacher_idx");
+                entity.HasIndex(e => e.Teachers, "fk_listItems_Teacer_idx");
 
                 entity.HasIndex(e => e.Users, "fk_listItems_Users_idx");
 
@@ -252,7 +251,7 @@ namespace DIPloma.DataBase
                     .WithMany(p => p.ListItems)
                     .HasForeignKey(d => d.Teachers)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_listItems_Teacher");
+                    .HasConstraintName("fk_listItems_Teacer");
 
                 entity.HasOne(d => d.UsersNavigation)
                     .WithMany(p => p.ListItems)
@@ -321,7 +320,9 @@ namespace DIPloma.DataBase
 
                 entity.UseCollation("utf8mb4_unicode_ci");
 
-                entity.HasIndex(e => e.Teachers, "fk_sections_techer_idx");
+                entity.HasIndex(e => e.Teachers, "fk_sections_Teacher_idx");
+
+                entity.HasIndex(e => e.User, "fk_sections_User_idx");
 
                 entity.Property(e => e.Idsections)
                     .HasColumnType("int(11)")
@@ -334,11 +335,19 @@ namespace DIPloma.DataBase
                     .HasColumnType("int(11)")
                     .HasColumnName("teachers");
 
+                entity.Property(e => e.User).HasColumnType("int(11)");
+
                 entity.HasOne(d => d.TeachersNavigation)
                     .WithMany(p => p.Sections)
                     .HasForeignKey(d => d.Teachers)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_sections_techer");
+                    .HasConstraintName("fk_sections_Teacher");
+
+                entity.HasOne(d => d.UserNavigation)
+                    .WithMany(p => p.Sections)
+                    .HasForeignKey(d => d.User)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_sections_User");
             });
 
             modelBuilder.Entity<SectionSchedule>(entity =>
@@ -478,7 +487,6 @@ namespace DIPloma.DataBase
 
                 entity.Property(e => e.IdTeachers)
                     .HasColumnType("int(11)")
-                    .ValueGeneratedNever()
                     .HasColumnName("idTeachers");
 
                 entity.Property(e => e.DateBirth).HasColumnName("dateBirth");

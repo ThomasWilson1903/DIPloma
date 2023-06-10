@@ -14,7 +14,7 @@ namespace DIPloma.DataBase.Entity
         public int IdTeachers { get; set; }
         public string NameTeacher { get; set; } = null!;
         public string SurnameTeacher { get; set; } = null!;
-        public string MiddleNameTeacher { get; set; } = null!;
+        public string? MiddleNameTeacher { get; set; }
         public byte[]? Photo { get; set; }
         public DateTime DateBirth { get; set; }
         public DateTime DateWork { get; set; }

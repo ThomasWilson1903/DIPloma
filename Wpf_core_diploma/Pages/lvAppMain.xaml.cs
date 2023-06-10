@@ -66,6 +66,12 @@ namespace DIPloma.Pages
                     image = "\\Resources\\jornal 2.png",
                     access = 0,
                 },
+                new fun("Секции/Кружки")
+                {
+                    id = 5,
+                    image = "\\Resources\\free-icon-innovation-1430941.png",
+                    access = 0,
+                },
             };
         List<fun> list1 = new List<fun>
             {
@@ -99,7 +105,7 @@ namespace DIPloma.Pages
                 new fun("Секции/Кружки")
                 {
                     id = 5,
-                    image = "\\Resources\\download.png",
+                    image = "\\Resources\\free-icon-innovation-1430941.png",
                     access = 0,
                 },
             };
@@ -172,6 +178,12 @@ namespace DIPloma.Pages
                         case 4:
                             NavigationService.Navigate(new pgItemManager());
                             break;
+
+                        case 5:
+                            NavigationService.Navigate(new pgItemManager());
+                            break;
+
+
                         default:
                             MessageBox.Show("Вероятнее всего, эта функция находится в разработке. Если вы уверены, " +
                                 "что она должна быть доступна, попробуйте обновить программу. Обновление программы может включать " +
