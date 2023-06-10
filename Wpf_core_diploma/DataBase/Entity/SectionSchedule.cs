@@ -5,6 +5,11 @@ namespace DIPloma.DataBase.Entity
 {
     public partial class SectionSchedule
     {
+        public SectionSchedule()
+        {
+            Attendances = new HashSet<Attendance>();
+        }
+
         public int IdsectionSchedules { get; set; }
         public int Sections { get; set; }
         public int IdDayWeek { get; set; }
@@ -12,5 +17,6 @@ namespace DIPloma.DataBase.Entity
 
         public virtual DayWeek IdDayWeekNavigation { get; set; } = null!;
         public virtual Section SectionsNavigation { get; set; } = null!;
+        public virtual ICollection<Attendance> Attendances { get; set; }
     }
 }

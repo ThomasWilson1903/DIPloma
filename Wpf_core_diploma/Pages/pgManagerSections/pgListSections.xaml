@@ -57,9 +57,9 @@
                                       Width="150">
                                     <Ellipse Fill="#656565" />
                                     <Image  Width="100" Height="100"
-                                            Source="{Binding image}"/>
+                                            Source="{Binding Icon,TargetNullValue={StaticResource photo}}"/>
                                 </Grid>
-                                <TextBlock Text="{Binding namefun}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#000000"/>
+                                <TextBlock Text="{Binding NameSection}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#000000"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

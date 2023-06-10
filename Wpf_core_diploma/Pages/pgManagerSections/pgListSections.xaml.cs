@@ -34,13 +34,15 @@ namespace DIPloma.Pages.pgManagerSections
 
         void selectListSection()
         {
-            /*sections = EfModels.init().Sections.Where(p=>p.Teachers == ).ToList();
-            lvMain.ItemsSource = sections;*/
+            sections = EfModels.init().Sections.Where(p=>p.User == User.IdUserss).ToList();
+            lvMain.ItemsSource = sections;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            Section selectItem = sections[lvMain.SelectedIndex];
 
+            NavigationService.Navigate(new pgСontrollerAttendance(selectItem));
         }
     }
 }

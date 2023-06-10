@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase.Entity;
 using DIPloma.Pages.educationalMCon;
+using DIPloma.Pages.pgManagerSections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -180,7 +181,7 @@ namespace DIPloma.Pages
                             break;
 
                         case 5:
-                            NavigationService.Navigate(new pgItemManager());
+                            NavigationService.Navigate(new pgListSections(User));
                             break;
 
 

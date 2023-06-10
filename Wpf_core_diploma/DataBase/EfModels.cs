@@ -8,6 +8,7 @@ namespace DIPloma.DataBase
 {
     public partial class EfModels : DbContext
     {
+
         private static EfModels instans;
 
         public static EfModels init()
@@ -18,6 +19,7 @@ namespace DIPloma.DataBase
             }
             return instans;
         }
+
         public EfModels()
         {
         }
@@ -60,7 +62,8 @@ namespace DIPloma.DataBase
 
             modelBuilder.Entity<Attendance>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.Idattendance)
+                    .HasName("PRIMARY");
 
                 entity.ToTable("attendance");
 
@@ -69,6 +72,10 @@ namespace DIPloma.DataBase
                 entity.HasIndex(e => e.SectionSchedules, "fk_attendance_sectionSchedules_idx");
 
                 entity.HasIndex(e => e.Students, "fk_attendance_students_idx");
+
+                entity.Property(e => e.Idattendance)
+                    .HasColumnType("int(11)")
+                    .HasColumnName("idattendance");
 
                 entity.Property(e => e.PresenceMark).HasColumnType("tinyint(4)");
 
@@ -81,13 +88,13 @@ namespace DIPloma.DataBase
                     .HasColumnName("students");
 
                 entity.HasOne(d => d.SectionSchedulesNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Attendances)
                     .HasForeignKey(d => d.SectionSchedules)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_attendance_sectionSchedules");
 
                 entity.HasOne(d => d.StudentsNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Attendances)
                     .HasForeignKey(d => d.Students)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_attendance_students");

@@ -7,6 +7,7 @@ namespace DIPloma.DataBase.Entity
     {
         public Student()
         {
+            Attendances = new HashSet<Attendance>();
             Journals = new HashSet<Journal>();
         }
 
@@ -19,6 +20,7 @@ namespace DIPloma.DataBase.Entity
         public string Password { get; set; } = null!;
 
         public virtual EducationalClass GroupNavigation { get; set; } = null!;
+        public virtual ICollection<Attendance> Attendances { get; set; }
         public virtual ICollection<Journal> Journals { get; set; }
     }
 }
