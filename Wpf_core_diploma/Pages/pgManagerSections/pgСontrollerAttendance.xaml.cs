@@ -31,10 +31,22 @@ namespace DIPloma.Pages.pgManagerSections
         public pgСontrollerAttendance(Section section)
         {
             InitializeComponent();
-            /*Section = EfModels.init().Sections.Include(p=>p.TeachersNavigation).FirstOrDefault(p => p.Idsections == section.Idsections);
+            Section = EfModels.init().Sections.Include(p => p.TeachersNavigation).FirstOrDefault(p => p.Idsections == section.Idsections);
             tbName.Text = Section.TeachersNavigation.NameTeacher;
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
-*/
+
+            DateTime dateValue = DateTime.Now;
+            if ((int)dateValue.DayOfWeek != 0)
+            {
+                lvDayWake.SelectedItem = dayWeeks[(int)dateValue.DayOfWeek].IdDayWeek;
+
+            }
+            else
+            {
+                lvDayWake.SelectedIndex = 0;
+               
+            }
+
             selectDgNoMark();
             selectDayWake();
             selectOnMark();
@@ -42,7 +54,10 @@ namespace DIPloma.Pages.pgManagerSections
 
         void selectDgNoMark()
         {
-            attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation).Where(a => a.SectionSchedules == 1 && a.PresenceMark == null).ToList();
+            attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
+                .Where(a => a.SectionSchedules == Section.Idsections && a.PresenceMark == null)
+                .Where(p => p.SectionSchedulesNavigation.IdDayWeek == dayWeeks[lvDayWake.SelectedIndex].IdDayWeek)
+                .ToList();
             dgNoMark.ItemsSource = attendancesMark;
         }
 
@@ -54,7 +69,11 @@ namespace DIPloma.Pages.pgManagerSections
 
         void selectOnMark()
         {
-            attendancesOnMark = EfModels.init().Attendances.Where(p => p.PresenceMark != null).ToList();
+            attendancesOnMark = EfModels.init().Attendances
+                .Where(p => p.SectionSchedules == Section.Idsections && p.PresenceMark != null)
+                .Where(p => p.SectionSchedulesNavigation.IdDayWeek == dayWeeks[lvDayWake.SelectedIndex].IdDayWeek)
+                .ToList();
+
             dgMark.ItemsSource = attendancesOnMark;
         }
 
