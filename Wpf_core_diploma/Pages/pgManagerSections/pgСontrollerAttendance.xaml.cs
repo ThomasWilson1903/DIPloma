@@ -23,7 +23,9 @@ namespace DIPloma.Pages.pgManagerSections
     public partial class pgСontrollerAttendance : Page
     {
 
-        List<Attendance> attendances;
+        List<Attendance> attendancesMark;
+        List<Attendance> attendancesOnMark;
+        List<DayWeek> dayWeeks;
         Section Section;
 
         public pgСontrollerAttendance(Section section)
@@ -34,13 +36,49 @@ namespace DIPloma.Pages.pgManagerSections
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
 */
             selectDgNoMark();
+            selectDayWake();
+            selectOnMark();
         }
 
         void selectDgNoMark()
         {
-            attendances = EfModels.init().Attendances.Include(p=>p.StudentsNavigation).Where(a => a.SectionSchedules == 1).ToList();
-            dgNoMark.ItemsSource = attendances;
+            attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation).Where(a => a.SectionSchedules == 1 && a.PresenceMark == null).ToList();
+            dgNoMark.ItemsSource = attendancesMark;
         }
 
+        void selectDayWake()
+        {
+            dayWeeks = EfModels.init().DayWeeks.ToList();
+            lvDayWake.ItemsSource = dayWeeks;
+        }
+
+        void selectOnMark()
+        {
+            attendancesOnMark = EfModels.init().Attendances.Where(p => p.PresenceMark != null).ToList();
+            dgMark.ItemsSource = attendancesOnMark;
+        }
+
+        private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void clMarkAdd(object sender, RoutedEventArgs e)
+        {
+            Attendance markOn = (sender as Button).DataContext as Attendance;
+
+            markOn.PresenceMark = 1;
+
+            attendancesOnMark.Add(markOn);
+
+            for (int i = 0; i < attendancesOnMark.Count; i++)
+            {
+                EfModels.init().Update(attendancesOnMark[i]);
+            }
+
+            EfModels.init().SaveChanges();
+            selectOnMark();
+            selectDgNoMark();
+        }
     }
 }
