@@ -8,7 +8,7 @@ namespace DIPloma.DataBase.Entity
         public int SectionSchedules { get; set; }
         public int Students { get; set; }
         public sbyte? PresenceMark { get; set; }
-        public DateOnly DateAttendance { get; set; }
+        public DateTime DateAttendance { get; set; }
         public int Idattendance { get; set; }
 
         public virtual SectionSchedule SectionSchedulesNavigation { get; set; } = null!;

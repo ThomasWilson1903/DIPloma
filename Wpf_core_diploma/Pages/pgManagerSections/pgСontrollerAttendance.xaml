@@ -97,7 +97,7 @@
 
                                             </Border>
                                         </Grid>
-                                        <TextBlock Text="{Binding NameDayWeek}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" FontSize="12" Foreground="#000000"/>
+                                        <TextBlock Text="{Binding IdDayWeekNavigation.NameDayWeek}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" FontSize="12" Foreground="#000000"/>
 
                                     </StackPanel>
                                 </Grid>
@@ -153,7 +153,7 @@
                     <DataGrid x:Name="dgMark" IsReadOnly="True" AutoGenerateColumns="False" Margin="5">
                         <DataGrid.Columns>
 
-                            <DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Студент">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">

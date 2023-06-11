@@ -25,7 +25,7 @@ namespace DIPloma.Pages.pgManagerSections
 
         List<Attendance> attendancesMark;
         List<Attendance> attendancesOnMark;
-        List<DayWeek> dayWeeks;
+        List<SectionSchedule> sectionSchedules;
         Section Section;
 
         public pgСontrollerAttendance(Section section)
@@ -36,19 +36,11 @@ namespace DIPloma.Pages.pgManagerSections
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
 
             DateTime dateValue = DateTime.Now;
-            if ((int)dateValue.DayOfWeek != 0)
-            {
-                lvDayWake.SelectedItem = dayWeeks[(int)dateValue.DayOfWeek].IdDayWeek;
 
-            }
-            else
-            {
-                lvDayWake.SelectedIndex = 0;
-               
-            }
+            lvDayWake.SelectedIndex = 0;
 
-            selectDgNoMark();
             selectDayWake();
+            selectDgNoMark();
             selectOnMark();
         }
 
@@ -56,22 +48,23 @@ namespace DIPloma.Pages.pgManagerSections
         {
             attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
                 .Where(a => a.SectionSchedules == Section.Idsections && a.PresenceMark == null)
-                .Where(p => p.SectionSchedulesNavigation.IdDayWeek == dayWeeks[lvDayWake.SelectedIndex].IdDayWeek)
+                .Where(p=>p.DateAttendance == DateTime.Today)
                 .ToList();
             dgNoMark.ItemsSource = attendancesMark;
         }
 
         void selectDayWake()
         {
-            dayWeeks = EfModels.init().DayWeeks.ToList();
-            lvDayWake.ItemsSource = dayWeeks;
+            sectionSchedules = EfModels.init().SectionSchedules.Include(p=>p.IdDayWeekNavigation).ToList();
+            lvDayWake.ItemsSource = sectionSchedules;
         }
 
         void selectOnMark()
         {
-            attendancesOnMark = EfModels.init().Attendances
+            attendancesOnMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
                 .Where(p => p.SectionSchedules == Section.Idsections && p.PresenceMark != null)
-                .Where(p => p.SectionSchedulesNavigation.IdDayWeek == dayWeeks[lvDayWake.SelectedIndex].IdDayWeek)
+                .Where(p => p.DateAttendance == DateTime.Today)
+                .Where(p=>p.SectionSchedulesNavigation.IdDayWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
                 .ToList();
 
             dgMark.ItemsSource = attendancesOnMark;
@@ -79,6 +72,8 @@ namespace DIPloma.Pages.pgManagerSections
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            attendancesMark = attendancesMark.Where(p => p.SectionSchedulesNavigation.IdDayWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek).ToList();
+            dgMark.ItemsSource = attendancesMark;
 
         }
 
