@@ -22,6 +22,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="120"/>
+                <RowDefinition Height="45"/>
                 <RowDefinition Height="323*"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
@@ -53,7 +54,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="tbUserSurName" Text="{Binding TeachersNavigation.NameTeacher}" Margin="5 0 0 0"/>
                                 <TextBlock x:Name="tbUserName" Text="{Binding TeachersNavigation.SurnameTeacher}" Margin="5 0 0 0"/>
-                                
+
                             </StackPanel>
 
                         </StackPanel>
@@ -73,46 +74,46 @@
                                 </StackPanel>
                             </Button.Content>
                         </Button>
-                        
+
                         <ListView Grid.Column="1" Margin="50 0 0 0" x:Name="lvDayWake" ScrollViewer.VerticalScrollBarVisibility="Disabled">
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalAlignment" Value="Center"/>
-                                <Setter Property="Margin"  Value="5"/>
-                                <EventSetter Event='MouseDoubleClick' Handler='HandleDoubleClick'/>
-                            </Style>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                                    <Setter Property="Margin"  Value="5"/>
+                                    <EventSetter Event='MouseDoubleClick' Handler='HandleDoubleClick'/>
+                                </Style>
 
-                        </ListView.ItemContainerStyle>
+                            </ListView.ItemContainerStyle>
 
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
 
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Width="60" Height="150">
-                                    <StackPanel>
-                                        <Grid Height="60" 
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="60" Height="150">
+                                        <StackPanel>
+                                            <Grid Height="60" 
                                       Width="60">
-                                            <Border Width="60" Height="60" CornerRadius="360">
-                                                <Border.Background>
-                                                    <SolidColorBrush Color="#656565"/>
-                                                </Border.Background>
-                                                <Image  Width="40" Height="40"
+                                                <Border Width="60" Height="60" CornerRadius="360">
+                                                    <Border.Background>
+                                                        <SolidColorBrush Color="#656565"/>
+                                                    </Border.Background>
+                                                    <Image  Width="40" Height="40"
                                             Source="{Binding ImageIcon, TargetNullValue={StaticResource photo}}"/>
 
-                                            </Border>
-                                        </Grid>
-                                        <TextBlock Text="{Binding IdDayWeekNavigation.NameDayWeek}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" FontSize="12" Foreground="#000000"/>
+                                                </Border>
+                                            </Grid>
+                                            <TextBlock Text="{Binding IdDayWeekNavigation.NameDayWeek}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" FontSize="12" Foreground="#000000"/>
 
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
                     </Grid>
 
 
@@ -129,44 +130,92 @@
                     <Border.Background>
                         <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
                     </Border.Background>
-                    <DataGrid x:Name="dgNoMark" IsReadOnly="True" AutoGenerateColumns="False" Margin="5">
-                        <DataGrid.Columns>
-                            
-                            <DataGridTemplateColumn Header="Студент">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding StudentsNavigation.SurnameStudent}" FontSize="15" Foreground="#000000"/>
-                                            <TextBlock Text="{Binding StudentsNavigation.NameStudent}" Margin="5 0 0 0" FontSize="15" Foreground="#000000"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn x:Name="clOptions">
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <Button x:Name="btMarkGo" Click="clMarkAdd" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            
-                        </DataGrid.Columns>
-                        <DataGrid.GroupStyle>
-                            <GroupStyle>
-                                <GroupStyle.HeaderTemplate>
-                                    <DataTemplate>
-                                        <Border CornerRadius="7" Background="#D9D9D9" Margin="10 10 0 10" Height="26">
-                                            <TextBlock  FontSize="20" Margin="15 0 0 0" Foreground="#022D73" Height="50"
+                    <Border Margin="5" CornerRadius="5">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
+                        </Border.Background>
+                        <TextBlock Text="Список учеников " VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    </Border>
+                </Border>
+                <Border Margin="5" Grid.Column="1" CornerRadius="7">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
+                    </Border.Background>
+
+                    <Border Margin="5" CornerRadius="5" Grid.Column="1">
+                        <Border.Background>
+                            <SolidColorBrush Color="#FFFFFF" Opacity="1"/>
+                        </Border.Background>
+                        <TextBlock Text="Список присутствующих " VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+                    </Border>
+                </Border>
+
+            </Grid>
+            <Grid Grid.Row="2">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Border Margin="5" Grid.Column="0" CornerRadius="7">
+                    <Border.Background>
+                        <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
+                    </Border.Background>
+                    <Grid>
+
+                        <DataGrid x:Name="dgNoMark" IsReadOnly="True" AutoGenerateColumns="False" Margin="5">
+                            <DataGrid.Columns>
+
+                                <DataGridTemplateColumn Header="Студент">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Text="{Binding StudentsNavigation.SurnameStudent}" FontSize="15" Foreground="#000000"/>
+                                                <TextBlock Text="{Binding StudentsNavigation.NameStudent}" Margin="5 0 0 0" FontSize="15" Foreground="#000000"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn x:Name="clOptions">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <Button x:Name="btMarkGo" Click="clMarkAdd" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                            </DataGrid.Columns>
+                            <DataGrid.GroupStyle>
+                                <GroupStyle>
+                                    <GroupStyle.HeaderTemplate>
+                                        <DataTemplate>
+                                            <Border CornerRadius="7" Background="#D9D9D9" Margin="10 10 0 10" Height="26">
+                                                <TextBlock  FontSize="20" Margin="15 0 0 0" Foreground="#022D73" Height="50"
                                                             Text="{Binding Name, StringFormat= D, ConverterCulture='ru-RU'}" />
-                                        </Border>
-                                    </DataTemplate>
-                                </GroupStyle.HeaderTemplate>
-                            </GroupStyle>
-                        </DataGrid.GroupStyle>
-                    </DataGrid>
+                                            </Border>
+                                        </DataTemplate>
+                                    </GroupStyle.HeaderTemplate>
+                                </GroupStyle>
+                            </DataGrid.GroupStyle>
+                        </DataGrid>
+
+                        <Button x:Name="btAddAttNew" Click="clAddAttNew" Style="{StaticResource MaterialDesignFloatingActionMiniButton}"
+                                VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="20 0 20 20">
+                            <Button.Content>
+                                <StackPanel>
+                                    <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+
+                    </Grid>
                 </Border>
                 <Border Margin="5" Grid.Column="1" CornerRadius="7">
                     <Border.Background>
@@ -187,7 +236,7 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
 
-                            <DataGridTemplateColumn x:Name="clOptionsMark">
+                            <DataGridTemplateColumn x:Name="clOptionsMark" Visibility="Collapsed">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel>

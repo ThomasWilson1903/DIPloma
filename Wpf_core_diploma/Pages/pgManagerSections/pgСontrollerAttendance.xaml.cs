@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window.wdAddAttendance;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -57,7 +58,7 @@ namespace DIPloma.Pages.pgManagerSections
         void selectDayWake()
         {
             sectionSchedules = EfModels.init().SectionSchedules.Include(p => p.IdDayWeekNavigation)
-                .Where(p=>p.Sections == Section.Idsections)
+                .Where(p => p.Sections == Section.Idsections)
                 .ToList();
             lvDayWake.ItemsSource = sectionSchedules;
         }
@@ -79,7 +80,7 @@ namespace DIPloma.Pages.pgManagerSections
             attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
                 .Where(a => a.SectionSchedules == Section.Idsections)
                 .Where(p => p.DateAttendance >= DateTime.Today)
-                .Where(p => (int) p.DateAttendance.DayOfWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
+                .Where(p => (int)p.DateAttendance.DayOfWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
                 .ToList();
             dgNoMark.ItemsSource = attendancesMark;
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(dgNoMark.ItemsSource);
@@ -91,10 +92,17 @@ namespace DIPloma.Pages.pgManagerSections
         private void clMarkAdd(object sender, RoutedEventArgs e)
         {
             Attendance markOn = (sender as Button).DataContext as Attendance;
-
+            
             markOn.PresenceMark = 1;
-
+            DateTime dayToday = DateTime.Today;
             attendancesOnMark.Add(markOn);
+
+            EfModels.init().Add(new Attendance
+            {
+                DateAttendance = dayToday.AddDays(7),
+                SectionSchedules = Section.Idsections,
+                Students = markOn.Students,
+            });
 
             for (int i = 0; i < attendancesOnMark.Count; i++)
             {
@@ -112,6 +120,25 @@ namespace DIPloma.Pages.pgManagerSections
             selectOnMark(DateTime.Today);
             clOptions.Visibility = Visibility.Visible;
             clOptionsMark.Visibility = Visibility.Visible;
+        }
+
+        private void clAddAttNew(object sender, RoutedEventArgs e)
+        {
+            new wdAddAttendance(new Attendance { SectionSchedules = Section.Idsections }).ShowDialog();
+            ///
+            clOptions.Visibility = Visibility.Collapsed;
+            clOptionsMark.Visibility = Visibility.Collapsed;
+
+            attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
+                .Where(a => a.SectionSchedules == Section.Idsections)
+                .Where(p => p.DateAttendance >= DateTime.Today)
+                .Where(p => (int)p.DateAttendance.DayOfWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
+                .ToList();
+            dgNoMark.ItemsSource = attendancesMark;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(dgNoMark.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("DateAttendance");
+            view.GroupDescriptions.Add(groupDescription);
+
         }
     }
 }
