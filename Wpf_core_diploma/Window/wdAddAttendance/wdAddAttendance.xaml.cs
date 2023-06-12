@@ -22,6 +22,7 @@ namespace DIPloma.Window.wdAddAttendance
     {
         Attendance Attendance;
         List<Student> students;
+        List<Student> studentsChoose = new();
 
         public wdAddAttendance(Attendance attendance)
         {
@@ -29,6 +30,26 @@ namespace DIPloma.Window.wdAddAttendance
             InitializeComponent();
             students = EfModels.init().Students.ToList();
             dgListStudents.ItemsSource = students;
+        }
+
+
+
+        private void tcSerch(object sender, TextChangedEventArgs e)
+        {
+            IEnumerable<Student> students2 = students.Where(p=>p.SurnameStudent.ToLower().Contains(tbSerch.Text.ToLower())).ToList();
+            dgListStudents.ItemsSource = students2;
+        }
+
+        private void clСhoose(object sender, RoutedEventArgs e)
+        {
+            Student student = (sender as Button).DataContext as Student;
+
+            studentsChoose.Add(new Student
+            {
+                
+            });
+            dgListSelectStudent.ItemsSource = studentsChoose;
+
         }
     }
 }

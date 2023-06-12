@@ -40,7 +40,7 @@
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Margin="0 0 5 0"/>
+                        <TextBox x:Name="tbSerch" Grid.Column="0" Margin="0 0 5 0" TextChanged="tcSerch"/>
                         <ComboBox Grid.Column="1" x:Name="cbGroup" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
                     </Grid>
 
@@ -57,14 +57,18 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="выбрать" Width="100">
-
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="clСhoose"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
                 <Calendar Grid.Column="1" Margin="5"/>
-                <Grid x:Name="dgListSelectStudent" Grid.Column="2">
-                    <DataGrid Grid.Row="1" AutoGenerateColumns="False" Margin="5,5,5,5">
+                <Grid  Grid.Column="2">
+                    <DataGrid x:Name="dgListSelectStudent" Grid.Row="1" AutoGenerateColumns="False" Margin="5,5,5,5">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn IsReadOnly="True" Header="Ученик" Width="1*">
                                 <DataGridTemplateColumn.CellTemplate>
