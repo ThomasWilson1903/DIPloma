@@ -3,6 +3,7 @@ using DIPloma.DataBase.Entity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,46 +35,56 @@ namespace DIPloma.Pages.pgManagerSections
             Section = EfModels.init().Sections.Include(p => p.TeachersNavigation).FirstOrDefault(p => p.Idsections == section.Idsections);
             tbName.Text = Section.TeachersNavigation.NameTeacher;
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
-
-            DateTime dateValue = DateTime.Now;
-
-            lvDayWake.SelectedIndex = 0;
+            //DataContext = Section;
 
             selectDayWake();
-            selectDgNoMark();
-            selectOnMark();
+            lvDayWake.SelectedIndex = 0;
+            selectDgNoMark(DateTime.Today);
+            selectOnMark(DateTime.Today);
+
+
         }
 
-        void selectDgNoMark()
+        void selectDgNoMark(DateTime dateTimeNow)
         {
             attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
                 .Where(a => a.SectionSchedules == Section.Idsections && a.PresenceMark == null)
-                .Where(p=>p.DateAttendance == DateTime.Today)
+                .Where(p => p.DateAttendance == dateTimeNow)
                 .ToList();
             dgNoMark.ItemsSource = attendancesMark;
         }
 
         void selectDayWake()
         {
-            sectionSchedules = EfModels.init().SectionSchedules.Include(p=>p.IdDayWeekNavigation).ToList();
+            sectionSchedules = EfModels.init().SectionSchedules.Include(p => p.IdDayWeekNavigation)
+                .Where(p=>p.Sections == Section.Idsections)
+                .ToList();
             lvDayWake.ItemsSource = sectionSchedules;
         }
 
-        void selectOnMark()
+        void selectOnMark(DateTime dateTimeNow)
         {
             attendancesOnMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
-                .Where(p => p.SectionSchedules == Section.Idsections && p.PresenceMark != null)
-                .Where(p => p.DateAttendance == DateTime.Today)
-                .Where(p=>p.SectionSchedulesNavigation.IdDayWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
+                .Where(a => a.SectionSchedules == Section.Idsections && a.PresenceMark != null)
+                .Where(p => p.DateAttendance == dateTimeNow)
                 .ToList();
-
             dgMark.ItemsSource = attendancesOnMark;
         }
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            attendancesMark = attendancesMark.Where(p => p.SectionSchedulesNavigation.IdDayWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek).ToList();
-            dgMark.ItemsSource = attendancesMark;
+            clOptions.Visibility = Visibility.Collapsed;
+            clOptionsMark.Visibility = Visibility.Collapsed;
+
+            attendancesMark = EfModels.init().Attendances.Include(p => p.StudentsNavigation)
+                .Where(a => a.SectionSchedules == Section.Idsections)
+                .Where(p => p.DateAttendance >= DateTime.Today)
+                .Where(p => (int) p.DateAttendance.DayOfWeek == sectionSchedules[lvDayWake.SelectedIndex].IdDayWeek)
+                .ToList();
+            dgNoMark.ItemsSource = attendancesMark;
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(dgNoMark.ItemsSource);
+            PropertyGroupDescription groupDescription = new PropertyGroupDescription("DateAttendance");
+            view.GroupDescriptions.Add(groupDescription);
 
         }
 
@@ -91,8 +102,16 @@ namespace DIPloma.Pages.pgManagerSections
             }
 
             EfModels.init().SaveChanges();
-            selectOnMark();
-            selectDgNoMark();
+            selectDgNoMark(DateTime.Today);
+            selectOnMark(DateTime.Today);
+        }
+
+        private void clRestartSelect(object sender, RoutedEventArgs e)
+        {
+            selectDgNoMark(DateTime.Today);
+            selectOnMark(DateTime.Today);
+            clOptions.Visibility = Visibility.Visible;
+            clOptionsMark.Visibility = Visibility.Visible;
         }
     }
 }
