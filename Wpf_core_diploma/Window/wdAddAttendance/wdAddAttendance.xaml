@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DIPloma.Window.wdAddAttendance"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="" Height="450" Width="800">
+        Title="" Height="450" Width="800" FontSize="20">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -44,10 +44,17 @@
                         <ComboBox Grid.Column="1" x:Name="cbGroup" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
                     </Grid>
 
-                    <DataGrid Grid.Row="1" IsReadOnly="True" Margin="5,5,5,8">
+                    <DataGrid x:Name="dgListStudents" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Margin="5,5,5,8">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn Header="Ученик" Width="1*">
-
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding SurnameStudent}"/>
+                                            <TextBlock Text="{Binding NameStudent}" Margin="5 0 0 0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                             <DataGridTemplateColumn Header="выбрать" Width="100">
 
@@ -56,11 +63,18 @@
                     </DataGrid>
                 </Grid>
                 <Calendar Grid.Column="1" Margin="5"/>
-                <Grid Grid.Column="2">
-                    <DataGrid Grid.Row="1" Margin="5,5,5,5">
+                <Grid x:Name="dgListSelectStudent" Grid.Column="2">
+                    <DataGrid Grid.Row="1" AutoGenerateColumns="False" Margin="5,5,5,5">
                         <DataGrid.Columns>
                             <DataGridTemplateColumn IsReadOnly="True" Header="Ученик" Width="1*">
-
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Text="{Binding SurnameStudent}"/>
+                                            <TextBlock Text="{Binding NameStudent}" Margin="5 0 0 0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>

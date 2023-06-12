@@ -1,4 +1,5 @@
-﻿using DIPloma.DataBase.Entity;
+﻿using DIPloma.DataBase;
+using DIPloma.DataBase.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,14 @@ namespace DIPloma.Window.wdAddAttendance
     public partial class wdAddAttendance
     {
         Attendance Attendance;
+        List<Student> students;
+
         public wdAddAttendance(Attendance attendance)
         {
             this.Attendance = attendance;
             InitializeComponent();
-
+            students = EfModels.init().Students.ToList();
+            dgListStudents.ItemsSource = students;
         }
     }
 }
