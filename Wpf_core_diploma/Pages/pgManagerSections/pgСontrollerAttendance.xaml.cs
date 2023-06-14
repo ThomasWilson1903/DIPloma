@@ -34,7 +34,7 @@ namespace DIPloma.Pages.pgManagerSections
         {
             InitializeComponent();
             Section = EfModels.init().Sections.Include(p => p.TeachersNavigation).FirstOrDefault(p => p.Idsections == section.Idsections);
-            tbName.Text = Section.TeachersNavigation.NameTeacher;
+            tbUserName.Text = Section.TeachersNavigation.NameTeacher;
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
             DataContext = Section;
 

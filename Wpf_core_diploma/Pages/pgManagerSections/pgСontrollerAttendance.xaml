@@ -50,9 +50,8 @@
                             </Border>
                         </Grid>
                         <StackPanel>
-                            <TextBlock x:Name="tbName" Text="{Binding NameSection}" Margin="5 0 0 0"/>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock  Text="{Binding NameSection}" FontSize="22" Margin="5 0 15 0"/>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock  Text="{Binding NameSection}" FontSize="20" Margin="5 0 15 0"/>
                                 
                                 <TextBlock x:Name="tbUserSurName" Text="{Binding TeachersNavigation.NameTeacher}" Margin="5 0 0 0"/>
                                 <TextBlock x:Name="tbUserName" Text="{Binding TeachersNavigation.SurnameTeacher}" Margin="5 0 0 0"/>
