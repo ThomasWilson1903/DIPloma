@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DIPloma.Window.wdAddAttendance"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="" Height="450" Width="800" FontSize="20">
+        Title="" Height="450" Width="950" FontSize="20">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -31,17 +31,19 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="22*"/>
+                        <RowDefinition Height="32*"/>
                         <RowDefinition Height="185*"/>
                     </Grid.RowDefinitions>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="111*"/>
+                            <ColumnDefinition Width="44*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="tbSerch" Grid.Column="0" Margin="0 0 5 0" TextChanged="tcSerch"/>
-                        <ComboBox Grid.Column="1" x:Name="cbGroup" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+
+                        <TextBox x:Name="tbSerch" Grid.Column="0" Margin="0,0,5,0" TextChanged="tcSerch"/>
+                        <ComboBox Grid.Column="1" DisplayMemberPath="ClassNumber" SelectionChanged="scGroup" x:Name="cbGroup" 
+                                  FontSize="16"  Style="{StaticResource MaterialDesignOutlinedComboBox}" Height="56"/>
                     </Grid>
 
                     <DataGrid x:Name="dgListStudents" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Margin="5,5,5,8">

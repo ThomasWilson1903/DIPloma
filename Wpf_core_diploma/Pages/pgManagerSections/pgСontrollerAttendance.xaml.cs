@@ -36,7 +36,7 @@ namespace DIPloma.Pages.pgManagerSections
             Section = EfModels.init().Sections.Include(p => p.TeachersNavigation).FirstOrDefault(p => p.Idsections == section.Idsections);
             tbName.Text = Section.TeachersNavigation.NameTeacher;
             tbUserSurName.Text = Section.TeachersNavigation.SurnameTeacher;
-            //DataContext = Section;
+            DataContext = Section;
 
             selectDayWake();
             lvDayWake.SelectedIndex = 0;
@@ -54,6 +54,7 @@ namespace DIPloma.Pages.pgManagerSections
                 .ToList();
             dgNoMark.ItemsSource = attendancesMark;
         }
+
 
         void selectDayWake()
         {

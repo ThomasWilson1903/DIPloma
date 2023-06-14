@@ -45,13 +45,15 @@
                             </Ellipse>
                             <Border CornerRadius="360" Height="60" Width="60">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="\Resources\1675461282_gas-kvas-com-p-ot-mikrosoft-fonovie-risunki-17 1.png" Stretch="UniformToFill"/>
+                                    <ImageBrush ImageSource="{Binding Icon, TargetNullValue={StaticResource photo}}" Stretch="UniformToFill"/>
                                 </Border.Background>
                             </Border>
                         </Grid>
                         <StackPanel>
                             <TextBlock x:Name="tbName" Text="{Binding NameSection}" Margin="5 0 0 0"/>
                             <StackPanel Orientation="Horizontal">
+                                <TextBlock  Text="{Binding NameSection}" FontSize="22" Margin="5 0 15 0"/>
+                                
                                 <TextBlock x:Name="tbUserSurName" Text="{Binding TeachersNavigation.NameTeacher}" Margin="5 0 0 0"/>
                                 <TextBlock x:Name="tbUserName" Text="{Binding TeachersNavigation.SurnameTeacher}" Margin="5 0 0 0"/>
 
@@ -102,8 +104,7 @@
                                                     <Border.Background>
                                                         <SolidColorBrush Color="#656565"/>
                                                     </Border.Background>
-                                                    <Image  Width="40" Height="40"
-                                            Source="{Binding ImageIcon, TargetNullValue={StaticResource photo}}"/>
+                                                    <TextBlock Text="{Binding IdDayWeekNavigation.NameDayWeek}" FontSize="12" HorizontalAlignment="Center" Margin=" 0 20 0 0 " TextWrapping="Wrap" Height="50" Foreground="#000000"/>
 
                                                 </Border>
                                             </Grid>

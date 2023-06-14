@@ -53,13 +53,19 @@
                     <DataTemplate>
                         <Grid Width="200" Height="200">
                             <StackPanel>
-                                <Grid Height="150" 
-                                      Width="150">
-                                    <Ellipse Fill="#656565" />
-                                    <Image  Width="100" Height="100"
-                                            Source="{Binding Icon,TargetNullValue={StaticResource photo}}"/>
+                                <Grid>
+                                    <Ellipse Width="150" Height="150">
+                                        <Ellipse.Fill>
+                                            <SolidColorBrush Color="#656565"/>
+                                        </Ellipse.Fill>
+                                    </Ellipse>
+                                    <Border CornerRadius="360" Height="140" Width="140">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Icon, TargetNullValue={StaticResource photo}}" Stretch="UniformToFill"/>
+                                        </Border.Background>
+                                    </Border>
                                 </Grid>
-                                <TextBlock Text="{Binding NameSection}" HorizontalAlignment="Center" Margin=" 0 20 0 0 " FontSize="14" Foreground="#000000"/>
+                                <TextBlock Text="{Binding NameSection}" FontSize="20" HorizontalAlignment="Center" Margin=" 0 20 0 0 " Foreground="#000000"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>

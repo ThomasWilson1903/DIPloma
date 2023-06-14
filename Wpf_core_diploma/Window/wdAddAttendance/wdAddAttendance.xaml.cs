@@ -25,6 +25,7 @@ namespace DIPloma.Window.wdAddAttendance
         List<Student> students;
         List<Attendance> studentsChoose = new List<Attendance>(10);
         List<Student> studentsChoose2 = new List<Student>(10);
+        List<EducationalClass> group;
 
         public wdAddAttendance(Attendance attendance)
         {
@@ -35,11 +36,24 @@ namespace DIPloma.Window.wdAddAttendance
             calendar1.DisplayDateStart = DateTime.Today;
             calendar1.DisplayDateEnd = (DateTime.Today).AddDays(14);
             calendar1.SelectedDate = DateTime.Today;
+            
+            group = EfModels.init().EducationalClasses.ToList();
+
+            cbGroup.ItemsSource = group;
 
         }
         void select()
         {
-            students = EfModels.init().Students.ToList();
+            if (cbGroup.SelectedItem != null)
+            {
+                students = EfModels.init().Students.Where(p => p.Group == group[cbGroup.SelectedIndex].Idgroup).ToList();
+
+            }
+            else
+            {
+                students = EfModels.init().Students.ToList();
+
+            }
             dgListStudents.ItemsSource = students;
 
         }
@@ -85,6 +99,11 @@ namespace DIPloma.Window.wdAddAttendance
             }
             EfModels.init().SaveChanges();
             Close();
+        }
+
+        private void scGroup(object sender, SelectionChangedEventArgs e)
+        {
+            select();
         }
     }
 }
