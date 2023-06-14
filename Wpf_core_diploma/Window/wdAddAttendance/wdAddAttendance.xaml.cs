@@ -2,6 +2,7 @@
 using DIPloma.DataBase.Entity;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,19 @@ namespace DIPloma.Window.wdAddAttendance
     {
         Attendance Attendance;
         List<Student> students;
-        List<Student> studentsChoose = new List<Student>(10);
+        List<Attendance> studentsChoose = new List<Attendance>(10);
+        List<Student> studentsChoose2 = new List<Student>(10);
 
         public wdAddAttendance(Attendance attendance)
         {
             this.Attendance = attendance;
             InitializeComponent();
             select();
+
+            calendar1.DisplayDateStart = DateTime.Today;
+            calendar1.DisplayDateEnd = (DateTime.Today).AddDays(14);
+            calendar1.SelectedDate = DateTime.Today;
+
         }
         void select()
         {
@@ -46,15 +53,38 @@ namespace DIPloma.Window.wdAddAttendance
 
         private void clСhoose(object sender, RoutedEventArgs e)
         {
-            Student student = (sender as Button).DataContext as Student;
+            if (studentsChoose.Count != 10)
+            {
+                Student student = (sender as Button).DataContext as Student;
+                DateTime date = Convert.ToDateTime(calendar1.SelectedDate);
 
-            studentsChoose.Add(student);
+                studentsChoose.Add(new Attendance
+                {
+                    SectionSchedules = Attendance.SectionSchedules,
+                    Students = student.Idstudents,
+                    DateAttendance = date,
+                });
 
-            dgListSelectStudent.ItemsSource = null;
+                studentsChoose2.Add(student);
 
-            dgListSelectStudent.ItemsSource = studentsChoose;
-            select();
-        
+                dgListSelectStudent.ItemsSource = null;
+
+                dgListSelectStudent.ItemsSource = studentsChoose2;
+                select();
+            }
+            else
+                MessageBox.Show("", "");
+
+        }
+
+        private void clSaveList(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < studentsChoose.Count; i++)
+            {
+                EfModels.init().Add(studentsChoose[i]);
+            }
+            EfModels.init().SaveChanges();
+            Close();
         }
     }
 }
