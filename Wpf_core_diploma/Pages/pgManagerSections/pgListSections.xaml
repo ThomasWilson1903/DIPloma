@@ -59,13 +59,13 @@
                                             <SolidColorBrush Color="#656565"/>
                                         </Ellipse.Fill>
                                     </Ellipse>
-                                    <Border CornerRadius="360" Height="140" Width="140">
+                                    <Border CornerRadius="360" Height="130" Width="130">
                                         <Border.Background>
                                             <ImageBrush ImageSource="{Binding Icon, TargetNullValue={StaticResource photo}}" Stretch="UniformToFill"/>
                                         </Border.Background>
                                     </Border>
                                 </Grid>
-                                <TextBlock Text="{Binding NameSection}" FontSize="20" HorizontalAlignment="Center" Margin=" 0 20 0 0 " Foreground="#000000"/>
+                                <TextBlock Text="{Binding NameSection}" FontSize="16" HorizontalAlignment="Center" Margin=" 0 20 0 0 " Foreground="#000000"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
