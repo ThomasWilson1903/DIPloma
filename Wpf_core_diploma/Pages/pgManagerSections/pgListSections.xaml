@@ -6,25 +6,23 @@
       xmlns:local="clr-namespace:DIPloma.Pages.pgManagerSections"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       Title="pgListSections">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:BundledTheme BaseTheme="Light" PrimaryColor="LightBlue" SecondaryColor="Lime"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid>
 
         <Grid.Effect>
             <DropShadowEffect BlurRadius="30" ShadowDepth="1" Opacity="0.4"/>
         </Grid.Effect>
-
-
-
-
-
-
-        <!--
-        <Border.Background>
-                    <SolidColorBrush Opacity="0.5" Color="#7C7C7C"/>
-                </Border.Background>
-        -->
-
         <Border Grid.Row="1"  CornerRadius="7" >
             <Border.Background>
                 <SolidColorBrush Color="#FFFFFF" Opacity="0.5"/>
@@ -73,6 +71,10 @@
             </ListView>
 
         </Border>
-
+        <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 20 20">
+            <Button.Content>
+                <materialDesign:PackIcon Kind="Add" Foreground="#FFFFFF"/>
+            </Button.Content>
+        </Button>
     </Grid>
 </Page>
