@@ -92,7 +92,7 @@ namespace DIPloma.Pages.pgManagerSections
         private void clMarkAdd(object sender, RoutedEventArgs e)
         {
             Attendance markOn = (sender as Button).DataContext as Attendance;
-            
+
             markOn.PresenceMark = 1;
             DateTime dayToday = DateTime.Today;
             attendancesOnMark.Add(markOn);
