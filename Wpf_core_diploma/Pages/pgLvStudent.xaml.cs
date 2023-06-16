@@ -138,9 +138,9 @@ namespace DIPloma.Pages
 
         private void clAddEstimation(object sender, RoutedEventArgs e)
         {
-            if (lvStudentLeft.SelectedIndex != null)
+            if (lvStudentLeft.SelectedItem != null)
             {
-                int StudentIndex = lvStudentLeft.SelectedIndex + 1;
+                int StudentIndex = students[lvStudentLeft.SelectedIndex].Idstudents;
                 new pgAddChang(new Journal(), StudentIndex, ListItems).ShowDialog();
                 Update();
             }

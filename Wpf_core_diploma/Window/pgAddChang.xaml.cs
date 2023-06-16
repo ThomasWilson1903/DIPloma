@@ -51,7 +51,11 @@ namespace DIPloma.Window
                 }
                 else
                 {
-                    Journal.Date = calendar1.SelectedDate;
+                    if (calendar1.SelectedDate != null)
+                    {
+                        Journal.Date = calendar1.SelectedDate;
+
+                    }
                 }
                 EfModels.init().Add(Journal);
             }
@@ -66,7 +70,7 @@ namespace DIPloma.Window
             date = calendar1.SelectedDate;
         }
 
-        
+
 
         private void IsVisibleChanged1(object sender, DependencyPropertyChangedEventArgs e)
         {
