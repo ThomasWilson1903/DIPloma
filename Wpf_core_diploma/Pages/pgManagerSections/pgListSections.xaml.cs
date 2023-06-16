@@ -1,5 +1,6 @@
 ﻿using DIPloma.DataBase;
 using DIPloma.DataBase.Entity;
+using DIPloma.Window.wdAddAttendance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,6 +44,11 @@ namespace DIPloma.Pages.pgManagerSections
             Section selectItem = sections[lvMain.SelectedIndex];
 
             NavigationService.Navigate(new pgСontrollerAttendance(selectItem));
+        }
+
+        private void clAddSections(object sender, RoutedEventArgs e)
+        {
+            new wdAddSection().ShowDialog();
         }
     }
 }
