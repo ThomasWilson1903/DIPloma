@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -103,6 +104,25 @@ namespace DIPloma.Window.wdAddAttendance
 
         private void scGroup(object sender, SelectionChangedEventArgs e)
         {
+            select();
+        }
+
+        private void clDel(object sender, RoutedEventArgs e)
+        {
+            Student student = (sender as Button).DataContext as Student;
+
+            studentsChoose2.Remove(student);
+
+            var studentsChoose23 = studentsChoose.Where(p => p.Students == student.Idstudents).ToList();
+
+            for (int i = 0; i < studentsChoose23.Count; i++)
+            {
+                studentsChoose.Remove(studentsChoose23[i]);
+            }
+
+            dgListSelectStudent.ItemsSource = null;
+
+            dgListSelectStudent.ItemsSource = studentsChoose2;
             select();
         }
     }
