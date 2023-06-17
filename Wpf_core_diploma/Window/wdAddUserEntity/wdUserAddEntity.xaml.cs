@@ -30,6 +30,7 @@ namespace DIPloma.Window.wdAddUserEntity
             InitializeComponent();
             comboBox();
             DataContext = User;
+            pbPassword.Password = User.Password;
         }
         void comboBox()
         {
@@ -72,6 +73,8 @@ namespace DIPloma.Window.wdAddUserEntity
 
         private void isVisibleChandg1(object sender, DependencyPropertyChangedEventArgs e)
         {
+            User.Password = pbPassword.Password;
+            
             if (User.IdUserss != null)
             {
                 EfModels.init().Entry(User).Reload();

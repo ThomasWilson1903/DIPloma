@@ -40,8 +40,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
-                    
+
+
                     <StackPanel Grid.Column="0" HorizontalAlignment="Center" Width="260">
                         <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
 
@@ -51,7 +51,7 @@
                                                  ImageSource="{Binding PhotoUsers, TargetNullValue= {StaticResource photo}}"/>
                                 </Ellipse.Fill>
                             </Ellipse>
-                            
+
                             <Button Style="{StaticResource MaterialDesignFloatingActionButton}" 
                                     VerticalAlignment="Top" Width="40" Height="40" Margin="5 0 0 0 "
                                     Click="clDomlodeImage">
@@ -66,23 +66,26 @@
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Mail}" materialDesign:HintAssist.Hint="Email"
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0" materialDesign:HintAssist.HintOpacity="1"
                      />
-                        
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Password}"  materialDesign:HintAssist.Hint="Пароль"
+
+                        <PasswordBox x:Name="pbPassword" Style="{StaticResource MaterialDesignFloatingHintRevealPasswordBox}"  materialDesign:HintAssist.Hint="Пароль"
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27" materialDesign:HintAssist.HintOpacity="1"
                      />
-                        
+
                     </StackPanel>
                     <StackPanel Grid.Column="1" HorizontalAlignment="Center" Width="260">
 
-                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding NameUser}" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 0 0 0"
-                     />
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding SurNameUser}" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 15 0 0"
                      />
+
+                        <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding NameUser}" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 15"
+                     />
+
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding DobleNameUser}" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 0 0 15"
                      />
+
                         <ComboBox x:Name="cbRoleUser" Style="{StaticResource MaterialDesignComboBox}" SelectedItem="{Binding RoleNavigation}" 
                                   DisplayMemberPath="Names" Margin="0 17 0 0"/>
                         <StackPanel>
