@@ -7,7 +7,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Добавления" Height="500" Width="800" ResizeMode="NoResize"
-        IsVisibleChanged="isVisibleChang1">
+        IsVisibleChanged="isVisibleChang1" FontSize="16">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -60,10 +60,10 @@
                         <!--fio-->
 
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding SurnameTeacher}" materialDesign:HintAssist.Hint="Фамилия" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0 "
                      />
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding NameTeacher}" materialDesign:HintAssist.Hint="Имя" materialDesign:HintAssist.HintOpacity="1"
-                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 0 0"
+                     materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0 27 "
                      />
                         <TextBox Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding MiddleNameTeacher}" materialDesign:HintAssist.Hint="Отчество" materialDesign:HintAssist.HintOpacity="1" 
                      materialDesign:HintAssist.FloatingOffset="0, -20" BorderBrush="#7C7C7C" BorderThickness="0 0 0 1.5" Margin="0"

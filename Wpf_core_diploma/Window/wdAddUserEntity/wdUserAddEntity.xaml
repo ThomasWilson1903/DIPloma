@@ -87,7 +87,7 @@
                      />
 
                         <ComboBox x:Name="cbRoleUser" Style="{StaticResource MaterialDesignComboBox}" SelectedItem="{Binding RoleNavigation}" 
-                                  DisplayMemberPath="Names" Margin="0 17 0 0"/>
+                                  DisplayMemberPath="Names" Margin="0 10 0 0"/>
                         <StackPanel>
                             <Button Content="Сохранить" Background="#0070E0" Foreground="#FFFFFF" FontSize="18"
                                 materialDesign:ButtonAssist.CornerRadius="15" Width="150" BorderBrush="Transparent"
