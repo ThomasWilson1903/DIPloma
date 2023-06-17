@@ -54,13 +54,7 @@ namespace DIPloma.Pages
         }
         List<fun> list = new List<fun>
             {
-                new fun("Управления классами")
-                {
-                    id = 1,
-                    image = "\\Resources\\free-icon-classroom-906175.png",
-                    access = 0,
-                },
-
+                
                 new fun("Журнал")
                 {
                     id = 2,
@@ -152,6 +146,10 @@ namespace DIPloma.Pages
                         /* case 3:
                              NavigationService.Navigate(new pgAddUsers());
                              break;*/
+                        case 5:
+                            NavigationService.Navigate(new pgListSections(User));
+                            break;
+
                         default:
                             MessageBox.Show("Вероятнее всего, эта функция находится в разработке. Если вы уверены, " +
                                 "что она должна быть доступна, попробуйте обновить программу. Обновление программы может включать " +
