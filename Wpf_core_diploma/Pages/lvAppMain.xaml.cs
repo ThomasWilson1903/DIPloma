@@ -54,13 +54,7 @@ namespace DIPloma.Pages
         }
         List<fun> list = new List<fun>
             {
-                new fun("Управления классами")
-                {
-                    id = 1,
-                    image = "\\Resources\\free-icon-classroom-906175.png",
-                    access = 0,
-                },
-
+                
                 new fun("Журнал")
                 {
                     id = 2,
@@ -125,13 +119,7 @@ namespace DIPloma.Pages
                     break;
 
             }
-
-
-
-
         }
-
-
 
         private void HandleDoubleClick(object sender, MouseButtonEventArgs e)
         {
